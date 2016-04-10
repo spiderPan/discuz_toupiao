@@ -50,7 +50,42 @@ function submit_delete_batch(){
           <th width="30%">{lang hejin_toupiao:tpyhopenid}</th>
           <th width="20%">{lang hejin_toupiao:tpyhip}</th>
           <th width="20%">{lang hejin_toupiao:tpyhtime}</th>
-          <th width="20%">{lang hejin_toupiao:caozuo}</th>
+          <th width="20%">{lang hejin_toupiao:caozuo}
+              <input id="plsh" type="button" value="batch delete"/>
+              <input id="full" type="button" value="full select"/>
+              <input id="unselect" type="button" value="full unselect"/>
+
+
+
+              <script>
+                  $("#full").click(function(){
+                      $(".tppsa").attr('checked','true');
+                  })
+                  $("#unselect").click(function(){
+                      $(".tppsa").removeAttr('checked');
+                  })
+                  $("#plsh").click(function(){
+                      alert("deleteing")
+                      var c=0;
+                      $(".tppsa").each(function(index,element){
+                          if($(element).is(':checked')){
+                              c++;
+                              var  uuulll=$(element).prev().attr('href');
+                              $.get(uuulll,function(data){
+
+                              })
+                          }
+                      });
+                      if(c>0){
+                          window.setTimeout(function(){
+                              alert("delete success");
+                              window.location.reload();
+                          },2000)
+                      }
+
+                  });
+              </script>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -62,7 +97,10 @@ function submit_delete_batch(){
 		  <td>{if $wxuser['nickname']}<!--{eval echo stripslashes($wxuser['nickname']);}-->{else}<!--{eval echo stripslashes($stinfo['openid']);}-->&nbsp;&nbsp;<a href="$SELF?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=getuser&uid=$stinfo['uid']&zid=$zpinfo['id']&page=$page&formhash={FORMHASH}">{lang hejin_box:getuser}</a>{/if}</td>
 		  <td><!--{eval echo stripslashes($stinfo['ips']);}--></td>
 		  <td>{if $stinfo['yuliua']}<!--{eval echo date('Y-m-d H:i:s',$stinfo['yuliua']);}-->{else}<!--{eval echo date('Y-m-d',$stinfo['timedate']);}-->{/if}</td>
- 		  <td><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=deltpjl&tjid=$stinfo['id']&zid=$stinfo['zid']&page=$page&formhash={FORMHASH}" onclick="return confirm(&quot;{lang hejin_toupiao:shanchuts}&quot;);">{lang hejin_toupiao:shanchu}</a></td>
+ 		  <td>
+              <a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=deltpjl&tjid=$stinfo['id']&zid=$stinfo['zid']&page=$page&formhash={FORMHASH}" onclick="return confirm(&quot;{lang hejin_toupiao:shanchuts}&quot;);">{lang hejin_toupiao:shanchu}</a>
+              <input class="tppsa" type="checkbox">
+          </td>
        </tr>
          <!--{/loop}-->                   
                 

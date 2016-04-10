@@ -9,11 +9,16 @@
     <meta charset="$charset">
     <title>{lang hejin_toupiao:woshi}<!--{eval echo strip_tags(stripslashes($zpinfo['zpname']));}-->{lang hejin_toupiao:zzcanjia}<!--{eval echo stripslashes($vote['title']);}--></title>
     <meta name="description" content="<!--{eval echo stripslashes($vote['title']);}-->">
-    <link rel="stylesheet" href="{HEJIN_PATH}public/index{$vote['yuliua']}/touch.css">    <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="{HEJIN_PATH}public/index{$vote['yuliua']}/touch.css">
+    <link rel="stylesheet" href="{HEJIN_PATH}public/mobilebone.css">
+    <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/app.js"></script>
+    <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/jquery.masonry.min.js"></script>
+    <script type="text/javascript" src="{HEJIN_PATH}public/mobilebone.js"></script>
 
-                 <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/app.js"></script>
-                 <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/jquery.masonry.min.js"></script>
-  <style>
+
+
+    <style>
 .slider{display:none;}
 .focus span{width:5px;height:5px;margin-left:5px;border-radius:50%;background:#CDCDCD;font-size:0}
 .focus span.current{background:red;}
@@ -21,6 +26,13 @@
                 
     </head>
 <body>
+<script>
+    Mobilebone.captureLink = false;
+</script>
+<div id="box1" class="page in" >
+<div style="width: 100%; height:100%; overflow: auto; ">
+
+
 {if $zpinfo['pica']}
                         	{if strpos($zpinfo['pica'], '://')==false}
                             	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->"  alt="shareImg" width="0px" height="0px">
@@ -71,37 +83,37 @@
         <div class="blank10"></div>
         				{if $zpinfo['pica']}
                         	{if strpos($zpinfo['pica'], '://')==false}
-                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->" alt="">
+                            	<img class="picss" src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->" alt="">
                             {else}
-                            	<img src="<!--{eval echo stripslashes($zpinfo['pica']);}-->" alt="">
+                            	<img class="picss" src="<!--{eval echo stripslashes($zpinfo['pica']);}-->" alt="">
                             {/if}
                         {/if}
         				{if $zpinfo['picb']}
                         	{if strpos($zpinfo['picb'], '://')==false}
-                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picb']);}-->" alt="">
+                            	<img class="picss" src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picb']);}-->" alt="">
                             {else}
-                            	<img src="<!--{eval echo stripslashes($zpinfo['picb']);}-->" alt="">
+                            	<img class="picss" src="<!--{eval echo stripslashes($zpinfo['picb']);}-->" alt="">
                             {/if}
                         {/if}
         				{if $zpinfo['picc']}
                         	{if strpos($zpinfo['picc'], '://')==false}
-                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picc']);}-->" alt="">
+                            	<img class="picss" src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picc']);}-->" alt="">
                             {else}
-                            	<img src="<!--{eval echo stripslashes($zpinfo['picc']);}-->" alt="">
+                            	<img class="picss" src="<!--{eval echo stripslashes($zpinfo['picc']);}-->" alt="">
                             {/if}
                         {/if}
         				{if $zpinfo['picd']}
                         	{if strpos($zpinfo['picd'], '://')==false}
-                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picd']);}-->" alt="">
+                            	<img class="picss" src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picd']);}-->" alt="">
                             {else}
-                            	<img src="<!--{eval echo stripslashes($zpinfo['picd']);}-->" alt="">
+                            	<img class="picss" src="<!--{eval echo stripslashes($zpinfo['picd']);}-->" alt="">
                             {/if}
                         {/if}
         				{if $zpinfo['pice']}
                         	{if strpos($zpinfo['pice'], '://')==false}
-                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pice']);}-->" alt="">
+                            	<img class="picss" src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pice']);}-->" alt="">
                             {else}
-                            	<img src="<!--{eval echo stripslashes($zpinfo['pice']);}-->" alt="">
+                            	<img class="picss" src="<!--{eval echo stripslashes($zpinfo['pice']);}-->" alt="">
                             {/if}
                         {/if}
     {if $zpinfo['yuliuc']}
@@ -111,12 +123,16 @@
     <div class="blank10"></div>
     <div class="abtn_box">
         {if $zpinfo['is_show']==1}<a href="" class="a_btn toupiao vote" id="vote" data-itid="$zpinfo['id']">{lang hejin_toupiao:woyaotp}</a>{/if}
-        {if !$havezp && $vote['start_time']<time() && $vote['over_time']>time()}<a href="{HEJIN_URL}&model=signup&vid=$vote['id']" class="a_btn canjia">{lang hejin_toupiao:woyelcs}</a> {/if}       
+        {if !$havezp && $vote['start_time']<time() && $vote['over_time']>time()}
+        <a href="{HEJIN_URL}&model=signup&vid=$vote['id']" class="a_btn canjia">{lang hejin_toupiao:woyelcs}</a>
+        <a href="#box2" class="a_btn canjia">{lang hejin_toupiao:woyaolapiao}</a>
+
+        {/if}
         <a href="{HEJIN_URL}&model={$symodel}&vid=$vote['id']" class="a_btn look">{lang hejin_toupiao:seemore}</a>
         {if $hejintoupiao['hjtp_shareok']}<a href="" class="gz_btn a_btn fenxiang">{lang hejin_toupiao:sharelp}</a>{/if}
     </div>
 </section>
-<section class="rules">
+<section class="rules"  style="margin-bottom: 50px;">
     <div class="text">    
     {if $vote['shuomingta']}
         <div class="prize"><!--{eval echo stripslashes($vote['shuomingta']);}--></div>
@@ -522,5 +538,40 @@ var itid;
 {/if}  
 {/if}
 <div style="display:none">$hejintoupiao['hjtp_dsftjdm']</div>
+</div>
+</div>
+<div id="box2" class="page out">
+    <div style="width: 100%; height: 100%; overflow: auto; position: relative;">
+        <div id="close" onclick="$('#close').hide();$('#tos').hide()" style="width: 100%; height: 100%; position: absolute; left: 0;top: 0;    background-color: #000;
+    opacity: 0.5;z-index: 999;"></div>
+        <div id="tos" style="width: 80%; z-index: 1000;height: 100px; position: absolute; left: 10%; top:50%; margin-top: -50PX;    padding: 0px 10px;
+    background-color: #ff756b;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;">
+            <H2 style="margin: 10px;">{lang hejin_toupiao:woyaolapiao1}</H2>
+            <p>{lang hejin_toupiao:woyaolapiao2}</p>
+        </div>
+        <img id="img" src="" style="width: 100%; height: auto">
+        <script>
+            var a="{$zpnumber}";
+            var url="{HEJIN_URL}&model=woyaolapiao&vid={$vote['id']}"
+            var name="{$zpinfo['zpname']}"
+            var bh="<!--{eval echo $vote['id']*10000+$zpinfo['id'];}-->"
+            var pic= $(".picss").attr('src')
+            /*alert(bh)*/
+            url+="&num="+a;
+            url+="&name="+encodeURI(name);
+            url+="&bh="+encodeURI(bh);
+            url+="&pic="+encodeURI(pic);
+            url+="&random="+Math.random();
+         //   url+="&code="+encodeURI(window.location.href);
+            $("#img").attr('src',url);
+           /* alert(a);
+            alert(url);*/
+        </script>
+    </div>
+</div>
 </body>
 </html>

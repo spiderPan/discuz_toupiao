@@ -111,7 +111,10 @@
     <div class="blank10"></div>
     <div class="abtn_box">
         {if $zpinfo['is_show']==1}<a href="" class="a_btn toupiao vote" id="vote" data-itid="$zpinfo['id']">{lang hejin_toupiao:woyaotp}</a>{/if}
-        {if !$havezp && $vote['start_time']<time() && $vote['over_time']>time()}<a href="{HEJIN_URL}&model=signup&vid=$vote['id']" class="a_btn canjia">{lang hejin_toupiao:woyelcs}</a> {/if}       
+        {if !$havezp && $vote['start_time']<time() && $vote['over_time']>time()}
+            <a href="{HEJIN_URL}&model=signup&vid=$vote['id']" class="a_btn canjia">{lang hejin_toupiao:woyelcs}</a>
+            <!--<a href="{HEJIN_URL}&model=signup&vid=$vote['id']" class="a_btn canjia">{lang hejin_toupiao:woyaolapiao}</a>-->
+        {/if}
         <a href="{HEJIN_URL}&model={$symodel}&vid=$vote['id']" class="a_btn look">{lang hejin_toupiao:seemore}</a>
         {if $hejintoupiao['hjtp_shareok']}<a href="" class="gz_btn a_btn fenxiang">{lang hejin_toupiao:sharelp}</a>{/if}
     </div>

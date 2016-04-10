@@ -929,8 +929,40 @@ else if($model == 'ticket'){
 		}
 	}
 	echo $data['status'];
-}
 
+
+    /*我要拉票*/
+}else if($model == 'woyaolapiao'){
+    $imgname = "source\\plugin\\hejin_toupiao\\public\\template.jpg";
+    $im = imagecreatefromjpeg ( $imgname );
+    $num=$_GET['num'];
+    $bh=$_GET['bh'];
+    $pic = urldecode($_GET['pic']);
+    $name=urldecode($_GET['name']);
+    $font = 'source\\plugin\\hejin_toupiao\\public\\simsun.ttc';//字体
+    $black = imagecolorallocate($dst, 0x00, 0x00, 0x00);//字体颜色
+    imagefttext($im, 18, 0, 60, 135, $black, $font,"我叫".$name."目前排名".floatval($num)."位");
+    imagefttext($im, 14, 0, 130, 100, $black, $font,"参赛编号".$bh);
+    $src = imagecreatefromstring(file_get_contents($pic));
+    $src=my_image_resize($src,160,158);
+    imagecopy($im, $src, 25, 215, 0, 0, 160, 158);
+
+    $vid=$_GET['vid'];
+    $bcoder= imagecreatefromstring(file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/plugin.php?id=hejin_toupiao&model=getcode&vid='.$vid));
+    $bcoder=my_image_resize($bcoder,160,160);
+    imagecopy($im, $bcoder, 190, 215, 0, 0, 160, 160);
+    //var_dump($src);
+    //var_dump($im);
+    //echo ($_SERVER['HTTP_HOST'].'/plugin.php?id=hejin_toupiao&model=getcode');
+    //var_dump($bcoder);
+    //die();
+    header("Content-type: image/jpeg");
+    imagejpeg($im);
+}else if($model == 'getcode'){
+    include 'phpqrcode.php';
+    $vid=$_GET['vid'];
+    QRcode::png('http://'.$_SERVER['HTTP_HOST'].'/plugin.php?id=hejin_toupiao&model=detail&zid='.$vid,false,'L',4);
+}
 
 
 //浏览量记录
@@ -1095,5 +1127,97 @@ function https_request($url, $data = null) {
     curl_close($curl);
     return $output;
 }
+
+/*function resizeImage($im,$maxwidth,$maxheight)
+{
+    $pic_width = imagesx($im);
+    $pic_height = imagesy($im);
+    if(($maxwidth && $pic_width > $maxwidth) || ($maxheight && $pic_height > $maxheight))
+    {
+        if($maxwidth && $pic_width>$maxwidth)
+        {
+            $widthratio = $maxwidth/$pic_width;
+            $resizewidth_tag = true;
+        }
+
+        if($maxheight && $pic_height>$maxheight)
+        {
+            $heightratio = $maxheight/$pic_height;
+            $resizeheight_tag = true;
+        }
+
+        if($resizewidth_tag && $resizeheight_tag)
+        {
+            if($widthratio<$heightratio)
+                $ratio = $widthratio;
+            else
+                $ratio = $heightratio;
+        }
+
+        if($resizewidth_tag && !$resizeheight_tag)
+            $ratio = $widthratio;
+        if($resizeheight_tag && !$resizewidth_tag)
+            $ratio = $heightratio;
+
+        $newwidth = $pic_width * $ratio;
+        $newheight = $pic_height * $ratio;
+
+        if(function_exists("imagecopyresampled"))
+        {
+            $newim = imagecreatetruecolor($newwidth,$newheight);
+            imagecopyresized($newim,$im,0,0,0,0,$maxwidth,$maxwidth,$pic_width,$pic_height);
+        }
+
+        return $newim;
+    }
+    else
+    {
+        return $im;
+    }
+}*/
+
+function my_image_resize($src_img , $new_width , $new_height) {
+    $w=imagesx($src_img);
+    $h=imagesy($src_img);
+    $ratio_w=1.0 * $new_width / $w;
+    $ratio_h=1.0 * $new_height / $h;
+    $ratio=1.0;
+    // 生成的图像的高宽比原来的都小，或都大 ，原则是 取大比例放大，取大比例缩小（缩小的比例就比较小了）
+    if( ($ratio_w < 1 && $ratio_h < 1) || ($ratio_w > 1 && $ratio_h > 1)) {
+        if($ratio_w < $ratio_h) {
+            $ratio = $ratio_h ; // 情况一，宽度的比例比高度方向的小，按照高度的比例标准来裁剪或放大
+        }else {
+            $ratio = $ratio_w ;
+        }
+        // 定义一个中间的临时图像，该图像的宽高比 正好满足目标要求
+        $inter_w=(int)($new_width / $ratio);
+        $inter_h=(int) ($new_height / $ratio);
+        $inter_img=imagecreatetruecolor($inter_w , $inter_h);
+        //var_dump($inter_img);
+        imagecopy($inter_img, $src_img, 0,0,0,0,$inter_w,$inter_h);
+        // 生成一个以最大边长度为大小的是目标图像$ratio比例的临时图像
+        // 定义一个新的图像
+        $new_img=imagecreatetruecolor($new_width,$new_height);
+        //var_dump($new_img);exit();
+        imagecopyresampled($new_img,$inter_img,0,0,0,0,$new_width,$new_height,$inter_w,$inter_h);
+        return $new_img;
+    } // end if 1
+    // 2 目标图像 的一个边大于原图，一个边小于原图 ，先放大平普图像，然后裁剪
+    // =if( ($ratio_w < 1 && $ratio_h > 1) || ($ratio_w >1 && $ratio_h <1) )
+    else{
+        $ratio=$ratio_h>$ratio_w? $ratio_h : $ratio_w; //取比例大的那个值
+        // 定义一个中间的大图像，该图像的高或宽和目标图像相等，然后对原图放大
+        $inter_w=(int)($w * $ratio);
+        $inter_h=(int) ($h * $ratio);
+        $inter_img=imagecreatetruecolor($inter_w , $inter_h);
+        //将原图缩放比例后裁剪
+        imagecopyresampled($inter_img,$src_img,0,0,0,0,$inter_w,$inter_h,$w,$h);
+        // 定义一个新的图像
+        $new_img=imagecreatetruecolor($new_width,$new_height);
+        imagecopy($new_img, $inter_img, 0,0,0,0,$new_width,$new_height);
+        return $new_img;
+    }// if3
+}// end function
+//my_image_resize('test.gif','11111.gif','100px','100px');
 
 ?>

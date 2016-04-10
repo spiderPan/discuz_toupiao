@@ -1,0 +1,80 @@
+<link href="{HEJIN_PATH}public/admin/css/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.validation.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/admincp.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.tooltip.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.cookie.js"></script>
+<link href="{HEJIN_PATH}public/admin/css/skin_0.css" rel="stylesheet" type="text/css" id="cssfile2" />
+<script type="text/javascript">
+function submit_delete_batch(){
+    var items = '';
+    $('.checkitem:checked').each(function(){
+        items += this.value + ',';
+    });
+    if(items != '') {
+        items = items.substr(0, (items.length - 1));
+        submit_delete(items);
+    }  
+    else {
+        alert('{lang hejin_toupiao:clickok}');
+    }
+}
+</script>
+
+<div class="page">
+  <div class="fixed-bar">
+    <div class="item-title">
+      <div class="h3" style="width:auto;"><!--{eval echo strip_tags(stripslashes($zpinfo['zpname']));}--> {lang hejin_toupiao:toupjl}</div>
+      <ul class="tab-base">
+        <li><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=zuopinsh&vid=$zpinfo['vid']"><span>{lang hejin_toupiao:cszuopinsh}</span></a></li>
+        <li><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=xntpjl&zid=$zpinfo['id']&vid=$zpinfo['vid']&formhash={FORMHASH}"><span style="color:#F00">{lang hejin_toupiao:zjxntpjl}</span></a></li>
+
+        <li><!--{eval $dayps = C::t('#hejin_toupiao#hjtp_tpjles')->fetch_today_zid(intval($zpinfo['id']),strtotime(date('Y-m-d',time())));}-->
+          <span style="color:#F00">{lang hejin_toupiao:votenubb} : <!--{eval echo count($dayps);}--></span></li>
+
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=delzptpjl&zid=$zpinfo['id']&vid=$zpinfo['vid']&formhash={FORMHASH}" onclick="return confirm(&quot;{lang hejin_toupiao:delzpjlts}&quot;);"><span style="color:#F00">{lang hejin_toupiao:delzpjl}</span></a></li>
+
+    
+      </ul>
+    </div>
+  </div>
+  
+  
+  <form id="list_form" method='post'>
+    <input id="class_id" name="class_id" type="hidden" />
+    <table class="table tb-type2">
+      <thead>
+        
+        <tr class="thead">
+          <th width="10%">{lang hejin_toupiao:tpyhid}</th>
+          <th width="30%">{lang hejin_toupiao:tpyhopenid}</th>
+          <th width="20%">{lang hejin_toupiao:tpyhip}</th>
+          <th width="20%">{lang hejin_toupiao:tpyhtime}</th>
+          <th width="20%">{lang hejin_toupiao:caozuo}</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      <!--{loop $stlists $stinfo}-->
+                        <tr class="hover edit">
+		  <td>$stinfo['uid']</td>
+          <!--{eval $wxuser = C::t('#hejin_toupiao#hjbox_users')->fetch_by_id(intval($stinfo['uid']));}-->
+		  <td>{if $wxuser['nickname']}<!--{eval echo stripslashes($wxuser['nickname']);}-->{else}<!--{eval echo stripslashes($stinfo['openid']);}-->&nbsp;&nbsp;<a href="$SELF?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=getuser&uid=$stinfo['uid']&zid=$zpinfo['id']&page=$page&formhash={FORMHASH}">{lang hejin_box:getuser}</a>{/if}</td>
+		  <td><!--{eval echo stripslashes($stinfo['ips']);}--></td>
+		  <td>{if $stinfo['yuliua']}<!--{eval echo date('Y-m-d H:i:s',$stinfo['yuliua']);}-->{else}<!--{eval echo date('Y-m-d',$stinfo['timedate']);}-->{/if}</td>
+ 		  <td><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=deltpjl&tjid=$stinfo['id']&zid=$stinfo['zid']&page=$page&formhash={FORMHASH}" onclick="return confirm(&quot;{lang hejin_toupiao:shanchuts}&quot;);">{lang hejin_toupiao:shanchu}</a></td>
+       </tr>
+         <!--{/loop}-->                   
+                
+                      </tbody>
+            <tfoot>
+        <tr class="tfoot">
+          <td>
+          </td>
+          <td id="batchAction" colspan="15">
+            <div class="pagination"><ul>$page_string</ul></div></td>
+        </tr>
+      </tfoot>
+          </table>
+  </form>
+</div>

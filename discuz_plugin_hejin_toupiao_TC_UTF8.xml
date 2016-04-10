@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X3.2]]></item>
+	<item id="Time"><![CDATA[2016-01-21 14:44]]></item>
+	<item id="From"><![CDATA[Discuz! Board (http://localhost/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[【禾今】微信投票]]></item>
+			<item id="identifier"><![CDATA[hejin_toupiao]]></item>
+			<item id="description"><![CDATA[1、優化投票流程，降低服務器壓力！（重點更新）
+2、增加2套模板，【黑黃系】【大紅新年系】]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[hejin_toupiao/]]></item>
+			<item id="copyright"><![CDATA[禾今尚品]]></item>
+			<item id="version"><![CDATA[30.0]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[toupiao]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[投票活動管理]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[1]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2.5,X3,X3.1,X3.2]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[投票微信提醒功能]]></item>
+				<item id="description"><![CDATA[用戶投票後會自動給作品用戶微信發提醒信息！
+效果請看圖示︰http://i12.tietuku.com/8780107e8b763b9f.jpg
+
+注意點︰
+1、必須是認證的公眾號才支持此功能！
+2、微信助理的設置中的【微信公眾認證狀態】選擇”已認證“！
+3、微信助理的設置中的【AppID(應用ID)】和【Ap ...]]></item>
+				<item id="variable"><![CDATA[hjtp_tpwxtx]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[7]]></item>
+				<item id="title"><![CDATA[開啟自動上傳圖床]]></item>
+				<item id="description"><![CDATA[請按教程填寫下方的三個圖床參數！
+否則無法直接圖床功能！
+而且圖床上傳需要很多函數的支持！
+如果發現用戶報名上傳的圖片還是本地的話，說明服務器不支持，請關閉此功能！]]></item>
+				<item id="variable"><![CDATA[hjtp_tuchuang]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[8]]></item>
+				<item id="title"><![CDATA[圖床AccessKey]]></item>
+				<item id="description"><![CDATA[獲取圖床AccessKey教程︰http://test.zsmidao.com/hejin_toupiao/tuchuang.htm]]></item>
+				<item id="variable"><![CDATA[hjtp_accessk]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[9]]></item>
+				<item id="title"><![CDATA[圖床SecretKey]]></item>
+				<item id="description"><![CDATA[獲取圖床SecretKey教程︰http://test.zsmidao.com/hejin_toupiao/tuchuang.htm]]></item>
+				<item id="variable"><![CDATA[hjtp_secretkey]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[10]]></item>
+				<item id="title"><![CDATA[圖床相冊ID]]></item>
+				<item id="description"><![CDATA[獲取圖床相冊ID教程︰http://test.zsmidao.com/hejin_toupiao/tuchuang.htm]]></item>
+				<item id="variable"><![CDATA[hjtp_tcxcid]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[60]]></item>
+				<item id="title"><![CDATA[背景音樂地址]]></item>
+				<item id="description"><![CDATA[1、此處不填則默認無背景音樂，填入的話請確保音樂地址正確！
+2、音樂地址為.mp3結尾的音樂地址！可上傳到七牛網盤或者自己的服務器！
+3、僅首頁加載音樂，其他頁面不加載！
+4、除模板二不支持，其他模板都支持！]]></item>
+				<item id="variable"><![CDATA[hjtp_musicurl]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[61]]></item>
+				<item id="title"><![CDATA[每次增加虛擬票數量]]></item>
+				<item id="description"><![CDATA[在作品投票記錄中增加虛擬票數值的設置！
+如果此次設置的5，那每次點擊增加虛擬票數就會增加5票！]]></item>
+				<item id="variable"><![CDATA[hjtp_xnpsnub]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[5]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="7">
+				<item id="displayorder"><![CDATA[62]]></item>
+				<item id="title"><![CDATA[取消關注自動減票]]></item>
+				<item id="description"><![CDATA[注意︰更新時如果活動進行中建議關閉此功能！
+下次全新的活動再開啟此功能！
+1、確保微信助理版本是6.0或者以上
+2、開啟取消關注自動減票對于服務器的壓力會增大！]]></item>
+				<item id="variable"><![CDATA[hjtp_qxgzjp]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="8">
+				<item id="displayorder"><![CDATA[63]]></item>
+				<item id="title"><![CDATA[導出作品功能導出數量]]></item>
+				<item id="description"><![CDATA[一次導出作品的數量！
+導出後記得把此處修改為0，避免數據泄露！切記！！！]]></item>
+				<item id="variable"><![CDATA[hjtp_dcexcelnub]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="9">
+				<item id="displayorder"><![CDATA[64]]></item>
+				<item id="title"><![CDATA[自動屏蔽刷票功能]]></item>
+				<item id="description"><![CDATA[此功能為︰一個作品一分鐘內投票數超過多少，自動屏蔽！
+數值如果是0，表示不開啟此功能！
+如果數值設置的是100，那一個作品1分鐘內如果獲得了100個投票，就會自動屏蔽此作品，列為嫌疑用戶，無法投票！]]></item>
+				<item id="variable"><![CDATA[hjtp_zdpbzp]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="10">
+				<item id="displayorder"><![CDATA[65]]></item>
+				<item id="title"><![CDATA[開啟刪除活動按鈕]]></item>
+				<item id="description"><![CDATA[活動運營中不乏用戶誤刪導致了不可挽回的局面！所以增加此功能！開啟此功能才能刪除活動！記得實時關閉哦！]]></item>
+				<item id="variable"><![CDATA[hjtp_kqdel]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="11">
+				<item id="displayorder"><![CDATA[67]]></item>
+				<item id="title"><![CDATA[開啟多說評論]]></item>
+				<item id="description"><![CDATA[請先注冊多說評論功能！
+注冊地址︰http://duoshuo.com/create-site/
+注冊時站點域名記得填您的活動域名！
+創建後此處點擊開啟即可！]]></item>
+				<item id="variable"><![CDATA[hjtp_duoshuo]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="12">
+				<item id="displayorder"><![CDATA[68]]></item>
+				<item id="title"><![CDATA[多說評論站點ID]]></item>
+				<item id="description"><![CDATA[注冊多說站點是需要填一個多說域名，就是那個值！
+如何找到這個值︰點擊多說里面的設置里面有個域名︰比如我的是︰hejintp.duoshuo.com 這里只要填︰hejintp  即可]]></item>
+				<item id="variable"><![CDATA[hjtp_dsid]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="13">
+				<item id="displayorder"><![CDATA[69]]></item>
+				<item id="title"><![CDATA[作品詳情頁顯示分享提示]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_shareok]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="14">
+				<item id="displayorder"><![CDATA[70]]></item>
+				<item id="title"><![CDATA[自定義TOP數]]></item>
+				<item id="description"><![CDATA[最多前300]]></item>
+				<item id="variable"><![CDATA[hjtp_topnub]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[300]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="15">
+				<item id="displayorder"><![CDATA[71]]></item>
+				<item id="title"><![CDATA[活動頁幻燈高度設置]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_hdgd]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[640]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="16">
+				<item id="displayorder"><![CDATA[72]]></item>
+				<item id="title"><![CDATA[作品詳情頁是否顯示幻燈]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_detailhd]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="17">
+				<item id="displayorder"><![CDATA[73]]></item>
+				<item id="title"><![CDATA[開啟公眾回復編號投票]]></item>
+				<item id="description"><![CDATA[注意︰此功能必須結合【禾今】微信助理 4.0版本使用！請更新【禾今】微信助理 到4.0版本！
+注意︰回復編號投票，因為公眾平台中無法獲取用戶IP，所以所有的ip限制功能全部失效，請權很利弊後做出自己的選擇！]]></item>
+				<item id="variable"><![CDATA[hjtp_numbtp]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="18">
+				<item id="displayorder"><![CDATA[74]]></item>
+				<item id="title"><![CDATA[無此作品提示]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_nozpts]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[您輸入的作品編號有誤，請重新輸入！]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="19">
+				<item id="displayorder"><![CDATA[75]]></item>
+				<item id="title"><![CDATA[作品詳情頁是否顯示排名]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_detailno]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="20">
+				<item id="displayorder"><![CDATA[76]]></item>
+				<item id="title"><![CDATA[每個微信用戶投票限制模式]]></item>
+				<item id="description"><![CDATA[按天為單位，就是每個微信用戶每天可以投多少票！
+按活動期為單位，就是活動期間每個微信用戶可以投多少票！
+票數限制請在活動設置中的[每個微信用戶可投票數]中設置！]]></item>
+				<item id="variable"><![CDATA[hjtp_tpxzmos]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[1=按天為單位限制
+2=按活動期為單位限制]]></item>
+			</item>
+			<item id="21">
+				<item id="displayorder"><![CDATA[77]]></item>
+				<item id="title"><![CDATA[每微信用戶對同作品限1票]]></item>
+				<item id="description"><![CDATA[開啟後每個微信用戶限制期間對于每個作品只能投一票！
+如︰投票活動中設置了“每個微信用戶可投票數”數值為5，如果此功能開啟了，那麼他給每個作品只能投一票，可以給5個作品投票！如果此功能關閉了，那麼他可以隨意支配投票數，可以給1個作品投5票，也可以給5個作品各投一 ...]]></item>
+				<item id="variable"><![CDATA[hjtp_tpxznub]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="22">
+				<item id="displayorder"><![CDATA[78]]></item>
+				<item id="title"><![CDATA[限制期內已給他投過提示]]></item>
+				<item id="description"><![CDATA[如果限制期選擇的是  
+按天為單位限制請填“今日您已投過此作品，請給其他作品投票！”
+按活動期為單位限制請填“此次活動您已投過此作品，請給其他作品投票！”]]></item>
+				<item id="variable"><![CDATA[hjtp_tpxzts]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[今日您已投過此作品，請給其他作品投票！]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="23">
+				<item id="displayorder"><![CDATA[79]]></item>
+				<item id="title"><![CDATA[作品圖片上傳數限制]]></item>
+				<item id="description"><![CDATA[最少不能低于1張，最多不能超過5張]]></item>
+				<item id="variable"><![CDATA[hjtp_picnum]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[5]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="24">
+				<item id="displayorder"><![CDATA[80]]></item>
+				<item id="title"><![CDATA[是否開啟投票驗證碼]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_tpyzm]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="25">
+				<item id="displayorder"><![CDATA[81]]></item>
+				<item id="title"><![CDATA[投票驗證碼ID]]></item>
+				<item id="description"><![CDATA[請不要自行修改！如果需要自定義驗證碼圖片，請聯系作者qq2997249863]]></item>
+				<item id="variable"><![CDATA[hjtp_tpyzmid]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[9f9c72af2b3484311cc6fe4220b8a4e1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="26">
+				<item id="displayorder"><![CDATA[82]]></item>
+				<item id="title"><![CDATA[開啟投票IP區域限制]]></item>
+				<item id="description"><![CDATA[此功能僅支持頁面投票，不支持微信公眾回復編號投票！]]></item>
+				<item id="variable"><![CDATA[hjtp_ipxz]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="27">
+				<item id="displayorder"><![CDATA[83]]></item>
+				<item id="title"><![CDATA[不在允許投票區域的提示]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_ipxzts]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[僅允許”江甦省“區域的用戶投票！]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="28">
+				<item id="displayorder"><![CDATA[84]]></item>
+				<item id="title"><![CDATA[限制IP區域範圍]]></item>
+				<item id="description"><![CDATA[選擇要限制的區域範圍 省份範圍，或者城市範圍
+建議選擇省份限制，因為很多地區的4G、3G基站不穩定，不一定在本市！]]></item>
+				<item id="variable"><![CDATA[hjtp_ipfw]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[1=省份限制
+2=城市限制]]></item>
+			</item>
+			<item id="29">
+				<item id="displayorder"><![CDATA[85]]></item>
+				<item id="title"><![CDATA[限制地區ID]]></item>
+				<item id="description"><![CDATA[如何獲得“限制地區ID”
+請在瀏覽器中打開此鏈接︰http://app.haoxiangc.com/plugin.php?id=hejin_toupiao&model=getxzid]]></item>
+				<item id="variable"><![CDATA[hjtp_ipid]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[320000]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="30">
+				<item id="displayorder"><![CDATA[86]]></item>
+				<item id="title"><![CDATA[報名上傳圖片自動縮放寬]]></item>
+				<item id="description"><![CDATA[請根據服務器的配置，來設置符合自己的數值！建議數值480，如果服務器帶寬小，可以設置320！]]></item>
+				<item id="variable"><![CDATA[hjtp_picwidth]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[360]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="31">
+				<item id="displayorder"><![CDATA[87]]></item>
+				<item id="title"><![CDATA[引導用戶關注的標題]]></item>
+				<item id="description"><![CDATA[未關注用戶點擊投票或者報名 跳出的提示標題
+因為微信最近的規則不允許出現引導用戶關注的字眼！所以優化成自定義提供給大家修改]]></item>
+				<item id="variable"><![CDATA[hjtp_ydgzbt]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[如何參與活動]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="32">
+				<item id="displayorder"><![CDATA[88]]></item>
+				<item id="title"><![CDATA[引導用戶關注按鈕名稱]]></item>
+				<item id="description"><![CDATA[未關注用戶點擊投票或者報名 跳出的提示下方的關注鏈接按鈕
+因為微信最近的規則不允許出現引導用戶關注的字眼！所以優化成自定義提供給大家修改]]></item>
+				<item id="variable"><![CDATA[hjtp_ydgzan]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[詳細了解參與方法]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="33">
+				<item id="displayorder"><![CDATA[89]]></item>
+				<item id="title"><![CDATA[開啟投票者獎勵]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_tpjl]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="34">
+				<item id="displayorder"><![CDATA[90]]></item>
+				<item id="title"><![CDATA[每次投票獎勵積分數]]></item>
+				<item id="description"><![CDATA[每投一票獎勵給投票者的積分數
+積分可以用來消費後期開發的活動插件生成的活動！比如刮刮卡、砸金蛋、抽紅包等，敬請期待！]]></item>
+				<item id="variable"><![CDATA[hjtp_tpjlnub]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[5]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="35">
+				<item id="displayorder"><![CDATA[91]]></item>
+				<item id="title"><![CDATA[投票獎勵積分說明]]></item>
+				<item id="description"><![CDATA[用戶成功投票後，顯示在成功投票提示下方！]]></item>
+				<item id="variable"><![CDATA[hjtp_tpjlsm]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[恭喜您獲得5點積分]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="36">
+				<item id="displayorder"><![CDATA[92]]></item>
+				<item id="title"><![CDATA[獎勵積分消費活動說明]]></item>
+				<item id="description"><![CDATA[用戶成功投票後，顯示在成功投票提示下方！]]></item>
+				<item id="variable"><![CDATA[hjtp_jfxftitle]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[快去花積分，刮大獎吧！]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="37">
+				<item id="displayorder"><![CDATA[93]]></item>
+				<item id="title"><![CDATA[獎勵積分消費活動鏈接]]></item>
+				<item id="description"><![CDATA[後期開發的活動插件生成的消耗積分參與的活動鏈接！比如刮刮卡、砸金蛋、抽紅包等，敬請期待！]]></item>
+				<item id="variable"><![CDATA[hjtp_jfxfurl]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="38">
+				<item id="displayorder"><![CDATA[94]]></item>
+				<item id="title"><![CDATA[[模版一]底部導航名稱]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_dbdhti]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[自定義]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="39">
+				<item id="displayorder"><![CDATA[95]]></item>
+				<item id="title"><![CDATA[[模版一]底部導航鏈接]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_dbdhurl]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="40">
+				<item id="displayorder"><![CDATA[96]]></item>
+				<item id="title"><![CDATA[[模版二]拉幕文字]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_lmwenzi]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[查看拉票秘籍，排名直線上升！]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="41">
+				<item id="displayorder"><![CDATA[97]]></item>
+				<item id="title"><![CDATA[[模版二]拉幕鏈接]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[hjtp_lmurl]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="42">
+				<item id="displayorder"><![CDATA[98]]></item>
+				<item id="title"><![CDATA[是否開啟JSSDK分享接口]]></item>
+				<item id="description"><![CDATA[認證過的公眾號才支持此功能，否則無效！
+請在 微信助理中 添加APPID和APPSECRET！
+域名必須綁到JS接口安全域名中！
+而且使用了JSSDK就代表了公眾號和域名的捆綁！如此域名上有任何違規信息被分享，被封公眾號的風險會提高，請謹慎考慮！]]></item>
+				<item id="variable"><![CDATA[hjtp_jssdk]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="43">
+				<item id="displayorder"><![CDATA[99]]></item>
+				<item id="title"><![CDATA[投票獨立第三方統計代碼]]></item>
+				<item id="description"><![CDATA[用第三方的JS統計代碼！只要用通用的即可，不用移動統計代碼！]]></item>
+				<item id="variable"><![CDATA[hjtp_dsftjdm]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="44">
+				<item id="displayorder"><![CDATA[100]]></item>
+				<item id="title"><![CDATA[首頁MODEL]]></item>
+				<item id="description"><![CDATA[活動中不要輕易修改！
+除非活動鏈接被微信管家屏蔽，再進行修改！
+哪個頁面被屏蔽，修改那個頁面的MODEL]]></item>
+				<item id="variable"><![CDATA[hjtp_symodel]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[votea]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="45">
+				<item id="displayorder"><![CDATA[101]]></item>
+				<item id="title"><![CDATA[排行MODEL]]></item>
+				<item id="description"><![CDATA[活動中不要輕易修改！
+除非活動鏈接被微信管家屏蔽，再進行修改！
+哪個頁面被屏蔽，修改那個頁面的MODEL]]></item>
+				<item id="variable"><![CDATA[hjtp_phmodel]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[rank]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="46">
+				<item id="displayorder"><![CDATA[102]]></item>
+				<item id="title"><![CDATA[TOPMODEL]]></item>
+				<item id="description"><![CDATA[活動中不要輕易修改！
+除非活動鏈接被微信管家屏蔽，再進行修改！
+哪個頁面被屏蔽，修改那個頁面的MODEL]]></item>
+				<item id="variable"><![CDATA[hjtp_topmodel]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[top300]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="47">
+				<item id="displayorder"><![CDATA[103]]></item>
+				<item id="title"><![CDATA[詳情MODEL]]></item>
+				<item id="description"><![CDATA[活動中不要輕易修改！
+除非活動鏈接被微信管家屏蔽，再進行修改！
+哪個頁面被屏蔽，修改那個頁面的MODEL]]></item>
+				<item id="variable"><![CDATA[hjtp_xqmodel]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[detail]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="addstok"><![CDATA[添加成功\]]></item>
+				<item id="editok"><![CDATA[修改成功\]]></item>
+				<item id="shcg"><![CDATA[成功\審核此作品]]></item>
+				<item id="pbcg"><![CDATA[成功\屏蔽此作品]]></item>
+				<item id="picgsbd"><![CDATA[圖片格式不正確，只支持jpg,jpeg,gif,png格式]]></item>
+				<item id="tjcg"><![CDATA[推薦成功\！]]></item>
+				<item id="qxtjcg"><![CDATA[取消推薦成功\！]]></item>
+				<item id="delcg"><![CDATA[刪除成功\！]]></item>
+				<item id="setzjok"><![CDATA[成功\設置中獎]]></item>
+				<item id="setzjno"><![CDATA[此用戶已中獎，請不要重復設置]]></item>
+				<item id="qxzjok"><![CDATA[成功\取消中獎]]></item>
+				<item id="qxzjno"><![CDATA[此用戶未中獎，無法取消]]></item>
+				<item id="daochuok"><![CDATA[114.215.198.57]]></item>
+				<item id="zongjrs"><![CDATA[中獎人數已經達到]]></item>
+				<item id="zongjrsa"><![CDATA[人，不能再增加！]]></item>
+				<item id="bjlqok"><![CDATA[成功\標記為已領取狀態]]></item>
+				<item id="bjlqno"><![CDATA[成功\標記為已領取狀態]]></item>
+				<item id="shanchuts"><![CDATA[你確定要刪除此條記錄嗎？]]></item>
+				<item id="nowzjyh"><![CDATA[沒有未中獎用戶]]></item>
+				<item id="gong"><![CDATA[共]]></item>
+				<item id="ye"><![CDATA[頁]]></item>
+				<item id="shouyephp"><![CDATA[首頁]]></item>
+				<item id="shangyiye"><![CDATA[上一頁]]></item>
+				<item id="xiayiye"><![CDATA[下一頁]]></item>
+				<item id="moye"><![CDATA[末頁]]></item>
+				<item id="over"><![CDATA[活動已經結束！]]></item>
+				<item id="yiduihuan"><![CDATA[您已兌換過現金券！一次活動僅允許\兌換一張現金券！]]></item>
+				<item id="nimingc"><![CDATA[匿名]]></item>
+				<item id="haozp"><![CDATA[號作品]]></item>
+				<item id="haohao"><![CDATA[號]]></item>
+				<item id="piao"><![CDATA[票]]></item>
+				<item id="xxcanyu"><![CDATA[謝謝參與]]></item>
+				<item id="ggkjxzd"><![CDATA[刮刮卡獎項最多添加8個]]></item>
+				<item id="yhyjyzp"><![CDATA[此用戶已經添加作品，不可重復添加]]></item>
+				<item id="qkchengg"><![CDATA[成功\清空此活動的數據]]></item>
+				<item id="mingci"><![CDATA[名次]]></item>
+				<item id="zpxming"><![CDATA[作品姓名]]></item>
+				<item id="telphone"><![CDATA[手機號碼]]></item>
+				<item id="yijuhua"><![CDATA[作品簡介]]></item>
+				<item id="zppic"><![CDATA[作品圖片]]></item>
+				<item id="clicknuba"><![CDATA[瀏覽量]]></item>
+				<item id="votenuba"><![CDATA[投票量]]></item>
+				<item id="ceshiyh"><![CDATA[您使用的是盜版插件，活動已被屏蔽,請聯系開發者qq︰2997249863 購買正版並解封！]]></item>
+				<item id="hqdqipa"><![CDATA[您的當前IP︰]]></item>
+				<item id="hqdqipb"><![CDATA[當前省份︰]]></item>
+				<item id="hqdqipc"><![CDATA[省份區域ID: ]]></item>
+				<item id="hqdqipd"><![CDATA[當前城市︰]]></item>
+				<item id="hqdqipe"><![CDATA[城市區域ID: ]]></item>
+				<item id="hqdqipf"><![CDATA[請根據您選擇的“限制IP區域範圍”來復制對應的ID填入到“限制地區ID”中去，比如 您選擇了“城市限制” 就把上方的 “城市區域ID”中的值 復制填入到“限制地區ID”中去]]></item>
+				<item id="wusj"><![CDATA[無此作品數據，請填寫正確的作品ID]]></item>
+				<item id="sousuocg"><![CDATA[成功\搜索到一條數據，點擊下方鏈接查看]]></item>
+				<item id="zhici"><![CDATA[恭喜您，您的服務器支持圖床功\能！默認已開啟自動上傳至圖床！可以給你降低90%的服務器壓力！]]></item>
+				<item id="iphuoqu"><![CDATA[http://3.play76.sinaapp.com/ip.txt]]></item>
+				<item id="buzhici"><![CDATA[對不起！您的服務器不支持圖床上傳功\能，請檢查微信投票設置中的圖床的三個參數是否正確！如果確定正確則表示你的服務器不支持圖床功\能！]]></item>
+				<item id="tpwxtxa"><![CDATA[親，剛剛微信好友︰]]></item>
+				<item id="tpwxtxaa"><![CDATA[親，剛剛有微信好友]]></item>
+				<item id="tpwxtxb"><![CDATA[為您的︰]]></item>
+				<item id="tpwxtxc"><![CDATA[投上了寶貴的一票，目前票數︰]]></item>
+				<item id="tpwxtxd"><![CDATA[票，目前排名第]]></item>
+				<item id="tpwxtxe"><![CDATA[名，距離上一名還差]]></item>
+				<item id="tpwxtxf"><![CDATA[票！]]></item>
+				<item id="tpwxtxg"><![CDATA[點擊這里，邀請好友為您投票吧！]]></item>
+			</item>
+			<item id="templatelang">
+				<item id="tpjxzts"><![CDATA[投票請求中。。。請耐心等待！]]></item>
+				<item id="bucpcd"><![CDATA[設置電腦首頁]]></item>
+				<item id="bmwait"><![CDATA[上傳中，請等待]]></item>
+				<item id="pcbannerpic"><![CDATA[電腦首頁頭部圖片地址]]></item>
+				<item id="pcbannergd"><![CDATA[電腦首頁頭部圖片高度（請設置數字）]]></item>
+				<item id="pcdowdnpic"><![CDATA[電腦首頁底部圖片地址]]></item>
+				<item id="pcdowdngd"><![CDATA[電腦首頁底部圖片高度（請設置數字）]]></item>
+				<item id="pcbgcolor"><![CDATA[電腦首頁背景顏色]]></item>
+				<item id="kfxinxi"><![CDATA[客服信息]]></item>
+				<item id="pcbiaoqian"><![CDATA[標簽名稱]]></item>
+				<item id="picclff"><![CDATA[修改的本地圖片上傳到外部圖片獲取圖片鏈接填入即可]]></item>
+				<item id="zuopidss"><![CDATA[請輸入作品ID搜索]]></item>
+				<item id="votelist"><![CDATA[投票活動管理]]></item>
+				<item id="votelb"><![CDATA[投票活動列表]]></item>
+				<item id="addvote"><![CDATA[添加投票活動]]></item>
+				<item id="votename"><![CDATA[活動名稱]]></item>
+				<item id="starttime"><![CDATA[報名開始時間]]></item>
+				<item id="endtime"><![CDATA[投票結束時間]]></item>
+				<item id="caozuo"><![CDATA[操作]]></item>
+				<item id="huoquurl"><![CDATA[鏈接]]></item>
+				<item id="huoquurla"><![CDATA[右擊復制鏈接]]></item>
+				<item id="xiugai"><![CDATA[修改]]></item>
+				<item id="shanchu"><![CDATA[刪除]]></item>
+				<item id="wxpic"><![CDATA[微信分享外鏈圖標]]></item>
+				<item id="tppic"><![CDATA[活動頁幻燈宣傳外鏈圖片組]]></item>
+				<item id="tppictsa"><![CDATA[模式一單圖片︰只需要填入圖片地址即可]]></item>
+				<item id="tppictsb"><![CDATA[模式二幻燈圖︰添加模式為︰圖片地址|對應鏈接,圖片地址|對應鏈接  以此類推。如果沒有連接 可以直接這種模式︰圖片地址,圖片地址]]></item>
+				<item id="yuanpicdown"><![CDATA[源圖片下載]]></item>
+				<item id="yuanpicdowna"><![CDATA[模版二源圖片]]></item>
+				<item id="jianyicc"><![CDATA[建議尺寸]]></item>
+				<item id="wxname"><![CDATA[微信分享描述]]></item>
+				<item id="guize"><![CDATA[活動規則]]></item>
+				<item id="wxurl"><![CDATA[投票引導關注鏈接]]></item>
+				<item id="wxurltsc"><![CDATA[2種模式︰1、微信素材鏈接 2、圖片引導關注]]></item>
+				<item id="wxurltsa"><![CDATA[獲取鏈接教程]]></item>
+				<item id="wxurltsd"><![CDATA[微信素材獲取教程]]></item>
+				<item id="wxurltse"><![CDATA[引導關注圖片源碼]]></item>
+				<item id="wxurltsb"><![CDATA[範例展示]]></item>
+				<item id="youjihqurl"><![CDATA[右擊復制鏈接地址填入即可]]></item>
+				<item id="guanzhua"><![CDATA[“長按圖片，識別圖中二維碼”]]></item>
+				<item id="guanzhub"><![CDATA[如長按圖片無效，搜索以下微信號關注即可]]></item>
+				<item id="guanzhuc"><![CDATA[長按虛線框，拷貝微信號]]></item>
+				<item id="guanzhud"><![CDATA[點擊圖文消息，即可參與活動]]></item>
+				<item id="guanzhue"><![CDATA[第一步]]></item>
+				<item id="guanzhuf"><![CDATA[第二步]]></item>
+				<item id="guanzhug"><![CDATA[如何參與我們的活動]]></item>
+				<item id="starttimets"><![CDATA[活動報名的開始時間，報名時間和投票時間可以重合！]]></item>
+				<item id="bmendtime"><![CDATA[報名結束時間]]></item>
+				<item id="bmendtimets"><![CDATA[活動報名的結束時間，到時間後無法報名]]></item>
+				<item id="delzpjl"><![CDATA[清空此用戶投票數據]]></item>
+				<item id="delzpjlts"><![CDATA[您確認需要清空此用戶的投票數據嗎？清空後將無法恢復！]]></item>
+				<item id="votetime"><![CDATA[投票開始時間]]></item>
+				<item id="votetimets"><![CDATA[投票開始時間，報名時間和投票時間可以重合！]]></item>
+				<item id="endtimets"><![CDATA[投票結束時間,結束後無法報名、無法投票！]]></item>
+				<item id="baocun"><![CDATA[保存]]></item>
+				<item id="shanchuts"><![CDATA[您確定要刪除嗎？]]></item>
+				<item id="pingbizp"><![CDATA[屏蔽]]></item>
+				<item id="pingbits"><![CDATA[您確定要屏蔽此作品嗎？]]></item>
+				<item id="jcpbts"><![CDATA[您確定要恢復此作品嗎？]]></item>
+				<item id="huifu"><![CDATA[恢復]]></item>
+				<item id="shenhets"><![CDATA[您確定要審核通過此作品嗎？]]></item>
+				<item id="ggksjgl"><![CDATA[刮刮卡獎勵]]></item>
+				<item id="tjggkjl"><![CDATA[添加刮刮卡獎勵]]></item>
+				<item id="xxcanyu"><![CDATA[謝謝參與]]></item>
+				<item id="xxcanyuts"><![CDATA[親，還需加把勁哦！]]></item>
+				<item id="cszuopinsh"><![CDATA[已審核作品]]></item>
+				<item id="cszuopinwsh"><![CDATA[待審核作品]]></item>
+				<item id="addzuopin"><![CDATA[手工添加參賽作品]]></item>
+				<item id="qguanzhujc"><![CDATA[如何將投票活動放入公眾的教程]]></item>
+				<item id="shenhezhong"><![CDATA[審核中]]></item>
+				<item id="yuliuc"><![CDATA[詳細說明]]></item>
+				<item id="dcexcel"><![CDATA[導出投票詳情]]></item>
+				<item id="yipbzp"><![CDATA[已屏蔽]]></item>
+				<item id="zdpbzp"><![CDATA[嫌疑自動屏蔽]]></item>
+				<item id="zdpbzpa"><![CDATA[自動屏蔽的刷票嫌疑作品]]></item>
+				<item id="jcsfzctc"><![CDATA[檢測是否支持圖床上傳]]></item>
+				<item id="jzdel"><![CDATA[禁止刪除]]></item>
+				<item id="xntpjl"><![CDATA[增加10票虛擬投票數]]></item>
+				<item id="zjxntpjl"><![CDATA[增加虛擬投票數(插件設置中可自定義每次增加的票數)]]></item>
+				<item id="shouye"><![CDATA[投票首頁]]></item>
+				<item id="cansai"><![CDATA[我要參賽]]></item>
+				<item id="rank"><![CDATA[排行榜]]></item>
+				<item id="clicknub"><![CDATA[瀏覽量︰]]></item>
+				<item id="sharenub"><![CDATA[分享量︰]]></item>
+				<item id="clicknuba"><![CDATA[瀏覽量]]></item>
+				<item id="sharenuba"><![CDATA[分享量]]></item>
+				<item id="votenuba"><![CDATA[總投票量]]></item>
+				<item id="votenubc"><![CDATA[有效票數]]></item>
+				<item id="votenubd"><![CDATA[無效票數]]></item>
+				<item id="votenubb"><![CDATA[當日投票]]></item>
+				<item id="zpgl"><![CDATA[作品管理]]></item>
+				<item id="guanli"><![CDATA[管理]]></item>
+				<item id="zppic"><![CDATA[作品圖片]]></item>
+				<item id="zpxming"><![CDATA[作品姓名]]></item>
+				<item id="niming"><![CDATA[匿名]]></item>
+				<item id="telphone"><![CDATA[手機號碼]]></item>
+				<item id="nintel"><![CDATA[您的手機號碼]]></item>
+				<item id="tjshangjia"><![CDATA[推薦商家]]></item>
+				<item id="yijuhua"><![CDATA[作品簡介]]></item>
+				<item id="tjshangjiaa"><![CDATA[沒有推薦商家編號請留空]]></item>
+				<item id="zuopin"><![CDATA[作品列表]]></item>
+				<item id="tijiao"><![CDATA[提交]]></item>
+				<item id="fanhuihd"><![CDATA[返回活動]]></item>
+				<item id="cansaibh"><![CDATA[參賽編號]]></item>
+				<item id="yifabu"><![CDATA[已發布作品，登陸管理]]></item>
+				<item id="yifabua"><![CDATA[已發布]]></item>
+				<item id="yifabub"><![CDATA[，登陸管理]]></item>
+				<item id="qingsf"><![CDATA[請輸入]]></item>
+				<item id="dengluguanli"><![CDATA[登陸管理]]></item>
+				<item id="denglutp"><![CDATA[登陸投票]]></item>
+				<item id="zuopjzz"><![CDATA[作品信息正在加載中哦，請耐心等待一下！]]></item>
+				<item id="yzrsyzp"><![CDATA[已載入所有最新作品信息！]]></item>
+				<item id="haozp"><![CDATA[號作品]]></item>
+				<item id="haohao"><![CDATA[號]]></item>
+				<item id="piao"><![CDATA[票]]></item>
+				<item id="cansaizp"><![CDATA[參賽]]></item>
+				<item id="hao"><![CDATA[號]]></item>
+				<item id="maohao"><![CDATA[︰]]></item>
+				<item id="xuansmz"><![CDATA[選手姓名]]></item>
+				<item id="piaoshu"><![CDATA[票數]]></item>
+				<item id="wtdoup"><![CDATA[為他投一票]]></item>
+				<item id="jiangxsz"><![CDATA[獎項設置]]></item>
+				<item id="jiangxgl"><![CDATA[獎項管理]]></item>
+				<item id="addjiang"><![CDATA[添加獎項]]></item>
+				<item id="jiangxiang"><![CDATA[獎項]]></item>
+				<item id="chakhdgz"><![CDATA[查看活動規則]]></item>
+				<item id="gzsjgzh"><![CDATA[關注商家公眾號]]></item>
+				<item id="shangjrx"><![CDATA[商家熱線]]></item>
+				<item id="ming"><![CDATA[名]]></item>
+				<item id="jiangmc"><![CDATA[獎項名稱]]></item>
+				<item id="shuliang"><![CDATA[數量]]></item>
+				<item id="jiangnr"><![CDATA[獎品內容]]></item>
+				<item id="sjname"><![CDATA[商家名稱]]></item>
+				<item id="paixu"><![CDATA[排序]]></item>
+				<item id="number"><![CDATA[此獎項數量]]></item>
+				<item id="jppic"><![CDATA[獎項圖片]]></item>
+				<item id="sjxinxisz"><![CDATA[商家信息設置]]></item>
+				<item id="sjwxurl"><![CDATA[商家公眾引導關注鏈接]]></item>
+				<item id="sjhdurl"><![CDATA[商家活動外鏈]]></item>
+				<item id="shangdz"><![CDATA[商家地址]]></item>
+				<item id="sjpic"><![CDATA[商家頭部圖片]]></item>
+				<item id="addstmsga"><![CDATA[此項目為必填項]]></item>
+				<item id="addstmsgb"><![CDATA[內容超出了字符限制，最多]]></item>
+				<item id="addstmsgf"><![CDATA[此項目必須為整數數字]]></item>
+				<item id="addstmsgg"><![CDATA[最小數字為]]></item>
+				<item id="sjjianj"><![CDATA[商家介紹]]></item>
+				<item id="bmcjsjhd"><![CDATA[報名參加商家活動]]></item>
+				<item id="advgl"><![CDATA[廣告管理]]></item>
+				<item id="advlist"><![CDATA[廣告列表]]></item>
+				<item id="addadv"><![CDATA[添加廣告]]></item>
+				<item id="advpic"><![CDATA[廣告圖片]]></item>
+				<item id="advurl"><![CDATA[廣告外鏈]]></item>
+				<item id="address"><![CDATA[地址]]></item>
+				<item id="dianhua"><![CDATA[電話]]></item>
+				<item id="yijianbh"><![CDATA[一鍵撥號]]></item>
+				<item id="fanhui"><![CDATA[返回]]></item>
+				<item id="zhuangtai"><![CDATA[狀態]]></item>
+				<item id="hdzhuangtai"><![CDATA[活動狀態]]></item>
+				<item id="xianshi"><![CDATA[顯示]]></item>
+				<item id="yincang"><![CDATA[隱藏]]></item>
+				<item id="seachts"><![CDATA[搜名字或編號]]></item>
+				<item id="seachtsa"><![CDATA[請輸入選手姓名或編號]]></item>
+				<item id="guaguaka"><![CDATA[刮刮卡]]></item>
+				<item id="woyaogk"><![CDATA[我要刮卡]]></item>
+				<item id="linjxz"><![CDATA[領獎須知]]></item>
+				<item id="wodezp"><![CDATA[我的作品]]></item>
+				<item id="zuopingl"><![CDATA[作品管理]]></item>
+				<item id="de"><![CDATA[的]]></item>
+				<item id="sharett"><![CDATA[活動作品，請為我投上一票]]></item>
+				<item id="tanhao"><![CDATA[！]]></item>
+				<item id="shareaa"><![CDATA[，推薦您也參加]]></item>
+				<item id="sharebb"><![CDATA[活動，一起贏取大獎！]]></item>
+				<item id="zairu"><![CDATA[載入]]></item>
+				<item id="zairua"><![CDATA[頁/共有]]></item>
+				<item id="zairub"><![CDATA[頁]]></item>
+				<item id="wxgzts"><![CDATA[微信引導關注提示語]]></item>
+				<item id="wxgztsa"><![CDATA[獲取範例源碼]]></item>
+				<item id="ipnubs"><![CDATA[同一個IP下每天能投多少票]]></item>
+				<item id="ipnubsts"><![CDATA[防止死粉刷票，如果填寫0則不限制]]></item>
+				<item id="tpnub"><![CDATA[每個微信用戶可投票數（可以限制每天投票數，也可以現在此次活動投票數）]]></item>
+				<item id="bmurl"><![CDATA[報名參與下次活動的外鏈]]></item>
+				<item id="bmurlts"><![CDATA[開設報名貼，把鏈接填入，或者購買]]></item>
+				<item id="bmurltsa"><![CDATA[萬能報名表單插件]]></item>
+				<item id="ggktsa"><![CDATA[投票獲得刮刮卡贏取大獎機會]]></item>
+				<item id="ggktsb"><![CDATA[您有]]></item>
+				<item id="ggktsc"><![CDATA[張刮刮卡，]]></item>
+				<item id="ggktsd"><![CDATA[下拉到底部抽獎]]></item>
+				<item id="ggktsds"><![CDATA[點擊贏取大獎]]></item>
+				<item id="ggktse"><![CDATA[您還沒有刮刮卡，快去投票獲得刮刮卡吧]]></item>
+				<item id="ggka"><![CDATA[刮刮卡]]></item>
+				<item id="ggkars"><![CDATA[刮刮卡中獎幾率值]]></item>
+				<item id="ggkarsts"><![CDATA[幾率值 = 預計參與刮刮卡人數 x 開放投票的天數 。 如果不確定的話  盡量數字設大點]]></item>
+				<item id="tpnubts"><![CDATA[插件“設置”中可以設置票數分配規則！可設置每人每天給同一個作品只能投一票]]></item>
+				<item id="ggksm"><![CDATA[刮刮卡活動規則]]></item>
+				<item id="ggkgdgz"><![CDATA[活動規則︰]]></item>
+				<item id="ggkxlsj"><![CDATA[下拉查看獎品]]></item>
+				<item id="ggktxa"><![CDATA[提醒您還有]]></item>
+				<item id="ggktxb"><![CDATA[張刮刮卡]]></item>
+				<item id="ggktxc"><![CDATA[【]]></item>
+				<item id="ggktxd"><![CDATA[】]]></item>
+				<item id="ggktxe"><![CDATA[【沒有了，去投票獲得更多刮刮卡】]]></item>
+				<item id="ggktxf"><![CDATA[刮獎次數已用完]]></item>
+				<item id="gxnzjl"><![CDATA[恭喜你中獎了]]></item>
+				<item id="nzhongl"><![CDATA[您中了︰]]></item>
+				<item id="lingqu"><![CDATA[點擊領取]]></item>
+				<item id="nyjzg"><![CDATA[您已經中過]]></item>
+				<item id="gongxi"><![CDATA[用戶 恭喜您]]></item>
+				<item id="zhunjd"><![CDATA[尊敬的]]></item>
+				<item id="buczp"><![CDATA[補充作品圖片︰]]></item>
+				<item id="viewmyzp"><![CDATA[查看我的作品]]></item>
+				<item id="ggkzjjl"><![CDATA[刮刮卡中獎紀錄]]></item>
+				<item id="ggkyhsjh"><![CDATA[用戶手機號]]></item>
+				<item id="ggkzjsj"><![CDATA[中獎時間]]></item>
+				<item id="wufasctp"><![CDATA[不能上傳圖片請點擊這里]]></item>
+				<item id="wufasctpa"><![CDATA[部分手機無法上傳圖片的解決辦法外鏈]]></item>
+				<item id="huodover"><![CDATA[報名已經結束]]></item>
+				<item id="weikais"><![CDATA[活動未開始]]></item>
+				<item id="baomingjxz"><![CDATA[報名中]]></item>
+				<item id="feitpq"><![CDATA[非投票期]]></item>
+				<item id="toupiaojxz"><![CDATA[投票中]]></item>
+				<item id="wufabm"><![CDATA[非報名期]]></item>
+				<item id="xnclick"><![CDATA[虛擬瀏覽量]]></item>
+				<item id="xnclickts"><![CDATA[首頁瀏覽量的值為 真實瀏覽量+虛擬瀏覽量]]></item>
+				<item id="xntps"><![CDATA[虛擬投票數]]></item>
+				<item id="xntpsts"><![CDATA[首頁投票數的值為 真實投票數+虛擬投票數]]></item>
+				<item id="zsclick"><![CDATA[真實瀏覽量]]></item>
+				<item id="zstps"><![CDATA[真實投票數]]></item>
+				<item id="zsbms"><![CDATA[真實報名數]]></item>
+				<item id="qksyshuju"><![CDATA[【清空所有數據】]]></item>
+				<item id="qksyshujuts"><![CDATA[【確定要清空該活動的作品、投票、刮刮卡中獎紀錄嗎？】]]></item>
+				<item id="yuliud"><![CDATA[參賽作品自定義名稱標簽]]></item>
+				<item id="yuliudts"><![CDATA[不填寫默認為 作品名稱]]></item>
+				<item id="yuliue"><![CDATA[作品簡介自定義標簽]]></item>
+				<item id="yuliuets"><![CDATA[不填寫，則不開啟作品簡介項目]]></item>
+				<item id="yuliuf"><![CDATA[參賽項目名稱自定義標簽]]></item>
+				<item id="yuliufts"><![CDATA[不填寫默認為 作品]]></item>
+				<item id="upic"><![CDATA[作品簡介]]></item>
+				<item id="upicts"><![CDATA[請填寫]]></item>
+				<item id="picno"><![CDATA[作品圖片不能為空]]></item>
+				<item id="upicno"><![CDATA[簡介不能超過255字符]]></item>
+				<item id="zuopinmc"><![CDATA[作品]]></item>
+				<item id="zppica"><![CDATA[作品圖一]]></item>
+				<item id="zppicb"><![CDATA[作品圖二]]></item>
+				<item id="zppicc"><![CDATA[作品圖三]]></item>
+				<item id="zppicd"><![CDATA[作品圖四]]></item>
+				<item id="zppice"><![CDATA[作品圖五]]></item>
+				<item id="loginfx"><![CDATA[成功\投票後，]]></item>
+				<item id="gfbcxurl"><![CDATA[官方補充項外鏈]]></item>
+				<item id="xuniid"><![CDATA[本活動獨立ID]]></item>
+				<item id="mysqlid"><![CDATA[數據庫真實ID]]></item>
+				<item id="vyuliub"><![CDATA[作品ID顯示模式]]></item>
+				<item id="vyuliubts"><![CDATA[建議選擇活動獨立ID，可以後台修改，數據庫真實ID不可控]]></item>
+				<item id="zpupicb"><![CDATA[活動虛擬作品ID]]></item>
+				<item id="shenhezt"><![CDATA[審核狀態]]></item>
+				<item id="shenhezta"><![CDATA[報名需審核]]></item>
+				<item id="shenheztb"><![CDATA[無需審核]]></item>
+				<item id="wufabmts"><![CDATA[無法在線報名幫助]]></item>
+				<item id="wufabmtsa"><![CDATA[若在線報名失敗，可以將報名信息︰姓名+聯系方式+描述+寶貝照片（1~5張，至少1張）發給我們︰qq:[填寫客服qq]]]></item>
+				<item id="yynklqx"><![CDATA[請去用戶的投票記錄中刪除投票記錄即可減票，點擊自動添加虛擬投票記錄即可加票]]></item>
+				<item id="dlggk"><![CDATA[獨立刮刮卡活動鏈接]]></item>
+				<item id="dlggkts"><![CDATA[不填則投票無獎勵]]></item>
+				<item id="woyaobm"><![CDATA[我要報名]]></item>
+				<item id="wodezuop"><![CDATA[我的參賽]]></item>
+				<item id="yibaoming"><![CDATA[已報名]]></item>
+				<item id="tprenci"><![CDATA[投票人次]]></item>
+				<item id="viewnub"><![CDATA[訪問量]]></item>
+				<item id="newcansai"><![CDATA[最新參賽]]></item>
+				<item id="benzhouph"><![CDATA[本周排行]]></item>
+				<item id="toupiaoph"><![CDATA[投票排行]]></item>
+				<item id="search"><![CDATA[搜索]]></item>
+				<item id="signupname"><![CDATA[報名信息自定義 姓名標簽]]></item>
+				<item id="signupnamets"><![CDATA[不填寫則默認顯示“姓名”]]></item>
+				<item id="signupms"><![CDATA[報名信息自定義 描述標簽]]></item>
+				<item id="signupmsts"><![CDATA[不填寫則默認顯示“描述”]]></item>
+				<item id="shenhe"><![CDATA[報名作品是否需要審核]]></item>
+				<item id="shi"><![CDATA[是]]></item>
+				<item id="fou"><![CDATA[否]]></item>
+				<item id="toupiao"><![CDATA[投票]]></item>
+				<item id="gztsa"><![CDATA[請關注公眾號後投票]]></item>
+				<item id="gztsb"><![CDATA[請關注公眾號後報名]]></item>
+				<item id="yijiangz"><![CDATA[點擊關注我們]]></item>
+				<item id="toupiaotse"><![CDATA[投票成功\!]]></item>
+				<item id="toupiaotsa"><![CDATA[恭喜您為您支持的作品投上了一票！]]></item>
+				<item id="tpjihuia"><![CDATA[您今日還有]]></item>
+				<item id="tpjihuib"><![CDATA[次投票機會！]]></item>
+				<item id="tpjihuica"><![CDATA[您今日的票數已投完，請明日再投！]]></item>
+				<item id="tpjihuicb"><![CDATA[您本次活動的票數已投完，感謝您的參與！]]></item>
+				<item id="zpshorpb"><![CDATA[此作品無法投票，可能出于審核中或已被屏蔽！]]></item>
+				<item id="notoupiao"><![CDATA[無法投票]]></item>
+				<item id="toupiaotsb"><![CDATA[此IP今日票數已投完，請明日再投！]]></item>
+				<item id="toupiaotsc"><![CDATA[投票還未開始]]></item>
+				<item id="toupiaotsg"><![CDATA[請]]></item>
+				<item id="toupiaotsf"><![CDATA[後再來！]]></item>
+				<item id="toupiaotsh"><![CDATA[投票已經結束]]></item>
+				<item id="toupiaotsi"><![CDATA[投票失敗]]></item>
+				<item id="toupiaotsj"><![CDATA[請刷新或者重新進入活動再投！]]></item>
+				<item id="toupiaotsjaa"><![CDATA[系統出現異常，請稍後再嘗試投票]]></item>
+				<item id="toupiaotsk"><![CDATA[刷新後才能看到增加的票數！]]></item>
+				<item id="woshi"><![CDATA[我是]]></item>
+				<item id="zzcanjia"><![CDATA[，正在參加]]></item>
+				<item id="woyaotp"><![CDATA[我要投票]]></item>
+				<item id="woyelcs"><![CDATA[我也來參加]]></item>
+				<item id="seemore"><![CDATA[點擊查看更多]]></item>
+				<item id="sharelp"><![CDATA[點擊分享給朋友拉票]]></item>
+				<item id="xingming"><![CDATA[姓名]]></item>
+				<item id="miaoshu"><![CDATA[描述]]></item>
+				<item id="shuomingta"><![CDATA[活動說明一【標題】]]></item>
+				<item id="shuomingca"><![CDATA[活動說明一【內容】]]></item>
+				<item id="shuomingtb"><![CDATA[活動說明二【標題】]]></item>
+				<item id="shuomingcb"><![CDATA[活動說明二【內容】]]></item>
+				<item id="shuomingtc"><![CDATA[活動說明三【標題】]]></item>
+				<item id="shuomingcc"><![CDATA[活動說明三【內容】]]></item>
+				<item id="shuomingtts"><![CDATA[留空則不顯示此說明欄]]></item>
+				<item id="shuomingcts"><![CDATA[可添加圖片，鏈接、視頻、音樂等任何代碼！]]></item>
+				<item id="baomingc"><![CDATA[報名處]]></item>
+				<item id="lianxidh"><![CDATA[聯系電話]]></item>
+				<item id="qsrlxdh"><![CDATA[請輸入您的真實手機號]]></item>
+				<item id="qsrlxdha"><![CDATA[請輸入正確的手機號！]]></item>
+				<item id="shangczp"><![CDATA[上傳照片]]></item>
+				<item id="zhang"><![CDATA[張]]></item>
+				<item id="picsc"><![CDATA[圖片上傳]]></item>
+				<item id="picsca"><![CDATA[請上傳1張以上圖片]]></item>
+				<item id="picscb"><![CDATA[最多上傳]]></item>
+				<item id="picscc"><![CDATA[張照片]]></item>
+				<item id="querenbm"><![CDATA[確認報名]]></item>
+				<item id="baomingtsa"><![CDATA[報名還未開始]]></item>
+				<item id="baomingtsb"><![CDATA[對不起！報名已經結束！]]></item>
+				<item id="qingwwtyp"><![CDATA[，請為我投一票>！]]></item>
+				<item id="picsctsa"><![CDATA[1、本地模式︰將圖片通過FTP上傳至source/plugin/hejin_toupiao/Uploads/下，輸入框填寫︰Uploads/圖片名稱，如Uploads/1.jpg！]]></item>
+				<item id="picsctsb"><![CDATA[2、圖床模式︰將圖片上傳到網盤獲取圖片外鏈填入輸入框中！]]></item>
+				<item id="picsctsc"><![CDATA[免費外部圖床地址]]></item>
+				<item id="kefutis"><![CDATA[換行請用< br >代碼]]></item>
+				<item id="picsctsd"><![CDATA[3、本地圖片轉為圖床︰點擊獲取圖片地址，保存圖片到本地，將圖片上傳到網盤獲取圖片外鏈填入輸入框中！]]></item>
+				<item id="picsctse"><![CDATA[獲取圖片地址]]></item>
+				<item id="shtongguo"><![CDATA[通過審核]]></item>
+				<item id="toupjl"><![CDATA[投票記錄]]></item>
+				<item id="tpyhid"><![CDATA[投票用戶ID]]></item>
+				<item id="tpyhopenid"><![CDATA[投票用戶OPENID]]></item>
+				<item id="tpyhip"><![CDATA[投票IP]]></item>
+				<item id="tpyhtime"><![CDATA[投票時間]]></item>
+				<item id="bianhao"><![CDATA[編號: ]]></item>
+				<item id="bianhaoa"><![CDATA[編號]]></item>
+				<item id="baoming"><![CDATA[報名]]></item>
+				<item id="piaoshua"><![CDATA[票數︰]]></item>
+				<item id="paiminga"><![CDATA[排名︰]]></item>
+				<item id="paimingb"><![CDATA[距上一名還差]]></item>
+				<item id="paimingc"><![CDATA[票]]></item>
+				<item id="piaoshub"><![CDATA[總票數︰]]></item>
+				<item id="piaoshuc"><![CDATA[有效票︰]]></item>
+				<item id="piaoshud"><![CDATA[無效票︰]]></item>
+				<item id="fanhuitop"><![CDATA[返回頂部]]></item>
+				<item id="wxgongz"><![CDATA[微信公眾]]></item>
+				<item id="shaomewm"><![CDATA[掃描二維碼]]></item>
+				<item id="shaomewma"><![CDATA[關注微信公眾號，給他/她投票！]]></item>
+				<item id="chacha"><![CDATA[X]]></item>
+				<item id="peisfana"><![CDATA[點擊獲取萌寶活動設置方案]]></item>
+				<item id="paixulb"><![CDATA[作品排序模式]]></item>
+				<item id="paixulba"><![CDATA[票數從高到底]]></item>
+				<item id="paixulbb"><![CDATA[報名從晚到早]]></item>
+				<item id="paixulbc"><![CDATA[報名從早到晚]]></item>
+				<item id="pcindexts"><![CDATA[PC首頁]]></item>
+				<item id="paiming"><![CDATA[排名]]></item>
+				<item id="zzfxtpsj"><![CDATA[正在分析投票數據，請稍後...]]></item>
+				<item id="ninyw"><![CDATA[您已經為]]></item>
+				<item id="touslyp"><![CDATA[投上了一票]]></item>
+				<item id="gwotp"><![CDATA[給我投票]]></item>
+				<item id="votemoban"><![CDATA[選擇模版]]></item>
+				<item id="mobana"><![CDATA[模版一[粉色系]]]></item>
+				<item id="mobanb"><![CDATA[模版二[深藍系]]]></item>
+				<item id="mobanc"><![CDATA[模版三[草綠系]]]></item>
+				<item id="moband"><![CDATA[模版四[淡藍系]]]></item>
+				<item id="mobane"><![CDATA[模版五[土豪金]]]></item>
+				<item id="mobanf"><![CDATA[模版六[黃色系]]]></item>
+				<item id="mobang"><![CDATA[模版七[深粉系]]]></item>
+				<item id="mobanh"><![CDATA[模版八[清新系]]]></item>
+				<item id="mobani"><![CDATA[模版九[黑黃系]]]></item>
+				<item id="mobanj"><![CDATA[模版十[紅色新年系]]]></item>
+				<item id="shouyea"><![CDATA[首頁]]></item>
+				<item id="wodezpa"><![CDATA[我的]]></item>
+				<item id="baomyjs"><![CDATA[報名已結束！]]></item>
+				<item id="baomwksts"><![CDATA[後才能報名！]]></item>
+				<item id="picxianzhi"><![CDATA[照片最大高度不超過1600像素]]></item>
+				<item id="guanzwmcy"><![CDATA[參與更多活動]]></item>
+				<item id="xianljgz"><![CDATA[先去看看別的活動]]></item>
+				<item id="hdsmym"><![CDATA[不同模版活動說明源碼獲取]]></item>
+				<item id="delpic"><![CDATA[刪除圖片]]></item>
+				<item id="qianphb"><![CDATA[前300名排行榜]]></item>
+				<item id="daochusj"><![CDATA[導出排行榜EXCEL（插件設置中可修改導出數量）]]></item>
+				<item id="bmqtpsxz"><![CDATA[報名期和投票期重疊的時間段每個作品的投票數限額]]></item>
+				<item id="bmqtpsxzts"><![CDATA[又能報名又能投票期間每個作品最多能得多少票，填0為不限制！比如報名時間是 1-10號 投票時間是 5-30號，那麼5-10號期間每個作品的最高票數只能是設置的這麼多，這樣可以防止前後報名作品的票數差距太大！]]></item>
+				<item id="bmqjxza"><![CDATA[報名期內優先投票最多]]></item>
+				<item id="bmqjxzb"><![CDATA[票！正式投票為]]></item>
+				<item id="bmqjxzc"><![CDATA[開始，請到時再繼續投票 感謝您的參與！]]></item>
+				<item id="bhtpbfa"><![CDATA[進入公眾號，回復“TP]]></item>
+				<item id="bhtpbfb"><![CDATA[”給我投票哦！]]></item>
+				<item id="bhtpbfc"><![CDATA[進入我們的公眾號]]></item>
+				<item id="allyx"><![CDATA[微信游戲營銷平台]]></item>
+				<item id="allyxinfo"><![CDATA[整合游戲插件功\能 可添加外鏈活動 可添加專輯、廣告完美的微信分享，分享給特定好友、分享到朋友圈]]></item>
+				<item id="share"><![CDATA[微信分享抽獎營銷]]></item>
+				<item id="shareinfo"><![CDATA[完美的運營流程，公眾關注爆炸式增長！後台清晰的分享記錄，真正掌握增長趨勢！]]></item>
+				<item id="zazhi"><![CDATA[微信雜志廣告營銷]]></item>
+				<item id="zazhiinfo"><![CDATA[可添加無數雜志廣告,各自可以添加無數的分頁 分頁類型多模式化︰大圖模式、視頻模式、聯系模式完美支持任意元素自定義︰封頁、蒙版、音樂等完美的微信分享，分享給特定好友、分享到朋友圈]]></item>
+				<item id="pthd"><![CDATA[微信九宮圖營銷]]></item>
+				<item id="pthdinfo"><![CDATA[可添加無數九宮圖拼圖活動 可設置分享後才能提交成績，病毒式傳播！ 清晰的排行榜，排名一覽無余！完美的微信分享，分享給特定好友、分享到朋友圈]]></item>
+				<item id="pintu"><![CDATA[微信廣告拼圖營銷]]></item>
+				<item id="pintuinfo"><![CDATA[可添加無數拼圖闖關活動，各自可添加無數關卡 可設置獎勵時間區間︰每日獎勵、活動截止獎勵 可設置獎勵人數完美的微信分享，分享給特定好友、分享到朋友圈]]></item>
+				<item id="wxyx"><![CDATA[微信測試考試類營銷]]></item>
+				<item id="wxyxinfo"><![CDATA[測試類的微信營銷 例如︰愛情測試、性格測試等等 試題類的微信營銷 例如︰本地方言考試等等 自定義背景，自定義分享圖標等等可推薦置頂好的試題或測試問題]]></item>
+				<item id="forms"><![CDATA[移動&PC萬能報名]]></item>
+				<item id="formsinfo"><![CDATA[自動識別電腦版和手機版，支持自定義任意表單模型、自定義字段]]></item>
+				<item id="vheka"><![CDATA[微信微賀卡營銷]]></item>
+				<item id="vhekainfo"><![CDATA[可添加無數分類、賀卡樣式（支持背景音樂）一張圖片、一段文字，定義出完美賀卡樣式]]></item>
+				<item id="vcard"><![CDATA[微信微名片營銷]]></item>
+				<item id="vcardinfo"><![CDATA[品牌化的微名片平台、病毒式微信傳播模式、獲取有用的用戶資料]]></item>
+				<item id="ceshia"><![CDATA[微信趣味測試營銷]]></item>
+				<item id="ceshiinfo"><![CDATA[支持設置關注鏈接、廣告代碼、聯盟廣告；完美的微信分享，分享給特定好友、分享到朋友圈]]></item>
+				<item id="daohang"><![CDATA[微信萬能導航營銷]]></item>
+				<item id="daohanginfo"><![CDATA[可制作任何類型的導航平台︰如微信公眾導航、商家網址導航等]]></item>
+				<item id="test"><![CDATA[微信圖文語音測試]]></item>
+				<item id="testinfo"><![CDATA[可以添加3種不同模式、不同模版的測試!圖文測試類、圖文考試類、語音測試類]]></item>
+				<item id="hongbao"><![CDATA[微信全民紅包營銷]]></item>
+				<item id="hongbaoinfo"><![CDATA[可以同時開啟無數的紅包活動，使用與商家、站長等做活動!每個活動期內每日每人只能領取一個紅包，紅包金額可以設置隨機區間]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+		<item id="upgradefile"><![CDATA[upgrade.php]]></item>
+	</item>
+</root>

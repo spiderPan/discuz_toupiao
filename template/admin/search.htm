@@ -1,0 +1,134 @@
+<link href="{HEJIN_PATH}public/admin/css/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.validation.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/admincp.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.tooltip.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.cookie.js"></script>
+<link href="{HEJIN_PATH}public/admin/css/skin_0.css" rel="stylesheet" type="text/css" id="cssfile2" />
+<script type="text/javascript">
+function submit_delete_batch(){
+    var items = '';
+    $('.checkitem:checked').each(function(){
+        items += this.value + ',';
+    });
+    if(items != '') {
+        items = items.substr(0, (items.length - 1));
+        submit_delete(items);
+    }  
+    else {
+        alert('{lang hejin_toupiao:clickok}');
+    }
+}
+
+</script>
+
+<div class="page">
+  <div class="fixed-bar">
+    <div class="item-title">
+      <div class="h3" style="width:auto;"><!--{eval echo $vid*10000+$zuopin['id'];}-->{lang hejin_toupiao:hao}<!--{eval echo strip_tags(stripslashes($zuopin['zpname']));}--></div>
+      <form id="search" method="post" action="">
+      <ul class="tab-base">
+        <li><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=zuopinsh&vid=$vid"><span>{lang hejin_toupiao:cszuopinsh}</span></a></li>
+		<li><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=addzp&vid=$vid"><span>{lang hejin_toupiao:addzuopin}</span></a></li>
+		<li><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=zpphb&vid=$vid"><span>{lang hejin_toupiao:qianphb}</span></a></li>
+
+		<li><a href="{HEJIN_URL}&model=daochu&vid=$vid"><span style=" color:#F00">{lang hejin_toupiao:daochusj}</span></a></li>
+  
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=" color:#F00">{lang hejin_toupiao:zuopidss}</span></li>
+		<li><input type="hidden" name="formhash" value="{FORMHASH}" />
+    <input type="hidden" name="vid" value="$vid" /><input type="text" value="" name="zid"></li>
+		<li>&nbsp;&nbsp;<input name="search" type="submit" value="SEARCH" /></li>
+    
+      </ul>
+    </div>
+  </div>
+  </form>
+  
+  <form id="list_form" method='post'>
+    <input id="class_id" name="class_id" type="hidden" />
+    <table class="table tb-type2">
+      <thead>
+        
+        <tr class="thead">
+          <th width="5%">ID</th>
+          <th width="10%">{lang hejin_toupiao:zpxming}</th>
+          <th width="10%">{lang hejin_toupiao:telphone}</th>
+          <th width="20%">{lang hejin_toupiao:zppic}</th>
+          <th width="20%">{lang hejin_toupiao:upic}</th>
+		  <th width="5%">{lang hejin_toupiao:clicknuba}</th>
+		  <th width="5%">{lang hejin_toupiao:votenuba}</th>
+          <th width="25%">{lang hejin_toupiao:caozuo}</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+                        <tr class="hover edit">
+		  <td><!--{eval echo $vid*10000+$zuopin['id'];}--></td>
+		  <td><!--{eval echo strip_tags(stripslashes($zuopin['zpname']));}--></td>
+		  <td><!--{eval echo strip_tags(stripslashes($zuopin['telphone']));}--></td>
+		  <td>{if $zuopin['pica']}<span class="type-file-show" style="float:left !important;"> <img class="show_image" src="{HEJIN_PATH}public/admin/images/preview.png">
+            <div class="type-file-preview">
+            {if strpos($zuopin['pica'], '://')==false}
+                            <img src="{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['pica']);}-->" width="100">
+                            {else}
+                            <img src="<!--{eval echo stripslashes($zuopin['pica']);}-->" width="100">
+                            {/if}
+                          </div>
+            </span>{/if}{if $zuopin['picb']}<span class="type-file-show" style="float:left !important;"> <img class="show_image" src="{HEJIN_PATH}public/admin/images/preview.png">
+            <div class="type-file-preview">
+            {if strpos($zuopin['picb'], '://')==false}
+                            <img src="{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['picb']);}-->" width="100">
+                            {else}
+                            <img src="<!--{eval echo stripslashes($zuopin['picb']);}-->" width="100">
+                            {/if}
+                          </div>
+            </span>{/if}{if $zuopin['picc']}<span class="type-file-show" style="float:left !important;"> <img class="show_image" src="{HEJIN_PATH}public/admin/images/preview.png">
+            <div class="type-file-preview">
+            {if strpos($zuopin['picc'], '://')==false}
+                            <img src="{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['picc']);}-->" width="100">
+                            {else}
+                            <img src="<!--{eval echo stripslashes($zuopin['picc']);}-->" width="100">
+                            {/if}
+                          </div>
+            </span>{/if}{if $zuopin['picd']}<span class="type-file-show" style="float:left !important;"> <img class="show_image" src="{HEJIN_PATH}public/admin/images/preview.png">
+            <div class="type-file-preview">
+            {if strpos($zuopin['picd'], '://')==false}
+                            <img src="{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['picd']);}-->" width="100">
+                            {else}
+                            <img src="<!--{eval echo stripslashes($zuopin['picd']);}-->" width="100">
+                            {/if}
+                          </div>
+            </span>{/if}{if $zuopin['pice']}<span class="type-file-show" style="float:left !important;"> <img class="show_image" src="{HEJIN_PATH}public/admin/images/preview.png">
+            <div class="type-file-preview">
+            {if strpos($zuopin['pice'], '://')==false}
+                            <img src="{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['pice']);}-->" width="100">
+                            {else}
+                            <img src="<!--{eval echo stripslashes($zuopin['pice']);}-->" width="100">
+                            {/if}
+                          </div>
+            </span>{/if}</td>
+		  <td><!--{eval echo strip_tags(stripslashes($zuopin['content']));}--></td>
+		  <td>$zuopin['liulans']</td>
+		  <td>$zuopin['toupiaos']</td>
+         
+		  <td>
+                    <a href="{HEJIN_URL}&model=dcexcel&zid=$zuopin['id']">{lang hejin_toupiao:dcexcel}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=tpjles&zid=$zuopin['id']">{lang hejin_toupiao:toupjl}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=editzp&zid=$zuopin['id']">{lang hejin_toupiao:xiugai}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  	<a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=over&zid=$zuopin['id']&vid=$zuopin['vid']&formhash={FORMHASH}" onclick="return confirm(&quot;{lang hejin_toupiao:pingbits}&quot;);">{lang hejin_toupiao:pingbizp}</a>
+		  </td>
+        </tr>
+                
+                      </tbody>
+            <tfoot>
+        <tr class="tfoot">
+          <td>
+          </td>
+          <td id="batchAction" colspan="15">
+            <div class="pagination"><ul></ul></div></td>
+        </tr>
+      </tfoot>
+          </table>
+  </form>
+</div>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=$charset">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta charset="$charset">
+    <title>{lang hejin_toupiao:woshi}<!--{eval echo strip_tags(stripslashes($zpinfo['zpname']));}-->{lang hejin_toupiao:zzcanjia}<!--{eval echo stripslashes($vote['title']);}--></title>
+    <meta name="description" content="<!--{eval echo stripslashes($vote['title']);}-->">
+    <link rel="stylesheet" href="{HEJIN_PATH}public/index{$vote['yuliua']}/touch.css">    <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/jquery-2.1.3.min.js"></script>
+
+                 <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/app.js"></script>
+                 <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/jquery.masonry.min.js"></script>
+  <style>
+.slider{display:none;}
+.focus span{width:5px;height:5px;margin-left:5px;border-radius:50%;background:#CDCDCD;font-size:0}
+.focus span.current{background:red;}
+</style>
+                
+    </head>
+<body>
+{if $zpinfo['pica']}
+                        	{if strpos($zpinfo['pica'], '://')==false}
+                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->"  alt="shareImg" width="0px" height="0px">
+                            {else}
+                            	<img src="<!--{eval echo stripslashes($zpinfo['pica']);}-->" alt="shareImg" width="0px" height="0px">
+                            {/if}
+                        {/if}
+
+{if $hejintoupiao['hjtp_detailhd']}
+<header>
+    <div class="m_head clearfix">
+    	{if $ispicarr}
+        <div class="slider">
+		<ul>
+        <!--{loop $picarray $picar}-->
+        	<!--{eval $urlpic = explode('|',$picar)}-->
+            {if count($urlpic)>1}
+            	<li><a href="$urlpic[1]"><img src="$urlpic[0]"/></a></li>
+            {else}
+	    					<li><a href="#"><img src="$picar"/></a></li>
+            {/if}            
+        <!--{/loop}-->
+				  	</ul>
+		</div>
+        {else}
+        	<img src="<!--{eval echo stripslashes($vote['pic']);}-->" />
+        {/if}
+        
+            </div>
+</header>
+{/if}
+<section class="content" id="get_info" data-rid="503" data-sort="" data-kw="" data-page="">
+    <div class="detial_box">
+        <span class="closed close_detial_box" data-refer="1">&nbsp;</span>
+        <p class="num clearfix">
+            <span class="fl" id="baby_info" itid_id="$zpinfo['id']" data-rule_id="503" data-vote_num="$vote['id']">{if !$zpinfo['is_show']}{lang hejin_toupiao:shenhezhong}{/if}&nbsp;{if $hejintoupiao['hjtp_numbtp']}$zpinfo['id']{else}<!--{eval echo $vote['id']*10000+$zpinfo['id'];}-->{/if}{lang hejin_toupiao:hao}&nbsp;<!--{eval echo strip_tags(stripslashes($zpinfo['zpname']));}--></span>
+            <span class="fr">{if $hejintoupiao['hjtp_qxgzjp']}{lang hejin_toupiao:piaoshuc}{$zpinfo['toupiaos']}{if $zpinfo['yuliua']>$zpinfo['toupiaos']}&nbsp;&nbsp;{lang hejin_toupiao:piaoshud}<!--{eval echo $zpinfo['yuliua']-$zpinfo['toupiaos'];}-->{/if}{else}{lang hejin_toupiao:piaoshua}{$zpinfo['toupiaos']}{/if}</span>
+        </p>
+        <div class="blank10"></div>
+        {if $hejintoupiao['hjtp_detailno']}
+        <p class="num clearfix">
+            <span class="fl" id="baby_info" itid_id="$zpinfo['id']" data-rule_id="503" data-vote_num="$vote['id']"></span>
+            <span class="fr">{lang hejin_toupiao:paiminga}{$zpnumber}{if $zpnumber!=1}&nbsp;&nbsp;&nbsp;&nbsp;{lang hejin_toupiao:paimingb}{$xiangcps}{lang hejin_toupiao:paimingc}{/if}</span>
+        </p>
+        <div class="blank10"></div>
+        {/if}
+        <p>{if $vote['zpmsdiy']}<!--{eval echo stripslashes($vote['zpmsdiy']);}-->{else}{lang hejin_toupiao:miaoshu}{/if}{lang hejin_toupiao:maohao}<!--{eval echo strip_tags(stripslashes($zpinfo['content']));}--></p>
+        <div class="blank10"></div>
+        				{if $zpinfo['pica']}
+                        	{if strpos($zpinfo['pica'], '://')==false}
+                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->" alt="">
+                            {else}
+                            	<img src="<!--{eval echo stripslashes($zpinfo['pica']);}-->" alt="">
+                            {/if}
+                        {/if}
+        				{if $zpinfo['picb']}
+                        	{if strpos($zpinfo['picb'], '://')==false}
+                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picb']);}-->" alt="">
+                            {else}
+                            	<img src="<!--{eval echo stripslashes($zpinfo['picb']);}-->" alt="">
+                            {/if}
+                        {/if}
+        				{if $zpinfo['picc']}
+                        	{if strpos($zpinfo['picc'], '://')==false}
+                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picc']);}-->" alt="">
+                            {else}
+                            	<img src="<!--{eval echo stripslashes($zpinfo['picc']);}-->" alt="">
+                            {/if}
+                        {/if}
+        				{if $zpinfo['picd']}
+                        	{if strpos($zpinfo['picd'], '://')==false}
+                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picd']);}-->" alt="">
+                            {else}
+                            	<img src="<!--{eval echo stripslashes($zpinfo['picd']);}-->" alt="">
+                            {/if}
+                        {/if}
+        				{if $zpinfo['pice']}
+                        	{if strpos($zpinfo['pice'], '://')==false}
+                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pice']);}-->" alt="">
+                            {else}
+                            	<img src="<!--{eval echo stripslashes($zpinfo['pice']);}-->" alt="">
+                            {/if}
+                        {/if}
+    {if $zpinfo['yuliuc']}
+    	<div class="neirong"><!--{eval echo replace($zpinfo['yuliuc']);}--></div>
+    {/if}
+                    </div>
+    <div class="blank10"></div>
+    <div class="abtn_box">
+        {if $zpinfo['is_show']==1}<a href="" class="a_btn toupiao vote" id="vote" data-itid="$zpinfo['id']">{lang hejin_toupiao:woyaotp}</a>{/if}
+        {if !$havezp && $vote['start_time']<time() && $vote['over_time']>time()}<a href="{HEJIN_URL}&model=signup&vid=$vote['id']" class="a_btn canjia">{lang hejin_toupiao:woyelcs}</a> {/if}       
+        <a href="{HEJIN_URL}&model={$symodel}&vid=$vote['id']" class="a_btn look">{lang hejin_toupiao:seemore}</a>
+        {if $hejintoupiao['hjtp_shareok']}<a href="" class="gz_btn a_btn fenxiang">{lang hejin_toupiao:sharelp}</a>{/if}
+    </div>
+</section>
+<section class="rules">
+    <div class="text">    
+    {if $vote['shuomingta']}
+        <div class="prize"><!--{eval echo stripslashes($vote['shuomingta']);}--></div>
+            <div class="neirong"><!--{eval echo replace($vote['shuomingca']);}--></div>
+    {/if}
+    {if $vote['shuomingtb']}
+        <div class="prize"><!--{eval echo stripslashes($vote['shuomingtb']);}--></div>
+             <div class="neirong"><!--{eval echo replace($vote['shuomingcb']);}--></div>
+    {/if}
+</div>
+    <div class="text">    {if $vote['shuomingtc']}
+        <div class="ways"><!--{eval echo stripslashes($vote['shuomingtc']);}--></div>
+            <div class="neirong"> <!--{eval echo replace($vote['shuomingcc']);}--></div>
+    {/if}
+</div>
+{if $hejintoupiao['hjtp_duoshuo']}
+<div class="text">   
+<!-- 多说评论框 start -->
+	<div class="ds-thread" style="padding:0 5px;" data-thread-key="{$zpinfo['id']}" data-title="{if $hejintoupiao['hjtp_numbtp']}$zpinfo['id']{else}<!--{eval echo $vote['id']*10000+$zpinfo['id'];}-->{/if}{lang hejin_toupiao:hao}<!--{eval echo strip_tags(stripslashes($zpinfo['zpname']));}-->" data-url="{HEJIN_URL}&model={$xqmodel}&zid={$zpinfo['id']}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"{$hejintoupiao['hjtp_dsid']}"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</div>
+{/if}
+<div style=" height:25px; width:100%; display:block;"></div>
+
+</section>
+<div class="bottom_khdxz" style="display:none">
+            <a href="" class="footer-logo deyi-logo"><br></a>
+        <a href="" class="footer-logo wft-logo"><br></a>
+        <span class="bottom_khdxz_close"><i>&nbsp;</i></span>
+    </div>
+<script type="text/javascript">
+    $(function(){
+        $(".close_detial_box").on('click',function(){
+                window.location.href = "{HEJIN_URL}&model={$symodel}&vid=$vote['id']";
+        });
+    });
+</script>
+<section>
+    <div class="pop" id="guanzhu" style="display:none">
+        <div class="mengceng"></div>
+        <div class="pop_up">
+                        <p class="tit_p">{$hejintoupiao['hjtp_ydgzbt']}</p>
+            <p class="tit_txt"><!--{eval echo stripslashes($vote['wxgzts']);}--></p>
+            <a href="<!--{eval echo stripslashes($vote['wxgzurl']);}-->" class="gz_btn">{$hejintoupiao['hjtp_ydgzan']}</a>
+                    </div>
+    </div>
+    <div class="pop" id="voted" style="display:none;">
+        <div class="mengceng"></div>
+        <div class="pop_up">
+            <span class="closed close_pop_up" id="toupiaook">&nbsp;</span>
+            <p class="tit_p" id="dia_title">{lang hejin_toupiao:toupiaotse}</p>
+            <p class="tit_txt" id="content">{lang hejin_toupiao:toupiaotsa}</p>
+            {if $hejintoupiao['hjtp_tpjl'] && $hejintoupiao['hjtp_tpjlnub']}<p class="tit_txt" id="content">$hejintoupiao['hjtp_tpjlsm']</p>{/if}
+            {if $hejintoupiao['hjtp_tpjl'] && $hejintoupiao['hjtp_tpjlnub'] && $vote['yuliud']}<a href="<!--{eval echo stripslashes($vote['yuliud']);}-->" class="gz_btn">$hejintoupiao['hjtp_jfxftitle']</a>{elseif $hejintoupiao['hjtp_tpjl'] && $hejintoupiao['hjtp_tpjlnub'] && $hejintoupiao['hjtp_jfxfurl']}<a href="<!--{eval echo stripslashes($hejintoupiao['hjtp_jfxfurl']);}-->" class="gz_btn">$hejintoupiao['hjtp_jfxftitle']</a>{/if}
+            <p class="tit_txt" id="subcontent"></p>
+        </div>
+    </div>
+    
+
+
+    
+    <div class="pop" id="voting" style="display:none;">
+        <div class="mengceng"></div>
+        <div class="pop_up">
+            <span class="closed close_pop_up">&nbsp;</span>
+            <p class="tit_p" id="voting_title"></p>
+            <p class="tit_txt" id="voting_content"></p>
+        </div>
+    </div>
+ {if $hejintoupiao['hjtp_tpyzm']}   
+    <div class="pop" id="validata" style="display:none;">
+        <div class="mengceng"></div>
+        <div class="pop_up" style="width:310px;">
+            <script src="http://api.geetest.com/get.php?gt={$hejintoupiao['hjtp_tpyzmid']}&width=280" type="text/javascript"></script>
+        </div>
+    </div>
+  {/if}  
+    <div class="share_overmask" style="display: none;">
+        <div class="share_arrow"></div>
+        <div class="share_words"></div>
+    </div>
+</section>
+
+<link rel="stylesheet" type="text/css" href="{HEJIN_PATH}public/index2/daohang.css">
+
+<div class="bot_main">
+  <ul>
+    <li class="ico_1"><span class="ico"><img src="{HEJIN_PATH}public/index2/i1.png" /></span><span class="txt">{lang hejin_toupiao:shouyea}</span></li>
+    <li class="ico_2"><span class="ico"><img src="{HEJIN_PATH}public/index2/i3.png" /></span><span class="txt">{lang hejin_toupiao:paiming}</span></li>
+    {if $havezp}
+    <li class="ico_3"><span class="ico"><img src="{HEJIN_PATH}public/index2/i11.png" /></span><span class="txt">{lang hejin_toupiao:wodezpa}</span></li>
+    {else}
+    	{if $vote['start_time']<time() && $vote['over_time']>time()}
+    <li class="ico_3"><span class="ico"><img src="{HEJIN_PATH}public/index2/i11.png" /></span><span class="txt">{lang hejin_toupiao:baoming}</span></li>
+        {/if}
+    {/if}
+    <li class="ico_4"><span class="ico"><img src="{HEJIN_PATH}public/index2/i4.png" /></span><span class="txt">$hejintoupiao['hjtp_dbdhti']</span></li>
+  </ul>
+</div>
+
+
+<script type="text/javascript">
+    $(function(){
+        $("#toupiaook").on('click',function(){
+                window.location.href = "{HEJIN_URL}&model={$xqmodel}&zid=$zpinfo['id']";
+        });
+    });
+$('.ico_1').on('click', function(){
+  location.href = "{HEJIN_URL}&model={$symodel}&vid=$vote['id']";
+});
+$('.ico_2').on('click', function(){
+  location.href = "{HEJIN_URL}&model={$phmodel}&vid=$vote['id']";
+});
+$('.ico_3').on('click', function(){
+  {if $havezp}
+  	location.href = "{HEJIN_URL}&model={$xqmodel}&zid=$zuopinhs['id']";
+  {else}
+  	{if $vote['start_time']<time() && $vote['over_time']>time()}
+  		location.href = "{HEJIN_URL}&model=signup&vid=$vote['id']";
+  	{else}
+  		{if $vote['start_time']>time()}
+						$('#voting_title').html("<!--{eval echo date('Y-m-d H:i',$vote['start_time']);}--> {lang hejin_toupiao:baomwksts}");
+						$('#voting_content').html('');
+                        $('#voting').show();
+  		{else}
+						$('#voting_title').html('{lang hejin_toupiao:baomyjs}');
+						$('#voting_content').html('');
+                        $('#voting').show();
+  		{/if}
+  	{/if}
+  {/if}
+});
+$('.ico_4').on('click', function(){
+	{if $vote['yuliud']}
+	location.href = "<!--{eval echo stripslashes($vote['yuliud']);}-->";
+	{else}
+	location.href = "$hejintoupiao['hjtp_dbdhurl']";
+	{/if}
+});
+</script>
+
+{if $hejintoupiao['hjtp_jssdk'] && $hejinbox['hjbox_appid'] && $hejinbox['hjbox_appsecret']}
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '{$signPackage["appId"]}', // 必填，公众号的唯一标识
+        timestamp: "{$signPackage[timestamp]}", // 必填，生成签名的时间戳
+        nonceStr: '{$signPackage["nonceStr"]}', // 必填，生成签名的随机串
+        signature: '{$signPackage["signature"]}',// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    wx.ready(function(){
+        wx.error(function(res){
+            console.log(res);
+        });
+        //朋友圈
+        wx.onMenuShareTimeline({
+            title: '{lang hejin_toupiao:woshi}<!--{eval echo strip_tags(stripslashes($zpinfo[zpname]));}-->{lang hejin_toupiao:zzcanjia}<!--{eval echo stripslashes($vote[title]);}-->{lang hejin_toupiao:qingwwtyp}', // 分享标题
+            link: '{HEJIN_URL}&model={$xqmodel}&zid=$zpinfo[id]', // 分享链接
+			{if strpos($zpinfo['pica'], '://')==false}
+            	imgUrl: '{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->', // 分享图标
+			{else}
+				imgUrl: '<!--{eval echo stripslashes($zpinfo['pica']);}-->', // 分享图标
+			{/if}
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+
+        //分享给朋友
+        wx.onMenuShareAppMessage({
+            title: '{lang hejin_toupiao:woshi}<!--{eval echo strip_tags(stripslashes($zpinfo[zpname]));}-->{lang hejin_toupiao:zzcanjia}<!--{eval echo stripslashes($vote[title]);}-->{lang hejin_toupiao:qingwwtyp}', // 分享标题
+            desc: '<!--{eval echo stripslashes($vote[content]);}-->', // 分享描述
+            link: '{HEJIN_URL}&model={$xqmodel}&zid=$zpinfo[id]', // 分享链接
+			{if strpos($zpinfo['pica'], '://')==false}
+            	imgUrl: '{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->', // 分享图标
+			{else}
+				imgUrl: '<!--{eval echo stripslashes($zpinfo['pica']);}-->', // 分享图标
+			{/if}
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    });
+</script>
+{/if}
+<script type="text/javascript">
+{if $hejintoupiao['hjtp_tpyzm']}
+
+function gt_custom_ajax(result, selector, message) {
+  if (result) {
+		$('#validata').hide();
+            $.ajax({
+                type: "GET",
+                url: "{HEJIN_URL}&model=ticket",
+                cache: false,
+                data: {
+                    zid:itid,
+					formhash:'{FORMHASH}'
+                },
+                success: function(data) {
+                    if (data == 102) {//未关注
+                        $('#guanzhu').show();
+                    } else if (data == 108) {//投票成功
+                        $('#voted').show();
+                    } else if (data == 106) {//此用户今日已无法投票
+						$('#voting_title').html('{lang hejin_toupiao:notoupiao}');
+						$('#voting_content').html('{if $hejintoupiao[hjtp_tpxzmos]==1}{lang hejin_toupiao:tpjihuica}{else}{lang hejin_toupiao:tpjihuicb}{/if}');
+                        $('#voting').show();
+                    } else if (data == 105) {//此IP下今日已无法投票
+						$('#voting_title').html('{lang hejin_toupiao:notoupiao}');
+						$('#voting_content').html('{lang hejin_toupiao:toupiaotsb}');
+                        $('#voting').show();
+                    } else if (data == 103) {//投票还未开始
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsc}');
+						$('#voting_content').html('{lang hejin_toupiao:toupiaotsg}<!--{eval echo date("Y-m-d H:i",$vote[vote_time]);}-->{lang hejin_toupiao:toupiaotsf}');
+                        $('#voting').show();
+                    } else if (data == 104) {//投票已经结束
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsh}');
+						$('#voting_content').html('');
+                        $('#voting').show();
+                    } else if (data == 107) {//投票已经结束
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsi}');
+						$('#voting_content').html('{lang hejin_toupiao:zpshorpb}');
+                        $('#voting').show();
+                    } else if (data == 110) {//ip不在限制区域中
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsi}');
+						$('#voting_content').html('{$hejintoupiao[hjtp_ipxzts]}');
+                        $('#voting').show();
+                    }else if (data == 109) {//投票已经结束
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsi}');
+						$('#voting_content').html('{$hejintoupiao[hjtp_tpxzts]}');
+                        $('#voting').show();
+                    }else if (data == 120) {//报名期间达到投票限制数
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsi}');
+						$('#voting_content').html('{lang hejin_toupiao:bmqjxza}{$vote[yuliub]}{lang hejin_toupiao:bmqjxzb}<!--{eval echo date("m-d H:i",$vote[over_time]);}-->{lang hejin_toupiao:bmqjxzc}');
+                        $('#voting').show();
+                    }else if (data == 888) {//编号投票
+						$('#voting_title').html('{lang hejin_toupiao:bhtpbfa}' + itid + '{lang hejin_toupiao:bhtpbfb}');
+						$('#voting_content').html('<a href="<!--{eval echo stripslashes($vote[wxgzurl]);}-->" class="gz_btn">{lang hejin_toupiao:bhtpbfc}</a>');
+                        $('#voting').show();
+                    }
+                }
+            });
+	}else{
+		if(message == "Fail") {
+		}
+		if(message == "Abuse" || message == "Forbidden") {
+		}
+  	}
+  	$('.gt_refresh_button')[0].click(); 
+}
+var itid;
+    $(function(){
+        $('.vote').on('tap', function(e){
+            e.preventDefault();
+            var self = $(e.target).closest('.vote');
+			itid = self.data('itid');
+			$('#validata').show();
+        });
+
+        var container = $('#pageCon ul');
+
+        container.imagesLoaded(function(){
+            container.masonry({
+                itemSelector: '.picCon'
+            });
+        });
+    });
+{else}
+    $(function(){
+        $('.vote').on('tap', function(e){
+			$('#voting_content').html('{lang hejin_toupiao:tpjxzts}');
+			$('#voting').show();
+            e.preventDefault();
+            var self = $(e.target).closest('.vote');
+            $.ajax({
+                type: "GET",
+                url: "{HEJIN_URL}&model=ticket",
+                cache: false,
+                data: {
+                    zid:self.data('itid'),
+					formhash:'{FORMHASH}'
+					
+                },
+                success: function(data) {
+					$('#voting').hide();
+                    if (data == 102) {//未关注
+                        $('#guanzhu').show();
+                    } else if (data == 108) {//投票成功
+                        $('#voted').show();
+                    } else if (data == 106) {//此用户今日已无法投票
+						$('#voting_title').html('{lang hejin_toupiao:notoupiao}');
+						$('#voting_content').html('{if $hejintoupiao[hjtp_tpxzmos]==1}{lang hejin_toupiao:tpjihuica}{else}{lang hejin_toupiao:tpjihuicb}{/if}');
+                        $('#voting').show();
+                    } else if (data == 105) {//此IP下今日已无法投票
+						$('#voting_title').html('{lang hejin_toupiao:notoupiao}');
+						$('#voting_content').html('{lang hejin_toupiao:toupiaotsb}');
+                        $('#voting').show();
+                    } else if (data == 103) {//投票还未开始
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsc}');
+						$('#voting_content').html('{lang hejin_toupiao:toupiaotsg}<!--{eval echo date("Y-m-d H:i",$vote[vote_time]);}-->{lang hejin_toupiao:toupiaotsf}');
+                        $('#voting').show();
+                    } else if (data == 104) {//投票已经结束
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsh}');
+						$('#voting_content').html('');
+                        $('#voting').show();
+                    } else if (data == 107) {//投票已经结束
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsi}');
+						$('#voting_content').html('{lang hejin_toupiao:zpshorpb}');
+                        $('#voting').show();
+                    } else if (data == 110) {//ip不在限制区域中
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsi}');
+						$('#voting_content').html('{$hejintoupiao[hjtp_ipxzts]}');
+                        $('#voting').show();
+                    }else if (data == 109) {//投票已经结束
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsi}');
+						$('#voting_content').html('{$hejintoupiao[hjtp_tpxzts]}');
+                        $('#voting').show();
+                    }else if (data == 120) {//报名期间达到投票限制数
+						$('#voting_title').html('{lang hejin_toupiao:toupiaotsi}');
+						$('#voting_content').html('{lang hejin_toupiao:bmqjxza}{$vote[yuliub]}{lang hejin_toupiao:bmqjxzb}<!--{eval echo date("m-d H:i",$vote[over_time]);}-->{lang hejin_toupiao:bmqjxzc}');
+                        $('#voting').show();
+                    }else if (data == 888) {//编号投票
+						$('#voting_title').html('{lang hejin_toupiao:bhtpbfa}' + self.data('itid') + '{lang hejin_toupiao:bhtpbfb}');
+						$('#voting_content').html('<a href="<!--{eval echo stripslashes($vote[wxgzurl]);}-->" class="gz_btn">{lang hejin_toupiao:bhtpbfc}</a>');
+                        $('#voting').show();
+                    }
+                }
+            });
+        });
+
+        var container = $('#pageCon ul');
+
+        container.imagesLoaded(function(){
+            container.masonry({
+                itemSelector: '.picCon'
+            });
+        });
+    });
+{/if}
+
+    $(window).on('unload pageshow', function () {});
+	$.get('{HEJIN_URL}&model=clicks&vid=$vote[id]&zid=$zpinfo[id]&formhash={FORMHASH}');
+</script>
+{if $hejintoupiao['hjtp_detailhd']}
+{if $ispicarr}
+  <script type="text/javascript" src="{HEJIN_PATH}public/slider/yxMobileSlider.js"></script>
+<script type="text/javascript">
+	$(".slider").yxMobileSlider({during:5000,height:{$hejintoupiao['hjtp_hdgd']}});
+	var nowtime=new Date().getTime();
+	function _fresh(){
+		var endtime=new Date("2015/02/18 12:00:00");//这里设置的时间为2011年，您可以修改为其它时间。
+		//var nowtime = new Date();
+		var leftsecond=parseInt((endtime.getTime()-nowtime)/1000);
+		if(leftsecond<0){leftsecond=0;}
+			__d=parseInt(leftsecond/3600/24);
+			__h=parseInt((leftsecond/3600)%24);
+			__m=parseInt((leftsecond/60)%60);
+			__s=parseInt(leftsecond%60);
+		var sums=__d+__h+__m+__s;
+		var if_Receive="";
+		if(sums!=0){
+			var d=document.getElementById("_d");
+			var h=document.getElementById("_h");
+			var m=document.getElementById("_m");
+			var s=document.getElementById("_s");
+			h.innerHTML=__h+__d*24;
+			m.innerHTML=__m;
+			s.innerHTML=__s;
+		nowtime=nowtime+1000;
+		setTimeout(_fresh,1000);
+		}else if(!if_Receive){
+			document.getElementById("msg").innerHTML="";
+		}
+	}
+	_fresh();
+</script>
+{/if}  
+{/if}
+<div style="display:none">$hejintoupiao['hjtp_dsftjdm']</div></body>
+</html>

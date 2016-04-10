@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=$charset">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>{lang hejin_toupiao:woshi}<!--{eval echo strip_tags(stripslashes($zpinfo['zpname']));}-->{lang hejin_toupiao:zzcanjia}<!--{eval echo stripslashes($vote['title']);}--></title>
+<link rel="stylesheet" type="text/css" href="{HEJIN_PATH}public/index2/index.css">
+<script type="text/javascript" src="{HEJIN_PATH}public/index2/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/index2/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/index2/layer.min.js"></script>
+
+<style>
+.pop {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.mengceng {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+.pop_up {
+    display: block;
+    width: 90%;
+    margin: auto;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    box-sizing: border-box;
+    top: 30%;
+    padding: 15px 10px;
+    background-color: #FF756B;
+    border-radius: 5px;
+    text-align: center;
+    color: #FFF;
+    font-size: 16px;
+}
+</style>
+<script language="javascript">
+{if $hejintoupiao['hjtp_tpyzm']}
+var suid;
+var snber;
+var suname;
+function VoteCk(uid,nber,uname){
+	 suid = uid;
+	 snber = nber;
+	 suname = uname;
+	$('#validata').show();
+}
+function gt_custom_ajax(result, selector, message) {
+  if (result) {
+		$('#validata').hide();
+            $.ajax({
+                type: "GET",
+                url: "{HEJIN_URL}&model=ticket",
+                cache: false,
+                data: {
+                    zid:suid,
+					formhash:'{FORMHASH}'
+                },
+                success: function(data) {
+    if(data == 107){
+      VoteEorr("{lang hejin_toupiao:zpshorpb}");
+    }else if(data == 110){
+      VoteEorr("{$hejintoupiao[hjtp_ipxzts]}");
+    }else if(data == 120){
+      VoteEorr("{lang hejin_toupiao:bmqjxza}{$vote[yuliub]}{lang hejin_toupiao:bmqjxzb}<!--{eval echo date('m-d H:i',$vote[over_time]);}-->{lang hejin_toupiao:bmqjxzc}");
+    }else if(data == 109){
+      VoteEorr("{$hejintoupiao[hjtp_tpxzts]}");
+    }else if(data == 106){
+      VoteEorr("{if $hejintoupiao[hjtp_tpxzmos]==1}{lang hejin_toupiao:tpjihuica}{else}{lang hejin_toupiao:tpjihuicb}{/if}");
+    }else if(data == 105){
+      VoteEorr("{lang hejin_toupiao:toupiaotsb}");
+    }else if(data == 102){//未关注
+      Votegz();
+    }else if(data == 103){//投票还未开始
+      VoteEorr("{lang hejin_toupiao:toupiaotsg}<!--{eval echo date('Y-m-d H:i',$vote[vote_time]);}-->{lang hejin_toupiao:toupiaotsf}");
+    }else if(data == 104){//投票已经结束
+      VoteEorr("{lang hejin_toupiao:toupiaotsh}");
+    }else if(data==108){
+      VoteOK("{lang hejin_toupiao:ninyw} "+snber+"{lang hejin_toupiao:hao}"+suname+" {lang hejin_toupiao:touslyp}");
+    }else if(data==888){
+      VoteBH("{lang hejin_toupiao:bhtpbfa}"+suid+"{lang hejin_toupiao:bhtpbfb}");
+    }
+                }
+            });
+	}else{
+		if(message == "Fail") {
+		}
+		if(message == "Abuse" || message == "Forbidden") {
+		}
+  	}
+  	$('.gt_refresh_button')[0].click(); 
+}
+
+{else}
+
+function VoteCk(uid,nber,uname){
+  VoteWait("{lang hejin_toupiao:zzfxtpsj}");
+  $.get("{HEJIN_URL}&model=ticket", { zid: uid,formhash:'{FORMHASH}'},
+  function(data){
+    if(data == 107){
+      VoteEorr("{lang hejin_toupiao:zpshorpb}");
+    }else if(data == 110){
+      VoteEorr("{$hejintoupiao[hjtp_ipxzts]}");
+    }else if(data == 120){
+      VoteEorr("{lang hejin_toupiao:bmqjxza}{$vote[yuliub]}{lang hejin_toupiao:bmqjxzb}<!--{eval echo date('m-d H:i',$vote[over_time]);}-->{lang hejin_toupiao:bmqjxzc}");
+    }else if(data == 109){
+      VoteEorr("{$hejintoupiao[hjtp_tpxzts]}");
+    }else if(data == 106){
+      VoteEorr("{if $hejintoupiao[hjtp_tpxzmos]==1}{lang hejin_toupiao:tpjihuica}{else}{lang hejin_toupiao:tpjihuicb}{/if}");
+    }else if(data == 105){
+      VoteEorr("{lang hejin_toupiao:toupiaotsb}");
+    }else if(data == 102){//未关注
+      Votegz();
+    }else if(data == 103){//投票还未开始
+      VoteEorr("{lang hejin_toupiao:toupiaotsg}<!--{eval echo date('Y-m-d H:i',$vote[vote_time]);}-->{lang hejin_toupiao:toupiaotsf}");
+    }else if(data == 104){//投票已经结束
+      VoteEorr("{lang hejin_toupiao:toupiaotsh}");
+    }else if(data==108){
+      VoteOK("{lang hejin_toupiao:ninyw} "+nber+"{lang hejin_toupiao:hao}"+uname+" {lang hejin_toupiao:touslyp}");
+    }else if(data==888){
+      VoteBH("{lang hejin_toupiao:bhtpbfa}"+uid+"{lang hejin_toupiao:bhtpbfb}");
+    }
+  });
+}
+
+
+{/if}
+
+$(document).ready(function(){
+  $("#lapiao_msg").slideDown("slow");
+  $('#lapiao_msg').delay(4000).slideUp("slow");
+});
+</script>
+  <style>
+.slider{display:none;}
+.focus span{width:5px;height:5px;margin-left:5px;border-radius:50%;background:#CDCDCD;font-size:0}
+.focus span.current{background:red;}
+</style>
+
+</head>
+<body>
+{if $zpinfo['pica']}
+                        	{if strpos($zpinfo['pica'], '://')==false}
+                            	<img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->"  alt="shareImg" width="0px" height="0px">
+                            {else}
+                            	<img src="<!--{eval echo stripslashes($zpinfo['pica']);}-->" alt="shareImg" width="0px" height="0px">
+                            {/if}
+                        {/if}
+
+
+<div style="display:none"><form action="" id="search_form" method="post">
+    	<input type="hidden" name="formhash" value="{FORMHASH}" />
+    	<input type="hidden" name="vid" value="$vote['id']" />
+     <div class="li_ipt"><input name="keyword" id="so_name" type="text" class="input_text" value="{lang hejin_toupiao:seachtsa}" onfocus="if(value=='{lang hejin_toupiao:seachtsa}') {this.value=''; this.style.color='#c2c2c2'}" onblur="if(value=='') {this.value='{lang hejin_toupiao:seachtsa}';this.style.color='#6e6175'}" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')" /></div>
+      <div class="li_btn"><button class="btn" name="seachid" onclick="SoVote();">{lang hejin_toupiao:search}</button>
+      
+      <div style="display:none"><input type="submit" class="btn" name="seachid" value="{lang hejin_toupiao:search}"></div></div>
+    </form></div>
+
+<div class="mains">
+
+  <div class="head_main">
+    	{if $ispicarr}
+        <div class="slider">
+		<ul>
+        <!--{loop $picarray $picar}-->
+        	<!--{eval $urlpic = explode('|',$picar)}-->
+            {if count($urlpic)>1}
+            	<li><a href="$urlpic[1]"><img src="$urlpic[0]"/></a></li>
+            {else}
+	    					<li><a href="#"><img src="$picar"/></a></li>
+            {/if}            
+        <!--{/loop}-->
+				  	</ul>
+		</div>
+        {else}
+    <ul>
+      <li><img src="<!--{eval echo stripslashes($vote['pic']);}-->" /></li>
+    </ul>
+        {/if}
+  </div>
+  
+  <div class="view_main">
+    <div class="view_div">
+      <div class="tit">
+        <ul class="basic">
+          <li class="uname">{if !$zpinfo['is_show']}{lang hejin_toupiao:shenhezhong}{/if}&nbsp;{if $hejintoupiao['hjtp_numbtp']}$zpinfo['id']{else}<!--{eval echo $vote['id']*10000+$zpinfo['id'];}-->{/if}{lang hejin_toupiao:hao}{lang hejin_toupiao:maohao} <!--{eval echo strip_tags(stripslashes($zpinfo['zpname']));}--></li>
+        </ul>
+        <ul class="basic">
+          <li class="uname">{if $hejintoupiao['hjtp_qxgzjp']}{lang hejin_toupiao:piaoshuc}{$zpinfo['toupiaos']}{if $zpinfo['yuliua']>$zpinfo['toupiaos']}&nbsp;&nbsp;{lang hejin_toupiao:piaoshud}<!--{eval echo $zpinfo['yuliua']-$zpinfo['toupiaos'];}-->{/if}{else}{lang hejin_toupiao:piaoshua}{$zpinfo['toupiaos']}{/if}</li>
+        </ul>
+        {if $hejintoupiao['hjtp_detailno']}
+         <ul class="basic">
+          <li class="uname">{lang hejin_toupiao:paiminga}{$zpnumber}{if $zpnumber!=1}&nbsp;&nbsp;&nbsp;&nbsp;{lang hejin_toupiao:paimingb}{$xiangcps}{lang hejin_toupiao:paimingc}{/if}</li>
+        </ul>
+        {/if}
+               <ul class="ganyan">
+          <li class="txt"><span>{if $vote['zpmsdiy']}<!--{eval echo stripslashes($vote['zpmsdiy']);}-->{else}{lang hejin_toupiao:miaoshu}{/if}{lang hejin_toupiao:maohao}</span><!--{eval echo strip_tags(stripslashes($zpinfo['content']));}--></li>
+        </ul>
+      </div>
+      <div class="pic">
+        <ul>
+        				{if $zpinfo['pica']}
+                        	 {if strpos($zpinfo['pica'], '://')==false}
+                             	<li><img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->" alt=""></li>
+                             {else}
+                             	<li><img src="<!--{eval echo stripslashes($zpinfo['pica']);}-->" alt=""></li>
+                             {/if}
+                        {/if}
+        				{if $zpinfo['picb']}
+                        	 {if strpos($zpinfo['picb'], '://')==false}
+                             	<li><img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picb']);}-->" alt=""></li>
+                             {else}
+                             	<li><img src="<!--{eval echo stripslashes($zpinfo['picb']);}-->" alt=""></li>
+                             {/if}
+                        {/if}
+        				{if $zpinfo['picc']}
+                        	 {if strpos($zpinfo['picc'], '://')==false}
+                             	<li><img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picc']);}-->" alt=""></li>
+                             {else}
+                             	<li><img src="<!--{eval echo stripslashes($zpinfo['picc']);}-->" alt=""></li>
+                             {/if}
+                        {/if}
+        				{if $zpinfo['picd']}
+                        	 {if strpos($zpinfo['picd'], '://')==false}
+                             	<li><img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['picd']);}-->" alt=""></li>
+                             {else}
+                             	<li><img src="<!--{eval echo stripslashes($zpinfo['picd']);}-->" alt=""></li>
+                             {/if}
+                        {/if}
+        				{if $zpinfo['pice']}
+                        	 {if strpos($zpinfo['pice'], '://')==false}
+                             	<li><img src="{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pice']);}-->" alt=""></li>
+                             {else}
+                             	<li><img src="<!--{eval echo stripslashes($zpinfo['pice']);}-->" alt=""></li>
+                             {/if}
+                        {/if}
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="share_main_fg">
+    <div class="share_main">
+      {if $zpinfo['is_show']==1}<div class="share"><a href="javascript:" onclick="VoteCk($zpinfo['id'],'<!--{eval echo $vote['id']*10000+$zpinfo['id'];}-->','<!--{eval echo strip_tags(stripslashes($zpinfo['zpname']));}-->');">{lang hejin_toupiao:gwotp}</a></div>{/if}
+      <div class="vote">{lang hejin_toupiao:seemore}</div>
+    </div>
+  </div>
+{if $zpinfo['yuliuc']} 
+<div class="bm_main">  
+    <div class="bm_txt">
+    <!--{eval echo stripslashes($zpinfo['yuliuc']);}-->
+    </div>
+</div>
+{/if}
+
+<div class="bm_main">  
+    <div class="bm_txt">
+    <!--{eval echo stripslashes($vote['shuomingca']);}-->
+    </div>
+</div>
+<div class="bm_main_1">  
+    <div class="award_main">
+    <!--{eval echo stripslashes($vote['shuomingcb']);}-->
+    </div>
+</div>
+</div>
+
+<div class="main_bt_1">
+
+  
+  
+  <div class="pull_bt_1">
+  
+    <!--{eval echo stripslashes($vote['shuomingcc']);}-->
+
+    </div>
+  
+</div>
+{if $hejintoupiao['hjtp_lmwenzi'] && $hejintoupiao['hjtp_lmurl']}
+<div class="lapiao_msg" id="lapiao_msg"><a href="{$hejintoupiao['hjtp_lmurl']}">{$hejintoupiao['hjtp_lmwenzi']}</a></div>
+{/if}
+
+<div class="bot_main">
+  <ul>
+    <li class="ico_1"><span class="ico"><img src="{HEJIN_PATH}public/index2/i1.png" /></span><span class="txt">{lang hejin_toupiao:shouyea}</span></li>
+    <li class="ico_2"><span class="ico"><img src="{HEJIN_PATH}public/index2/i3.png" /></span><span class="txt">{lang hejin_toupiao:paiming}</span></li>
+    {if $havezp}
+    <li class="ico_3"><span class="ico"><img src="{HEJIN_PATH}public/index2/i11.png" /></span><span class="txt">{lang hejin_toupiao:wodezpa}</span></li>
+    {else}
+    	{if $vote['start_time']<time() && $vote['over_time']>time()}
+    <li class="ico_3"><span class="ico"><img src="{HEJIN_PATH}public/index2/i11.png" /></span><span class="txt">{lang hejin_toupiao:baoming}</span></li>
+    	{/if}
+    {/if}
+    <li class="ico_4"><span class="ico"><img src="{HEJIN_PATH}public/index2/i2.png" /></span><span class="txt">{lang hejin_toupiao:search}</span></li>
+  </ul>
+</div>
+
+{if $hejintoupiao['hjtp_tpyzm']}
+
+    <div class="pop" id="validata" style="display:none;">
+        <div class="mengceng"></div>
+        <div class="pop_up" style="width:310px;">
+            <script src="http://api.geetest.com/get.php?gt={$hejintoupiao['hjtp_tpyzmid']}&width=280" type="text/javascript"></script>
+        </div>
+    </div>
+    
+{/if}
+
+
+{if $hejintoupiao['hjtp_jssdk'] && $hejinbox['hjbox_appid'] && $hejinbox['hjbox_appsecret']}
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+wx.config({
+   debug: false,
+   appId: "{$signPackage['appId']}",
+   timestamp: "{$signPackage['timestamp']}",
+   nonceStr: "{$signPackage['nonceStr']}",
+   signature: "{$signPackage['signature']}",
+   jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+});
+
+wx.ready(function(){
+  wx.error(function(res){
+    console.log(res);
+  });
+  //朋友圈
+  wx.onMenuShareTimeline({
+     title: '{lang hejin_toupiao:woshi}<!--{eval echo strip_tags(stripslashes($zpinfo[zpname]));}-->{lang hejin_toupiao:zzcanjia}<!--{eval echo stripslashes($vote[title]);}-->{lang hejin_toupiao:qingwwtyp}',
+     link: "{HEJIN_URL}&model={$xqmodel}&zid=$zpinfo[id]",
+			{if strpos($zpinfo['pica'], '://')==false}
+            	imgUrl: '{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->', // 分享图标
+			{else}
+				imgUrl: '<!--{eval echo stripslashes($zpinfo['pica']);}-->', // 分享图标
+			{/if}
+     success: function () {
+     },
+     cancel: function () {
+     }
+  });
+
+  //分享给朋友
+ wx.onMenuShareAppMessage({
+     title: '{lang hejin_toupiao:woshi}<!--{eval echo strip_tags(stripslashes($zpinfo[zpname]));}-->{lang hejin_toupiao:zzcanjia}<!--{eval echo stripslashes($vote[title]);}-->{lang hejin_toupiao:qingwwtyp}',
+     desc: '<!--{eval echo stripslashes($vote[content]);}-->',
+     link: "{HEJIN_URL}&model={$xqmodel}&zid=$zpinfo[id]",
+			{if strpos($zpinfo['pica'], '://')==false}
+            	imgUrl: '{HEJIN_PATH}<!--{eval echo stripslashes($zpinfo['pica']);}-->', // 分享图标
+			{else}
+				imgUrl: '<!--{eval echo stripslashes($zpinfo['pica']);}-->', // 分享图标
+			{/if}
+     type: '',
+     dataUrl: '',
+     success: function () {
+     },
+     cancel: function () {
+     }
+  });
+});
+</script>
+{/if}
+<script language="javascript">
+$(function(){
+  var container = $('#pageCon ul');
+  container.imagesLoaded(function(){
+    container.masonry({
+      itemSelector: '.picCon'
+    });
+  });
+});
+
+$('.ico_1').on('click', function(){
+  location.href = "{HEJIN_URL}&model={$symodel}&vid=$vote['id']";
+});
+$('.ico_2').on('click', function(){
+  location.href = "{HEJIN_URL}&model={$phmodel}&vid=$vote['id']";
+});
+$('.ico_3').on('click', function(){
+  {if $havezp}
+  	location.href = "{HEJIN_URL}&model={$xqmodel}&zid=$zuopinhs['id']";
+  {else}
+  	{if $vote['start_time']<time() && $vote['over_time']>time()}
+  		location.href = "{HEJIN_URL}&model=signup&vid=$vote['id']";
+  	{else}
+  		{if $vote['start_time']>time()}
+  			VoteEorr("<!--{eval echo date('Y-m-d H:i',$vote['start_time']);}--> {lang hejin_toupiao:baomwksts}");
+  		{else}
+  			VoteEorr("{lang hejin_toupiao:baomyjs}");
+  		{/if}
+  	{/if}
+  {/if}
+});
+
+$('.ico_4').on('click', function(){
+  pageL = $.layer({
+    type: 2,
+    fadeIn: 400,
+	shift: 'top',
+    border: [0],
+	bgcolor: '',
+    offset: ['0px', ''],
+	title: false,
+    closeBtn: false,
+	maxmin: false,
+    shadeClose: true, //开启点击遮罩关闭层
+    iframe: {src : '{HEJIN_URL}&model=search&vid=$vote[id]'},
+    area: ['100%' , '95px'],
+  });
+});
+
+$('.vote').on('click', function(){
+  location.href = "{HEJIN_URL}&model={$symodel}&vid=$vote['id']";
+});
+
+
+function Votegz(){
+  waitclose = $.layer({
+    type: 1,
+    fadeIn: 200,
+    border: [0],
+    bgcolor: '',
+    title: false,
+    closeBtn: false,
+    shadeClose: false,
+    maxmin: false,
+    area: ['100%', '190px'],
+    page: {html: '<div class="point_msg"><div class="point_tit">{$hejintoupiao['hjtp_ydgzbt']}</div><div class="point_txt"><!--{eval echo stripslashes($vote["wxgzts"]);}--></div><div class="point_btn"><a href="<!--{eval echo stripslashes($vote["wxgzurl"]);}-->">{$hejintoupiao['hjtp_ydgzan']}</a></div></div>'}
+  });
+}
+
+function VoteWait(txt){
+  waitclose = $.layer({
+    type: 1,
+    border: [0],
+    bgcolor: '',
+    title: false,
+    closeBtn: false,
+    shadeClose: false,
+    maxmin: false,
+    area: ['85%', '80px'],
+    page: {html: '<div class="vote_eorr_msg">'+txt+'</div>'}
+  });
+}
+
+function VoteEorr(txt){
+  $.layer({
+    type: 1,
+    border: [0],
+    bgcolor: '',
+    title: false,
+    shadeClose: true,
+    maxmin: false,
+    area: ['85%', '80px'],
+    page: {html: '<div class="vote_eorr_msg">'+txt+'</div>'}
+  });
+	layer.close(waitclose);
+}
+
+function VoteOK(txt){
+  $.layer({
+    type: 1,
+    border: [0],
+    bgcolor: '',
+    title: false,
+    shadeClose: true,
+    maxmin: false,
+    area: ['85%', '80px'],
+    page: {html: '<div class="point_msgcg"><div class="point_titcg">'+txt+'</div>{if $hejintoupiao["hjtp_tpjl"] && $hejintoupiao["hjtp_tpjlnub"]}<div class="point_txtcg">{$hejintoupiao["hjtp_tpjlsm"]}</div>{/if}{if $hejintoupiao["hjtp_tpjl"] && $hejintoupiao["hjtp_tpjlnub"] && $vote["yuliud"]}<div class="point_btn"><a href="<!--{eval echo stripslashes($vote["yuliud"]);}-->">{$hejintoupiao["hjtp_jfxftitle"]}</a></div>{elseif $hejintoupiao["hjtp_tpjl"] && $hejintoupiao["hjtp_tpjlnub"] && $hejintoupiao["hjtp_jfxfurl"]}<div class="point_btn"><a href="<!--{eval echo stripslashes($hejintoupiao["hjtp_jfxfurl"]);}-->">{$hejintoupiao["hjtp_jfxftitle"]}</a></div>{/if}</div>'}
+  });
+	layer.close(waitclose);
+}
+
+function VoteBH(txt){
+  $.layer({
+    type: 1,
+    border: [0],
+    bgcolor: '',
+    title: false,
+    shadeClose: true,
+    maxmin: false,
+    area: ['85%', '80px'],
+    page: {html: '<div class="point_msgcg"><div class="point_titcg">'+txt+'</div><div class="point_btn"><a href="<!--{eval echo stripslashes($vote[wxgzurl]);}-->">{lang hejin_toupiao:bhtpbfc}</a></div></div>'}
+  });
+	layer.close(waitclose);
+}
+
+
+function SoVote(){
+	$("input[name='seachid']").click();
+}
+function sSoVote(soname){
+  $("#so_name").val(soname);
+  $("input[name='seachid']").click();
+}
+$.get('{HEJIN_URL}&model=clicks&vid=$vote[id]&zid=$zpinfo[id]&formhash={FORMHASH}');
+</script>
+{if $ispicarr}
+  <script type="text/javascript" src="{HEJIN_PATH}public/slider/yxMobileSlider.js"></script>
+<script type="text/javascript">
+	$(".slider").yxMobileSlider({during:5000,height:{$hejintoupiao['hjtp_hdgd']}});
+	var nowtime=new Date().getTime();
+	function _fresh(){
+		var endtime=new Date("2015/02/18 12:00:00");//这里设置的时间为2011年，您可以修改为其它时间。
+		//var nowtime = new Date();
+		var leftsecond=parseInt((endtime.getTime()-nowtime)/1000);
+		if(leftsecond<0){leftsecond=0;}
+			__d=parseInt(leftsecond/3600/24);
+			__h=parseInt((leftsecond/3600)%24);
+			__m=parseInt((leftsecond/60)%60);
+			__s=parseInt(leftsecond%60);
+		var sums=__d+__h+__m+__s;
+		var if_Receive="";
+		if(sums!=0){
+			var d=document.getElementById("_d");
+			var h=document.getElementById("_h");
+			var m=document.getElementById("_m");
+			var s=document.getElementById("_s");
+			h.innerHTML=__h+__d*24;
+			m.innerHTML=__m;
+			s.innerHTML=__s;
+		nowtime=nowtime+1000;
+		setTimeout(_fresh,1000);
+		}else if(!if_Receive){
+			document.getElementById("msg").innerHTML="";
+		}
+	}
+	_fresh();
+</script>
+{/if}  
+
+<div style="display:none">$hejintoupiao['hjtp_dsftjdm']</div>
+</body>
+</html>

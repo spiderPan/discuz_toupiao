@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=$charset">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>{lang hejin_toupiao:search}</title>
+<link rel="stylesheet" type="text/css" href="{HEJIN_PATH}public/index2/search.css">
+<script type="text/javascript" src="{HEJIN_PATH}public/index2/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/index2/layer.min.js"></script>
+<script language="javascript">
+function aSoVote(){
+  var soname = document.getElementById("soname").value;
+  var index = parent.layer.getFrameIndex(window.name);
+  parent.sSoVote(soname);
+  parent.layer.close(index); //执行关闭
+}
+
+</script>
+</head>
+<body>
+<div class="main">
+  <div class="so_main">
+    <div class="li_ipt"><input name="keyword" id="soname" type="text" class="input_text" value="{lang hejin_toupiao:seachtsa}" onfocus="if(value=='{lang hejin_toupiao:seachtsa}') {this.value=''; this.style.color='#333'}" onblur="if(value=='') {this.value='{lang hejin_toupiao:seachtsa}';this.style.color='#c2c2c2'}" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')" /></div>
+    <div class="li_btn"><button class="btn" onclick="aSoVote();">{lang hejin_toupiao:search}</button></div>
+  </div>
+</div>
+</body>
+</html>

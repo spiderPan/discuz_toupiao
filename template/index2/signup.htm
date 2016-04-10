@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=$charset">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title><!--{eval echo stripslashes($vote['title']);}--></title>
+<link rel="stylesheet" href="{HEJIN_PATH}public/index1/touch.css">   
+
+<script type="text/javascript" src="{HEJIN_PATH}public/index/jquery.masonry.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{HEJIN_PATH}public/index2/syntax.css">
+<link rel="stylesheet" type="text/css" href="{HEJIN_PATH}public/index2/index.css">
+<link rel="stylesheet" type="text/css" href="{HEJIN_PATH}public/index2/webuploader.css">
+<script type="text/javascript" src="{HEJIN_PATH}public/index2/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/index2/layer.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}js/exif.js"></script>
+    <script type="text/javascript" src="{HEJIN_PATH}js/binaryajax.js"></script>
+    <script type="text/vbscript">
+    Function IEBinary_getByteAt(strBinary, iOffset)
+        IEBinary_getByteAt = AscB(MidB(strBinary, iOffset + 1, 1))
+    End Function
+    Function IEBinary_getBytesAt(strBinary, iOffset, iLength)
+      Dim aBytes()
+      ReDim aBytes(iLength - 1)
+      For i = 0 To iLength - 1
+       aBytes(i) = IEBinary_getByteAt(strBinary, iOffset + i)
+      Next
+      IEBinary_getBytesAt = aBytes
+    End Function
+    Function IEBinary_getLength(strBinary)
+        IEBinary_getLength = LenB(strBinary)
+    End Function
+    </script>
+<script type="text/javascript" src="{HEJIN_PATH}js/localResizeIMG2.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}js/mobileBUGFix.mini.js"></script>
+  <style>
+.slider{display:none;}
+.focus span{width:5px;height:5px;margin-left:5px;border-radius:50%;background:#CDCDCD;font-size:0}
+.focus span.current{background:red;}
+</style>
+
+</head>
+<body>
+<div style="display:none"><form action="" id="search_form" method="post">
+    	<input type="hidden" name="formhash" value="{FORMHASH}" />
+    	<input type="hidden" name="vid" value="$vote['id']" />
+     <div class="li_ipt"><input name="keyword" id="so_name" type="text" class="input_text" value="{lang hejin_toupiao:seachtsa}" onfocus="if(value=='{lang hejin_toupiao:seachtsa}') {this.value=''; this.style.color='#c2c2c2'}" onblur="if(value=='') {this.value='{lang hejin_toupiao:seachtsa}';this.style.color='#6e6175'}" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')" /></div>
+      <div class="li_btn"><button class="btn" name="seachid" onclick="SoVote();">{lang hejin_toupiao:search}</button>
+      
+      <div style="display:none"><input type="submit" class="btn" name="seachid" value="{lang hejin_toupiao:search}"></div></div>
+    </form></div>
+
+<div class="main">
+
+  <div class="head_main">
+    	{if $ispicarr}
+        <div class="slider">
+		<ul>
+        <!--{loop $picarray $picar}-->
+        	<!--{eval $urlpic = explode('|',$picar)}-->
+            {if count($urlpic)>1}
+            	<li><a href="$urlpic[1]"><img src="$urlpic[0]"/></a></li>
+            {else}
+	    					<li><a href="#"><img src="$picar"/></a></li>
+            {/if}            
+        <!--{/loop}-->
+				  	</ul>
+		</div>
+        {else}
+    <ul>
+      <li><img src="<!--{eval echo stripslashes($vote['pic']);}-->" /></li>
+    </ul>
+        {/if}
+  </div>
+  
+  <div class="bm_main">
+    <div class="bm_txt">
+    <!--{eval echo stripslashes($vote['shuomingca']);}-->
+    </div>
+
+    
+  </div>
+          <form action="" id="signupok" method="post">
+         <input type="hidden" name="formhash" value="{FORMHASH}" />
+         <input type="hidden" name="vid" value="$vid" />
+
+  <div class="form_main">
+  
+    <div class="con">
+      <ul>
+        <li class="txt">{if $vote['zpnamediy']}<!--{eval echo stripslashes($vote['zpnamediy']);}-->{else}{lang hejin_toupiao:xingming}{/if}{lang hejin_toupiao:maohao}</li>
+        <li class="ipt"><input name="zpname" id="zpname" type="text" class="ipt_text" maxlength="12" /></li>
+        
+      </ul>
+      <ul>
+        <li class="txt">{lang hejin_toupiao:lianxidh}{lang hejin_toupiao:maohao}</li>
+        <li class="ipt"><input name="telphone" id="telphone" type="tel" class="ipt_text" maxlength="11" /></li>
+        
+      </ul>
+      <ul>
+        <li class="txt">{if $vote['zpmsdiy']}<!--{eval echo stripslashes($vote['zpmsdiy']);}-->{else}{lang hejin_toupiao:miaoshu}{/if}{lang hejin_toupiao:maohao}<span id="text_num"></span></li>
+        <li class="ipttext"><textarea name="content" id="content" cols="" rows="" class="text_text"></textarea></li>
+        
+      </ul>
+      <ul>
+        <li class="txt">{lang hejin_toupiao:shangczp}{lang hejin_toupiao:maohao}</li>
+      </ul>
+    </div>
+    
+  </div>
+
+  <div class="main_pic_con">
+  
+    <div class="pic_main">
+      <dd class="upload_area clearfix">
+                    <ul id="imglist" class="post_imglist"></ul>
+                    <div class="upload_btn">
+                        {if $shebei==1}
+                        <input type="file" id="upload_image" value="{lang hejin_toupiao:picsc}" accept="image/jpeg,image/gif,image/png" capture="camera">{else}<input type="file" id="upload_image" value="{lang hejin_toupiao:picsc}" accept="image/*" capture="camera">{/if}
+                    </div>
+                </dd>
+    </div>
+    <div class="wxts"><!--{eval echo stripslashes($vote['yuliuc']);}--></div>
+    <div class="btn_main"><input type="submit" name="signup" class="btn" value="{lang hejin_toupiao:querenbm}"></div>
+    
+  </div>
+   </form>
+  <div class="bm_main_1">
+  
+    <div class="award_main">
+    <!--{eval echo stripslashes($vote['shuomingcb']);}-->
+    </div>
+    
+  </div>
+  
+</div>
+<div class="eorr_msg" id="eorr_msg"></div>
+
+<div class="main_bt_1">
+
+  <div class="pull_bt_1">
+  
+    <!--{eval echo stripslashes($vote['shuomingcc']);}-->
+
+    </div>
+  
+</div>
+
+<div class="bot_main">
+  <ul>
+    <li class="ico_1"><span class="ico"><img src="{HEJIN_PATH}public/index2/i1.png" /></span><span class="txt">{lang hejin_toupiao:shouyea}</span></li>
+    <li class="ico_2"><span class="ico"><img src="{HEJIN_PATH}public/index2/i3.png" /></span><span class="txt">{lang hejin_toupiao:paiming}</span></li>
+    <li class="ico_3"><span class="ico"><img src="{HEJIN_PATH}public/index2/i11.png" /></span><span class="txt">{lang hejin_toupiao:baoming}</span></li>
+    <li class="ico_4"><span class="ico"><img src="{HEJIN_PATH}public/index2/i2.png" /></span><span class="txt">{lang hejin_toupiao:search}</span></li>
+  </ul>
+</div>
+ 
+{if $hejintoupiao['hjtp_jssdk'] && $hejinbox['hjbox_appid'] && $hejinbox['hjbox_appsecret']}
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+wx.config({
+   debug: false,
+        appId: '{$signPackage["appId"]}', // 必填，公众号的唯一标识
+        timestamp: "{$signPackage[timestamp]}", // 必填，生成签名的时间戳
+        nonceStr: '{$signPackage["nonceStr"]}', // 必填，生成签名的随机串
+        signature: '{$signPackage["signature"]}',// 必填，签名，见附录1
+   jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+});
+
+wx.ready(function(){
+  wx.error(function(res){
+    console.log(res);
+  });
+  //朋友圈
+  wx.onMenuShareTimeline({
+            title: '<!--{eval echo stripslashes($vote[title]);}-->', // 分享标题
+            link: '{HEJIN_URL}&model={$symodel}&vid=$vote[id]', // 分享链接
+            imgUrl: '<!--{eval echo stripslashes($vote[icon]);}-->', // 分享图标
+     success: function () {
+     },
+     cancel: function () {
+     }
+  });
+
+  //分享给朋友
+ wx.onMenuShareAppMessage({
+            title: '<!--{eval echo stripslashes($vote[title]);}-->', // 分享标题
+            desc: '<!--{eval echo stripslashes($vote[content]);}-->', // 分享描述
+            link: '{HEJIN_URL}&model={$symodel}&vid=$vote[id]', // 分享链接
+            imgUrl: '<!--{eval echo stripslashes($vote[icon]);}-->', // 分享图标
+     type: '',
+     dataUrl: '',
+     success: function () {
+     },
+     cancel: function () {
+     }
+  });
+});
+</script>
+{/if}
+<script type="text/javascript">
+    (function () {
+        var viewImg = $("#imglist");
+        var imgurl = '';
+        var imgcount = 0;
+        $('#upload_image').localResizeIMG({
+            width: {if $hejintoupiao['hjtp_picwidth']}{$hejintoupiao['hjtp_picwidth']}{else}480{/if},
+            quality: 0.8,
+            success: function (result) {
+                var status = true;
+                if (result.height > 1600) {
+                    status = false;
+                    alert("{lang hejin_toupiao:picxianzhi}");
+                }
+                if (viewImg.find("li").length > $xzpic) {
+                    status = false;
+                    alert("{lang hejin_toupiao:picscb}{$picnum}{lang hejin_toupiao:picscc}");
+                }
+                if (status) {
+                    viewImg.append('<li><span class="pic_time"><span class="p_img"></span><em>50%</em></span></li>');
+                    viewImg.find("li:last-child").html('<span class="del"></span><img class="wh60" src="' + result.base64 + '"/><input type="hidden" id="file'
+                    + imgcount
+                    + '" name="fileup[]" value="'
+                    + result.clearBase64 + '">');
+
+                    $(".del").on("click",function(){
+                        $(this).parent('li').remove();
+                        $("#upload_image").show();
+                    });
+                    imgcount++;
+                }
+            }
+        });
+    })();
+</script>
+
+<script language="javascript">
+
+
+$('.ico_1').on('click', function(){
+  location.href = "{HEJIN_URL}&model={$symodel}&vid=$vote['id']";
+});
+$('.ico_2').on('click', function(){
+  location.href = "{HEJIN_URL}&model={$phmodel}&vid=$vote['id']";
+});
+$('.ico_3').on('click', function(){
+  		location.href = "{HEJIN_URL}&model=signup&vid=$vote['id']";
+});
+
+$('.ico_4').on('click', function(){
+  pageL = $.layer({
+    type: 2,
+    fadeIn: 400,
+	shift: 'top',
+    border: [0],
+	bgcolor: '',
+    offset: ['0px', ''],
+	title: false,
+    closeBtn: false,
+	maxmin: false,
+    shadeClose: true, //开启点击遮罩关闭层
+    iframe: {src : '{HEJIN_URL}&model=search&vid=$vote[id]'},
+    area: ['100%' , '95px'],
+  });
+});
+
+
+
+{if $bmzt !=4}
+$(function(){
+  $.layer({
+    type: 1,
+    fadeIn: 200,
+    border: [0],
+    bgcolor: '',
+    title: false,
+    closeBtn: false,
+    shadeClose: false,
+    maxmin: false,
+    area: ['100%', '190px'],
+	{if $bmzt ==3}
+    	page: {html: '<div class="point_msg"><div class="point_tit">{$hejintoupiao['hjtp_ydgzbt']}</div><div class="point_txt"><!--{eval echo stripslashes($vote["wxgzts"]);}--></div><div class="point_btn"><a href="<!--{eval echo stripslashes($vote["wxgzurl"]);}-->">{$hejintoupiao['hjtp_ydgzan']}</a></div></div>'}
+	{elseif $bmzt ==2}
+    	page: {html: "<div class='point_msga'><div class='point_tit'>{lang hejin_toupiao:baomyjs}</div><div class='point_btn'><a href='<!--{eval echo stripslashes($vote['wxgzurl']);}-->'>{lang hejin_toupiao:guanzwmcy}</a></div></div>"}
+	{elseif $bmzt ==1}
+    	page: {html: "<div class='point_msga'><div class='point_tit'><!--{eval echo date('m-d H:i',$vote['start_time']);}-->{lang hejin_toupiao:baomwksts}</div><div class='point_btn'><a href='<!--{eval echo stripslashes($vote['wxgzurl']);}-->'>{lang hejin_toupiao:xianljgz}</a></div></div>"}
+	{/if}
+  });
+});
+{/if}
+
+function SoVote(){
+	$("input[name='seachid']").click();
+}
+function sSoVote(soname){
+  $("#so_name").val(soname);
+  $("input[name='seachid']").click();
+}
+</script>
+<script type="text/javascript">
+$(function($){
+	$("#signupok").submit(function(){
+		var name = $("#zpname").val();
+		var tel = $("#telphone").val();
+		var content = $("#content").val();
+
+		if(name.length == 0){alert('{lang hejin_toupiao:qingsf}{if $vote[zpnamediy]}<!--{eval echo stripslashes($vote[zpnamediy]);}-->{else}{lang hejin_toupiao:xingming}{/if}');return false;}
+
+		var telreg = /^1[3|4|5|7|8][0-9]\d{8}$|^\d{8}$/;
+		if (tel.length == 0) {alert("{lang hejin_toupiao:qsrlxdh}"); return false;}
+		if (!telreg.test(tel)){alert("{lang hejin_toupiao:qsrlxdha}");return false;}
+		if(content== '' || content == null || content == undefined || content == 'undefined' ){alert('{lang hejin_toupiao:qingsf}{if $vote[zpmsdiy]}<!--{eval echo stripslashes($vote[zpmsdiy]);}-->{else}{lang hejin_toupiao:miaoshu}{/if}');return false;}
+
+		var length = $("#imglist").find("li").length;
+		if(length == ''|| length == null  || length == undefined || length == 'undefined' || length < 1 ){alert('{lang hejin_toupiao:picsca}');return false;}
+	});
+});
+
+$.get('{HEJIN_URL}&model=clicks&vid=$vote[id]&formhash={FORMHASH}');
+</script>
+{if $ispicarr}
+  <script type="text/javascript" src="{HEJIN_PATH}public/slider/yxMobileSlider.js"></script>
+<script type="text/javascript">
+	$(".slider").yxMobileSlider({during:5000,height:{$hejintoupiao['hjtp_hdgd']}});
+	var nowtime=new Date().getTime();
+	function _fresh(){
+		var endtime=new Date("2015/02/18 12:00:00");//这里设置的时间为2011年，您可以修改为其它时间。
+		//var nowtime = new Date();
+		var leftsecond=parseInt((endtime.getTime()-nowtime)/1000);
+		if(leftsecond<0){leftsecond=0;}
+			__d=parseInt(leftsecond/3600/24);
+			__h=parseInt((leftsecond/3600)%24);
+			__m=parseInt((leftsecond/60)%60);
+			__s=parseInt(leftsecond%60);
+		var sums=__d+__h+__m+__s;
+		var if_Receive="";
+		if(sums!=0){
+			var d=document.getElementById("_d");
+			var h=document.getElementById("_h");
+			var m=document.getElementById("_m");
+			var s=document.getElementById("_s");
+			h.innerHTML=__h+__d*24;
+			m.innerHTML=__m;
+			s.innerHTML=__s;
+		nowtime=nowtime+1000;
+		setTimeout(_fresh,1000);
+		}else if(!if_Receive){
+			document.getElementById("msg").innerHTML="";
+		}
+	}
+	_fresh();
+</script>
+{/if}  
+
+<div style="display:none">$hejintoupiao['hjtp_dsftjdm']</div>
+</body>
+</html>

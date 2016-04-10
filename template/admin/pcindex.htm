@@ -1,0 +1,179 @@
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.validation.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/admincp.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.tooltip.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.cookie.js"></script>
+<link href="{HEJIN_PATH}public/admin/css/skin_0.css" rel="stylesheet" type="text/css" id="cssfile2" />
+<link href="{HEJIN_PATH}public/admin/css/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="{HEJIN_PATH}public/jscolor/jscolor.js"></script>
+<link href="{HEJIN_PATH}public/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css"></link>
+<script src="{HEJIN_PATH}public/datetimepicker/jquery.datetimepicker.js" type="text/javascript"></script>
+
+<div class="page">
+  <div class="fixed-bar">
+    <div class="item-title">
+<div class="h3" style="width:auto;">{lang hejin_toupiao:bucpcd}</div>
+      <ul class="tab-base">
+        <li><a href="http://wx.weixinhj.com/hejin_toupiao/pcindexa.htm" target="_blank"><span style="color:#F90307; font-size:16px; font-weight:bolder;">{lang hejin_toupiao:peisfana}</span></a></li>
+		
+      </ul>
+    </div>
+  </div>
+  <form id="add_form" method="post" enctype="multipart/form-data" action="">
+    <input type="hidden" name="formhash" value="{FORMHASH}" />
+    {if $sid}<input type="hidden" name="sid" value="$sid" />{/if}
+    <input type="hidden" name="vid" value="$vid" />
+    <table class="table tb-type2">
+      <tbody>
+
+        <tr class="noborder">
+          <td colspan="2" class="required"><label class="validation" for="class_paixu">{lang hejin_toupiao:paixulb}</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><select id="class_type" name="paixu">
+                        <option value="1"{if $supply['paixu']==1} selected="selected"{/if}>{lang hejin_toupiao:paixulba}</option>
+                        <option value="2"{if $supply['paixu']==2} selected="selected"{/if}>{lang hejin_toupiao:paixulbb}</option>
+                        <option value="3"{if $supply['paixu']==3} selected="selected"{/if}>{lang hejin_toupiao:paixulbc}</option>
+                      </select></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+        <tr class="noborder">
+          <td colspan="2" class="required"><label class="validation" for="class_bannerpic">{lang hejin_toupiao:pcbannerpic}</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="<!--{eval echo strip_tags(stripslashes($supply['bannerpic']));}-->" name="bannerpic" id="class_bannerpic" class="txt"></td>
+          <td class="vatop tips">{lang hejin_toupiao:picclff}&nbsp;&nbsp;<a href="http://tietuku.com" target="_blank">{lang hejin_toupiao:picsctsc}</a></td>
+        </tr>
+        
+        <tr class="noborder">
+          <td colspan="2" class="required"><label class="validation" for="class_bannergd">{lang hejin_toupiao:pcbannergd}</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="<!--{eval echo strip_tags(stripslashes($supply['bannergd']));}-->" name="bannergd" id="class_bannergd" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+        <tr class="noborder">
+          <td colspan="2" class="required"><label class="validation" for="class_bqname">{lang hejin_toupiao:pcbiaoqian}</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="<!--{eval echo strip_tags(stripslashes($supply['bqname']));}-->" name="bqname" id="class_bqname" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+        <tr class="noborder">
+          <td colspan="2" class="required"><label for="class_footpic">{lang hejin_toupiao:pcdowdnpic}</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="<!--{eval echo strip_tags(stripslashes($supply['footpic']));}-->" name="footpic" id="class_footpic" class="txt"></td>
+          <td class="vatop tips">{lang hejin_toupiao:picclff}&nbsp;&nbsp;<a href="http://tietuku.com" target="_blank">{lang hejin_toupiao:picsctsc}</a></td>
+        </tr>
+        
+        <tr class="noborder">
+          <td colspan="2" class="required"><label for="class_footgd">{lang hejin_toupiao:pcdowdngd}</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="<!--{eval echo strip_tags(stripslashes($supply['footgd']));}-->" name="footgd" id="class_footgd" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+       <tr class="noborder">
+          <td colspan="2" class="required"><label class="validation" for="class_bgcolor">{lang hejin_toupiao:pcbgcolor}</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="<!--{eval echo strip_tags(stripslashes($supply['bgcolor']));}-->" name="bgcolor" id="class_bgcolor" class="color"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+        
+        <tr class="noborder">
+          <td colspan="2" class="required"><label for="test_content">{lang hejin_toupiao:kfxinxi}</label></td>
+        </tr>
+
+        <tr class="noborder">
+          <td class="vatop rowform"><textarea name="kefu" style="height:200px;">{if $supply['kefu']}$supply['kefu']{else}1366666666<br>13888888888<br>QQ:237894661{/if}</textarea></td>
+          <td class="vatop tips">{lang hejin_toupiao:kefutis}</td>
+        </tr>
+
+
+
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"><input name="up_supply" class="btn" type="submit" value="{lang hejin_toupiao:baocun}" /></td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+
+    $("#submit").click(function(){
+        $("#add_form").submit();
+    });
+
+    $("input[nc_type='microshop_goods_class_image']").live("change", function(){
+		var src = getFullPath($(this)[0]);
+		$(this).parent().prev().find('.low_source').attr('src',src);
+		$(this).parent().find('input[class="type-file-text"]').val($(this).val());
+	});
+
+
+    $('#add_form').validate({
+        errorPlacement: function(error, element){
+            error.appendTo(element.parent().parent().prev().find('td:first'));
+        },
+        success: function(label){
+            label.addClass('valid');
+        },
+        rules : {
+            bannerpic: {
+                required : true,
+                maxlength : 1000
+            },
+            bannergd: {
+                required : true,
+                number: true
+            },
+            bqname: {
+                required : true,
+                maxlength : 1000
+            },
+            footgd: {
+                number: true
+            },
+             bgcolor: {
+                required : true,
+                maxlength : 1000
+            },
+       },
+        messages : {
+            bannerpic: {
+                required : "{lang hejin_toupiao:addstmsga}",
+                maxlength : jQuery.validator.format("{lang hejin_toupiao:addstmsgb}1000")
+            },
+            bannergd: {
+                required : "{lang hejin_toupiao:addstmsga}",
+                number : "{lang hejin_toupiao:addstmsgf}",
+            },
+            bqname: {
+                required : "{lang hejin_toupiao:addstmsga}",
+                maxlength : jQuery.validator.format("{lang hejin_toupiao:addstmsgb}1000")
+            },
+            footgd: {
+                number : "{lang hejin_toupiao:addstmsgf}",
+                
+            },
+             bgcolor: {
+                required : "{lang hejin_toupiao:addstmsga}",
+                maxlength : jQuery.validator.format("{lang hejin_toupiao:addstmsgb}1000")
+            },
+       }
+    });
+});
+</script> 

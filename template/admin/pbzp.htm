@@ -1,0 +1,129 @@
+<link href="{HEJIN_PATH}public/admin/css/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.validation.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/admincp.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.tooltip.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.cookie.js"></script>
+<link href="{HEJIN_PATH}public/admin/css/skin_0.css" rel="stylesheet" type="text/css" id="cssfile2" />
+<script type="text/javascript">
+function submit_delete_batch(){
+    var items = '';
+    $('.checkitem:checked').each(function(){
+        items += this.value + ',';
+    });
+    if(items != '') {
+        items = items.substr(0, (items.length - 1));
+        submit_delete(items);
+    }  
+    else {
+        alert('{lang hejin_toupiao:clickok}');
+    }
+}
+</script>
+
+<div class="page">
+  <div class="fixed-bar">
+    <div class="item-title">
+      <div class="h3" style="width:auto;">{lang hejin_toupiao:yipbzp}</div>
+      <ul class="tab-base">
+		
+      </ul>
+    </div>
+  </div>
+  
+  
+  <form id="list_form" method='post'>
+    <input id="class_id" name="class_id" type="hidden" />
+    <table class="table tb-type2">
+      <thead>
+        
+        <tr class="thead">
+          <th width="5%">ID</th>
+          <th width="10%">{lang hejin_toupiao:zpxming}</th>
+          <th width="10%">{lang hejin_toupiao:telphone}</th>
+          <th width="15%">{lang hejin_toupiao:zppic}</th>
+          <th width="15%">{lang hejin_toupiao:upic}</th>
+		  <th width="5%">{lang hejin_toupiao:clicknuba}</th>
+		  <th width="5%"><span style="color:#F00">{lang hejin_toupiao:votenubc}</span></th>
+		  <th width="5%">{lang hejin_toupiao:votenubd}</th>
+		  <th width="5%"><span style="color:#F00">{lang hejin_toupiao:votenubb}</span></th>
+          <th width="25%">{lang hejin_toupiao:caozuo}</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      <!--{loop $stlists $stinfo}-->
+                        <tr class="hover edit">
+		  <td><!--{eval echo $vid*10000+$stinfo['id'];}--></td>
+		  <td><!--{eval echo strip_tags(stripslashes($stinfo['zpname']));}--></td>
+		  <td><!--{eval echo strip_tags(stripslashes($stinfo['telphone']));}--></td>
+		  <td>{if $stinfo['pica']}<span class="type-file-show" style="float:left !important;"> <img class="show_image" src="{HEJIN_PATH}public/admin/images/preview.png">
+            <div class="type-file-preview">
+            {if strpos($stinfo['pica'], '://')==false}
+                            <img src="{HEJIN_PATH}<!--{eval echo stripslashes($stinfo['pica']);}-->" width="100">
+                            {else}
+                            <img src="<!--{eval echo stripslashes($stinfo['pica']);}-->" width="100">
+                            {/if}
+                          </div>
+            </span>{/if}{if $stinfo['picb']}<span class="type-file-show" style="float:left !important;"> <img class="show_image" src="{HEJIN_PATH}public/admin/images/preview.png">
+            <div class="type-file-preview">
+            {if strpos($stinfo['picb'], '://')==false}
+                            <img src="{HEJIN_PATH}<!--{eval echo stripslashes($stinfo['picb']);}-->" width="100">
+                            {else}
+                            <img src="<!--{eval echo stripslashes($stinfo['picb']);}-->" width="100">
+                            {/if}
+                          </div>
+            </span>{/if}{if $stinfo['picc']}<span class="type-file-show" style="float:left !important;"> <img class="show_image" src="{HEJIN_PATH}public/admin/images/preview.png">
+            <div class="type-file-preview">
+            {if strpos($stinfo['picc'], '://')==false}
+                            <img src="{HEJIN_PATH}<!--{eval echo stripslashes($stinfo['picc']);}-->" width="100">
+                            {else}
+                            <img src="<!--{eval echo stripslashes($stinfo['picc']);}-->" width="100">
+                            {/if}
+                          </div>
+            </span>{/if}{if $stinfo['picd']}<span class="type-file-show" style="float:left !important;"> <img class="show_image" src="{HEJIN_PATH}public/admin/images/preview.png">
+            <div class="type-file-preview">
+            {if strpos($stinfo['picd'], '://')==false}
+                            <img src="{HEJIN_PATH}<!--{eval echo stripslashes($stinfo['picd']);}-->" width="100">
+                            {else}
+                            <img src="<!--{eval echo stripslashes($stinfo['picd']);}-->" width="100">
+                            {/if}
+                          </div>
+            </span>{/if}{if $stinfo['pice']}<span class="type-file-show" style="float:left !important;"> <img class="show_image" src="{HEJIN_PATH}public/admin/images/preview.png">
+            <div class="type-file-preview">
+            {if strpos($stinfo['pice'], '://')==false}
+                            <img src="{HEJIN_PATH}<!--{eval echo stripslashes($stinfo['pice']);}-->" width="100">
+                            {else}
+                            <img src="<!--{eval echo stripslashes($stinfo['pice']);}-->" width="100">
+                            {/if}
+                          </div>
+            </span>{/if}</td>
+		  <td><!--{eval echo strip_tags(stripslashes($stinfo['content']));}--></td>
+		  <td>$stinfo['liulans']</td>
+		  <td><span style="color:#F00">$stinfo['toupiaos']</span></td>
+		  <td>{if $stinfo['yuliua']>$stinfo['toupiaos']}<!--{eval echo $stinfo['yuliua']-$stinfo['toupiaos'];}-->{else}0{/if}</td>
+		  <td><!--{eval $dayps = C::t('#hejin_toupiao#hjtp_tpjles')->fetch_today_zid(intval($stinfo['id']),strtotime(date('Y-m-d',time())));}-->
+          <span style="color:#F00"><!--{eval echo count($dayps);}--></span></td>
+		  <td>
+                    <a href="{HEJIN_URL}&model=dcexcel&zid=$stinfo['id']">{lang hejin_toupiao:dcexcel}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=tpjles&zid=$stinfo['id']">{lang hejin_toupiao:toupjl}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=editzp&zid=$stinfo['id']">{lang hejin_toupiao:xiugai}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  	<a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=jcpb&zid=$stinfo['id']&vid=$stinfo['vid']&formhash={FORMHASH}" onclick="return confirm(&quot;{lang hejin_toupiao:jcpbts}&quot;);">{lang hejin_toupiao:huifu}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=delzp&zid=$stinfo['id']&vid=$stinfo['vid']&formhash={FORMHASH}" onclick="return confirm(&quot;{lang hejin_toupiao:shanchuts}&quot;);">{lang hejin_toupiao:shanchu}</a>
+		  </td>
+        </tr>
+         <!--{/loop}-->                   
+                
+                      </tbody>
+            <tfoot>
+        <tr class="tfoot">
+          <td>
+          </td>
+          <td id="batchAction" colspan="15">
+            <div class="pagination"><ul>$page_string</ul></div></td>
+        </tr>
+      </tfoot>
+          </table>
+  </form>
+</div>

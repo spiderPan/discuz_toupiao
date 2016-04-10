@@ -1,0 +1,174 @@
+@charset "gb2312";
+
+body{padding:0;margin:0;font-family:"Microsoft YaHei UI","Microsoft YaHei", Arial, Helvetica, sans-serif;font-size:12px;overflow-x:hidden;}
+*{outline:none;list-style:none}
+a{color:#333;text-decoration:none}
+a:hover{color:#000;text-decoration:none}
+li{padding:0;margin:0;list-style-type:none}
+ul,dt{padding:0;margin:0;list-style-type:none}
+form{padding:0;margin:0;list-style-type:none}
+img{border:0}
+p,h1,h2,h3{padding:0;margin:0}
+em{font-style:normal}
+/*
+浮动清理：
+在大筐内加上“<!-- float container -->”
+大筐的class等于clearfix
+*/
+.clearfix:after {content:".";clear:both;height:0;visibility:hidden;display:block;}/* 这是对Firefox进行的处理，因为Firefox支持生成元素，而IE所有版本都不支持生成元素 */   
+.clearfix {display:inline-block;}/* 这是对 Mac 上的IE浏览器进行的处理*/
+/* Hides from IE-mac */
+*html .clearfix {height:1%;}/*这是对 win 上的IE浏览器进行的处理*/
+.clearfix {display:block;}/*这是对display: inline-block;进行的修改，重置为区块元素*/
+/* End hide from IE-mac */
+.cls{clear:both;padding:0!important;margin:0!important;height:0!important;line-height:0!important;font-size:1px}/*第二种清除方法*/
+
+.allwidth{width:1193px;margin:auto;background:#fff}
+.yj{-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px}
+
+
+/* 分页 */
+.pages{text-align:center;clear:both;padding:20px 0}
+#pages{padding:5px 0px; font-family:"Microsoft YaHei UI";margin:20px 0;background:#;text-align:center;clear:both;font-family:"Microsoft YaHei","\u5FAE\u8F6F\u96C5\u9ED1","Arial","SimSun","\u5B8B\u4F53";font-size:13px}
+#pages a{display:inline-block;height:18px;line-height:18px;background:#fff;border:1px solid #d7d7d7;text-align:center;color:#333;padding:5px 12px;border-radius:2px}
+#pages a.a1{border:0}
+#pages a:hover{background:#4895e3;color:#fff;text-decoration:none}
+#pages span{display:inline-block;height:18px;line-height:18px;background:#4895e3;border:1px solid #123586;color:#fff;text-align:center;padding:5px 12px;border-radius:2px}
+.page .noPage{display:inline-block;width:56px;height:18px;line-height:18px;border:1px solid #123586;text-align:center;color:#a4a4a4}
+
+.gov_weixin_share{position:fixed;width:136px;height:415px;bottom:100px;right:50%;margin-right:-720px}
+.gov_weixin_share .bm{height:134px;background:url('kf2.png') no-repeat center 0px;}
+.gov_weixin_share .bm a{color:#fd4501;font-size:24px;height:37px;line-height:37px;text-align:center;display:block;padding-top:93px;font-weight:bold}
+.gov_weixin_share .wx{height:92px;margin-top:1px;background:url('kf2.png') no-repeat center -135px;cursor:pointer}
+.gov_weixin_share .wx a{display:block;height:24px;line-height:24px;font-size:16px;color:#fff;text-align:center;background:url('wxico.png') no-repeat center 15px;padding-top:58px}
+.gov_weixin_share .tel{height:91px;text-align:center;color:#fff;background:url('kf2.png') no-repeat center -228px;margin-top:1px;font-size:14px; line-height:25px; overflow:hidden;}
+.gov_weixin_share .tel em{display:block}
+.gov_weixin_share .tel em.t{font-size:14px;white-space:nowrap;letter-spacing:-1px;padding-top:5px}
+.gov_weixin_share .tel em.n{font-size:14px;padding-top:3px}
+.gov_weixin_share .tel em.a{font-size:16px}
+
+.gov_weixin_share .ew{width:150px;height:150px;position:absolute;top:0px;left:-150px;z-index:9999;background:#fff;display:none}
+/*反回顶部代码*/
+#rightfixed{height:94px;background:url('kf2.png') no-repeat center bottom;margin-top:1px;text-align:center;}
+#rightfixed #gotop{background:url('s.png') no-repeat center 30px;height:94px;overflow:hidden;opacity:0.3;filter:Alpha(Opacity=30);cursor:pointer;display:block;-webkit-transition:opacity .5s ease;-moz-transition:opacity .5s ease;-ms-transition:opacity .5s ease;-o-transition:opacity .5s ease;transition:opacity .5s ease;}
+#rightfixed #gotop:hover{opacity:1;filter:Alpha(Opacity=100);}
+
+html,body {
+scrollbar-face-color:#FB4446; /*滚动条3D表面（ThreedFace）的颜色*/ 
+scrollbar-highlight-color:#fff; /*滚动条3D界面的亮边（ThreedHighlight）颜色*/ 
+scrollbar-shadow-color:#eeeeee; /*滚动条3D界面的暗边（ThreedShadow）颜色*/ 
+scrollbar-3dlight-color:#eeeeee; /*滚动条亮边框颜色*/ 
+scrollbar-arrow-color:#000; /*滚动条方向箭头的颜色 */ 
+scrollbar-track-color:#fff; /*滚动条的拖动区域(TrackBar)颜色*/
+scrollbar-darkshadow-color:#fff; /*滚动条暗边框（ThreedDarkShadow）颜色*/ 
+}
+/*滚动条整体部分，其中的属性有width,height,background,border（就和一个块级元素一样）等。*/
+::-webkit-scrollbar{width:8px;height:8px}
+/*---滚动条里面可以拖动的那部分--*/
+::-webkit-scrollbar-thumb{background-color:#FB4446;height:50px;outline-offset:-2px;outline:2px solid #fff;-webkit-border-radius:4px;border: 2px solid #fff;}
+/*---鼠标点击滚动条显示样式--*/
+::-webkit-scrollbar-thumb:hover{background-color:#F01360;height:50px;-webkit-border-radius:4px;}
+/*---内层轨道，滚动条中间部分--*/
+::-webkit-scrollbar-track-piece{background-color:#fff;-webkit-border-radius:0;}
+::-webkit-scrollbar-button{}
+
+.i{-webkit-background-size:65px 70px;-moz-background-size:65px 70px;background-size: 65px 70px;-webkit-transition:-webkit-transform 0.3s ease-out;-moz-transition:-moz-transform 0.3s ease-out;-o-transition:-o-transform 0.3s ease-out;-ms-transition:-ms-transform 0.3s ease-out;}
+.i:hover{-webkit-transform:rotateZ(360deg);-moz-transform:rotateZ(360deg);-o-transform:rotateZ(360deg);-ms-transform:rotateZ(360deg);transform:rotateZ(360deg);}
+.img{margin:auto;
+	transition-delay:0s;transition-duration:1s;transition-property:all;transition-timing-function:ease;
+	/* Firefox 4 */
+	-moz-transition-delay:0s;-moz-transition-duration:1s;-moz-transition-property:all;-moz-transition-timing-function:ease;
+	/* Safari 和 Chrome */
+	-webkit-transition-delay:0s;-webkit-transition-duration:1s;-webkit-transition-property:all;-webkit-transition-timing-function:ease;
+	/* Opera */
+	-o-transition-delay:0s;-o-transition-duration:1s;-o-transition-property:all;-o-transition-timing-function:ease;
+}
+.img:hover{transform: scale(1.2, 1.2);-ms-transform:scale(1.2, 1.2);-moz-transform:scale(1.2, 1.2);-webkit-transform:scale(1.2, 1.2);-o-transform:scale(1.2, 1.2);}
+
+.top_blue .top_bo .topbg .text{width:482px;height:122px;background:#fff;position:absolute;top:488px;left:312px;font-size:16px;line-height:32px;color:#fe3000}
+.top_blue .top_bo .topbg .wxfwm{width:188px;height:188px;position:absolute;overflow:hidden;top:404px;right:97px;background:#fff}
+
+.box1{margin-top:26px;padding-bottom:20px}
+.box1 .picfron{width:688px;height:330px;margin:29px 0 0 15px;overflow:hidden;float:left}
+	.fullSlide{width:688px;position:relative;height:330px;overflow:hidden;}
+	.fullSlide .bd{position:relative;z-index: 0;}
+	.fullSlide .bd ul{width:100% !important;}
+	.fullSlide .bd li{width:100% !important;height:330px;overflow:hidden;text-align:center;}
+	.fullSlide .bd li a{display:block;height:330px;}
+	.fullSlide .bd li .titlebg{width:100%;height:70px;background:#000;;filter: alpha(opacity=50);opacity: 0.5;position:absolute;bottom:0px;z-index:1;display:block}
+	.fullSlide .bd li .title{width:100%;height:70px;line-height:70px;padding-left:20px;position:absolute;bottom:0px;z-index:2;display:block;color:#fff;font-size:16px;text-align:left}
+	
+	.fullSlide .hd{width:100%;right:10px;position:absolute;z-index:5;bottom:10px;overflow:hidden;}
+	.fullSlide .hd ul{float:right;}
+	.fullSlide .hd ul li{float:left;margin:0 5px;display: inline;cursor: pointer;}
+	.fullSlide .hd ul li img{width:70px;line-height:35px;display:block;border:5px solid #fff}
+	.fullSlide .hd ul .on img{border-color:#F6F52C}
+.box1 .textleft{width:462px;float:right;overflow:hidden;margin:29px 15px 0 0}
+.box1 .textleft h3{font-size:16px}
+.box1 .textleft p{font-size:14px;line-height:24px;padding:5px 0 10px;text-indent:2em}
+.box1 .textleft p a{color:#ff0000}
+
+.box1 .textleft ul{border-top:1px #DBDBDB dashed;padding-top:10px}
+.box1 .textleft ul li{height:30px;line-height:30px;overflow:hidden;font-size:16px;background:url('i1.png') no-repeat 0px center;padding-left:10px}
+
+.box2{width:1163px;overflow:hidden;padding:0 15px;margin:auto;background:#fff;position:relative}
+.box2 .titles{height:54px;background:url('t_bb.png') repeat-x 0px bottom}
+.box2 .titles .left{display:block;float:left;background:url('t_b.png') no-repeat right 0px;min-width:268px;line-height:54px;font-size:30px;color:#fff;text-align:center;font-weight:bold}
+
+.box2 .mblist{position:relative;width:1200px;margin-top:10px}
+.box2 .mblist li{width:218px;float:left;margin-right:18px;cursor:pointer}
+.box2 .mblist li .pic{width:218px;height:282px;overflow:hidden;position:relative}
+.box2 .mblist li .title{height:37px;line-height:37px;overflow:hidden}
+.box2 .mblist li .title .xm{font-size:16px;color:#f80000;display:block;float:left}
+.box2 .mblist li .title .ps{font-size:14px;color:#6a6a6a;display:block;float:right}
+.box2 .mblist li .title .pn{font-size:14px;color:#ff0101;display:inline-block;padding-left:10px}
+
+	.ewm{position:fixed;top:50%;left:50%;margin:-200px 0 0 -350px;width:700px;height:402px;padding:10px;display:none;background:#fff;border:2px #FF6600 solid;z-index:9999;overflow:hidden}
+	.ewm .pics{float:left;width:400px;height:400px;border:1px #ccc solid;overflow:hidden;position:relative}
+	.ewm .itemlist{position:absolute;left:400px;top:10px}
+	.ewm .itemlist li{width:20px;height:20px;line-height:20px;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;border:1px #FF6600 solid;background:#fff;text-align:center;margin:3px 0;cursor:pointer}
+	.ewm .itemlist li:hover,.ewm .itemlist li.on{background:#D63856;color:#fff}
+	.ewm .ewsm{float:right;width:280px}
+	.ewm .ewsm img{width:150px;display:block;margin:auto}
+	.ewm .ewsm .ewt{font-size:16px;text-align:center}
+	.ewm .ewsm p{font-size:16px;line-height:30px;height:26px;line-height:26px;}
+	.ewm .ewsm p .n{color:#f80000}
+	.ewm .ewsm p .ps{color:#ff0101}
+	.ewm .ewsm p .tc{color:#ff0101}
+	.ewm .close{position:absolute;top:0;right:0;width:20px;height:20px;line-height:20px;text-align:center;font-size:14px;cursor:pointer}
+	.ewm .ewsm .miaos{font-size:16px;line-height:30px;line-height:26px; height:auto; }
+
+
+.box3{padding:17px 15px 0;width:1163px;overflow:hidden;margin:auto;margin-top:5px;background:#fff;padding-bottom:20px}
+.box3 .titles{height:54px;background:url('t_bb.png') repeat-x 0px bottom}
+.box3 .titles .left{display:block;float:left;background:url('t_b.png') no-repeat right 0px;min-width:268px;line-height:54px}
+.box3 .titles .left b{font-size:30px;color:#fff;display:inline-block;padding-left:15px}
+.box3 .titles .left em{display:inline-block;font-size:14px;color:#ccc;padding-left:10px}
+.box3 .titles .right{float:right;padding-right:10px;font-size:18px;color:#fff;line-height:66px}
+.box3 .titles a{color:#fff}
+
+.box3 ul{position:relative;width:1200px;margin-top:10px}
+.box3 ul li{width:228px;height:74px;overflow:hidden;float:left;margin:0 6px 5px 0}
+.box3 ul li img{width:228px;height:74px}
+
+.footer p{margin-top:30px;line-height:30px;font-size:14px;font-weight:bold;text-align:center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

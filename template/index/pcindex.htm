@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><!--{eval echo stripslashes($vote['title']);}--></title>
+<link rel="stylesheet" type="text/css" href="{HEJIN_PATH}public/pcindex1/style.css" />
+<script type="text/javascript" src="{HEJIN_PATH}public/pcindex1/jquery.min.1.7.2.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/pcindex1/jquery.SuperSlide.2.1.1.source.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/pcindex1/jquery.imagefit.js"></script>
+
+<style>
+body{background:#<!--{eval echo stripslashes($supply['bgcolor']);}-->}
+.top_blue{height:<!--{eval echo stripslashes($supply['bannergd']);}-->px;overflow:hidden}
+.top_blue .top_bo{height:<!--{eval echo stripslashes($supply['bannergd']);}-->px;overflow:hidden}
+.top_blue .top_bo .topbg{background:url('<!--{eval echo stripslashes($supply['bannerpic']);}-->') no-repeat center top;height:<!--{eval echo stripslashes($supply['bannergd']);}-->px;overflow:hidden}
+.top_blue .top_bo .topbg .textbox{width:1193px;height:<!--{eval echo stripslashes($supply['bannergd']);}-->px;margin:auto;position:relative}
+.footer{height:{if $supply['footgd']}<!--{eval echo stripslashes($supply['footgd']);}-->{else}20{/if}px;overflow:hidden;{if $supply['footpic']&&$supply['footgd']}background:url('<!--{eval echo stripslashes($supply['footpic']);}-->') no-repeat center bottom{/if}}
+
+</style>
+
+</head>
+
+<body>
+<div class="top_blue">
+	<div class="top_bo">
+		<div class="topbg">
+			<div class="textbox">
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div class="allwidth box1 clearfix">
+	
+</div>
+<div class="box2 clearfix">
+	<div class="titles"><span class="left"><!--{eval echo stripslashes($supply['bqname']);}--></span></div>
+		<ul class="mblist clearfix">
+        <!--{loop $zuopins $zuopin}-->
+								<li>
+			<div class="pic">{if strpos($zuopin['pica'], '://')==false}
+                                <img src="{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['pica']);}-->" alt="" class="img">
+                            {else}
+                            	<img src="<!--{eval echo stripslashes($zuopin['pica']);}-->" alt="" class="img">
+                            {/if}</div>
+			<div class="title">
+				<em class="xm"><!--{eval echo strip_tags(stripslashes($zuopin['zpname']));}--></em>
+				<span class="ps"><em class="pn">{$zuopin['toupiaos']}{lang hejin_toupiao:piao}</em><i style="display:none" id="uncount">0</i></span>
+				<em class="ur" style="display:none">{if strpos($zuopin['pica'], '://')==false}{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['pica']);}-->{else}<!--{eval echo stripslashes($zuopin['pica']);}-->{/if}{if $zuopin['picb']}{if strpos($zuopin['picb'], '://')==false};{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['picb']);}-->{else};<!--{eval echo stripslashes($zuopin['picb']);}-->{/if}{/if}{if $zuopin['picc']}{if strpos($zuopin['picc'], '://')==false};{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['picc']);}-->{else};<!--{eval echo stripslashes($zuopin['picc']);}-->{/if}{/if}{if $zuopin['picd']}{if strpos($zuopin['picd'], '://')==false};{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['picd']);}-->{else};<!--{eval echo stripslashes($zuopin['picd']);}-->{/if}{/if}{if $zuopin['pice']}{if strpos($zuopin['pice'], '://')==false};{HEJIN_PATH}<!--{eval echo stripslashes($zuopin['pice']);}-->{else};<!--{eval echo stripslashes($zuopin['pice']);}-->{/if}{/if}</em>
+				<em class="xy" style="display:none"><!--{eval echo strip_tags(stripslashes($zuopin['content']));}--></em>
+				<em class="tc" style="display:none">{if $hejintoupiao['hjtp_numbtp']}$zuopin['id']{else}<!--{eval echo $vote['id']*10000+$zuopin['id'];}-->{/if}</em>
+			</div>
+		</li>
+        <!--{/loop}--> 
+
+			</ul>
+	<div class="ewm yj">
+		<div class="pics yj"><img alt="" src="img/p1.png" class="img"/></div>
+		<ul class="itemlist">
+			<li class="on" data="img/t2.jpg">1</li>
+			<li data="img/t3.jpg">2</li>
+			<li data="img/t4.jpg">3</li>
+			<li data="img/t5.jpg">4</li>
+			<li data="img/t6.jpg">5</li>
+		</ul>
+		<div class="ewsm">
+			<img alt="" src="http://open.weixin.qq.com/qr/code/?username=$hejinbox['hjbox_wxhao']"/>
+			<div class="ewt">{lang hejin_toupiao:shaomewm}<br/>{lang hejin_toupiao:shaomewma}</div>
+			<p></p>
+			<p>{lang hejin_toupiao:bianhaoa}{lang hejin_toupiao:maohao}<em class="tc">aaaaaaaaaaaa</em></p>
+			<p>{if $vote['zpnamediy']}<!--{eval echo stripslashes($vote['zpnamediy']);}-->{else}{lang hejin_toupiao:xingming}{/if}{lang hejin_toupiao:maohao}<em class="n"></em></p>
+			<p>{lang hejin_toupiao:piaoshua}<em class="ps">43534679</em></p>
+			<p class="miaos">{if $vote['zpmsdiy']}<!--{eval echo stripslashes($vote['zpmsdiy']);}-->{else}{lang hejin_toupiao:miaoshu}{/if}{lang hejin_toupiao:maohao}<em class="xy">aaaaaaaaaaaa</em></p>
+		</div>
+		<div class="close">{lang hejin_toupiao:chacha}</div>
+	</div>
+	<div id="pages" align="center">
+  $page_string	</div>
+	</div>
+<div class="box3 allwidth clearfix" style="display:none">
+	<div class="titles">
+		<span class="left"><b></b><em></em></span>
+		<span class="right"></span>
+	</div>
+	<ul class="clearfix">
+							</ul>
+</div>
+
+<div class="footer">
+</div>
+
+<div class="gov_weixin_share">
+	<div class="bm"><a href="javascript:">{lang hejin_toupiao:woyaobm}</a></div>
+	<div class="wx"><a href="javascript:">{lang hejin_toupiao:wxgongz}</a></div>
+	{if $supply['kefu']}<div class="tel">
+    <!--{eval echo stripslashes($supply['kefu']);}-->
+	</div>
+    {/if}
+  <div id="rightfixed">
+		<a rel="nofollow" id="gotop" title="{lang hejin_toupiao:fanhuitop}"></a>
+	</div>
+	<div class="ew"><img alt="" src="http://open.weixin.qq.com/qr/code/?username=$hejinbox['hjbox_wxhao']" style="width:150px;height:150px"/></div>
+</div>
+<script type="text/javascript" src="{HEJIN_PATH}public/pcindex1/custom.js"></script>
+</body>
+
+</html>

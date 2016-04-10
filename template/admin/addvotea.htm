@@ -1,0 +1,308 @@
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.validation.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/admincp.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.tooltip.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.cookie.js"></script>
+<link href="{HEJIN_PATH}public/admin/css/skin_0.css" rel="stylesheet" type="text/css" id="cssfile2" />
+<link href="{HEJIN_PATH}public/admin/css/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="{HEJIN_PATH}public/jscolor/jscolor.js"></script>
+<link href="{HEJIN_PATH}public/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css"></link>
+<script src="{HEJIN_PATH}public/datetimepicker/jquery.datetimepicker.js" type="text/javascript"></script>
+
+<div class="page">
+  <div class="fixed-bar">
+    
+  </div>
+  <form id="add_form" method="post" enctype="multipart/form-data" action="">
+    <input type="hidden" name="formhash" value="{FORMHASH}" />
+    <table class="table tb-type2">
+      <tbody>
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_id">ID</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="id" id="class_id" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_title">title</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="title" id="class_title" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_pic">pic</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="pic" id="class_pic" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_icon">icon</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="icon" id="class_icon" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_content">content</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="content" id="class_content" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_tpnub">tpnub</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="tpnub" id="class_tpnub" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+        
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_ipnubs">ipnubs</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="ipnubs" id="class_ipnubs" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_wxgzts">wxgzts</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="wxgzts" id="class_wxgzts" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_wxgzurl">wxgzurl</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="wxgzurl" id="class_wxgzurl" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_zuopins">zuopins</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="zuopins" id="class_zuopins" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_toupiaos">toupiaos</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="toupiaos" id="class_toupiaos" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_clicks">clicks</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="clicks" id="class_clicks" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_xntps">xntps</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="xntps" id="class_xntps" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_xnlls">xnlls</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="xnlls" id="class_xnlls" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_xnlls">start_time</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="start_time" id="class_start_time" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_xnlls">over_time</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="over_time" id="class_over_time" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_xnlls">vote_time</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="vote_time" id="class_vote_time" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_end_time">end_time</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="end_time" id="class_end_time" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_zpnamediy">zpnamediy</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="zpnamediy" id="class_zpnamediy" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_zpmsdiy">zpmsdiy</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="zpmsdiy" id="class_zpmsdiy" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_shuomingta">shuomingta</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="shuomingta" id="class_shuomingta" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_shuomingca">shuomingca</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="shuomingca" id="class_shuomingca" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+         <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_shuomingtb">shuomingtb</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="shuomingtb" id="class_shuomingtb" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+          <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_shuomingcb">shuomingcb</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="shuomingcb" id="class_shuomingcb" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+          <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_shuomingtc">shuomingtc</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="shuomingtc" id="class_shuomingtc" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+          <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_shuomingcc">shuomingcc</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="shuomingcc" id="class_shuomingcc" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+          <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_is_sh">is_sh</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="is_sh" id="class_is_sh" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+          <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_yuliua">yuliua</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="yuliua" id="class_yuliua" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+          <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_yuliub">yuliub</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="yuliub" id="class_yuliub" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+          <tr class="noborder">
+        <td colspan="2" class="required"><label class="validation" for="test_yuliuc">yuliuc</label></td>
+        </tr>
+        <tr class="noborder">
+          <td class="vatop rowform"><input type="text" value="" name="yuliuc" id="class_yuliuc" class="txt"></td>
+          <td class="vatop tips"></td>
+        </tr>
+
+
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"><input name="add_votea" class="btn" type="submit" value="{lang hejin_toupiao:baocun}" /></td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+
+
+
+
+    $("#submit").click(function(){
+        $("#add_form").submit();
+    });
+
+    $("input[nc_type='microshop_goods_class_image']").live("change", function(){
+		var src = getFullPath($(this)[0]);
+		$(this).parent().prev().find('.low_source').attr('src',src);
+		$(this).parent().find('input[class="type-file-text"]').val($(this).val());
+	});
+
+
+    $('#add_form').validate({
+        errorPlacement: function(error, element){
+            error.appendTo(element.parent().parent().prev().find('td:first'));
+        },
+        success: function(label){
+            label.addClass('valid');
+        },
+        rules : {
+        },
+        messages : {
+        }
+    });
+});
+</script> 

@@ -1,0 +1,93 @@
+<link href="{HEJIN_PATH}public/admin/css/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.validation.min.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/admincp.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.tooltip.js"></script>
+<script type="text/javascript" src="{HEJIN_PATH}public/admin/js/jquery.cookie.js"></script>
+<link href="{HEJIN_PATH}public/admin/css/skin_0.css" rel="stylesheet" type="text/css" id="cssfile2" />
+<script type="text/javascript">
+function submit_delete_batch(){
+    var items = '';
+    $('.checkitem:checked').each(function(){
+        items += this.value + ',';
+    });
+    if(items != '') {
+        items = items.substr(0, (items.length - 1));
+        submit_delete(items);
+    }  
+    else {
+        alert('{lang hejin_toupiao:clickok}');
+    }
+}
+</script>
+
+<div class="page">
+  <div class="fixed-bar">
+    <div class="item-title">
+      <div class="h3" style="width:auto;">{lang hejin_toupiao:votelist}</div>
+      <ul class="tab-base">
+        <li><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao" class="current"><span>{lang hejin_toupiao:votelb}</span></a></li>
+		<li><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=addvote"><span>{lang hejin_toupiao:addvote}</span></a></li>
+
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{HEJIN_URL}:upload" target="_blank"><span style="color:#F00; font-weight:bolder;">{lang hejin_toupiao:jcsfzctc}</span></a></li>
+
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://test.zsmidao.com/hejin_toupiao/" target="_blank"><span style="color:#F00; font-weight:bolder;">{lang hejin_toupiao:qguanzhujc}</span></a></li>
+      </ul>
+    </div>
+  </div>
+  
+  
+  <form id="list_form" method='post'>
+    <input id="class_id" name="class_id" type="hidden" />
+    <table class="table tb-type2">
+      <thead>
+        
+        <tr class="thead">
+          <th width="5%">ID</th>
+          <th width="10%">{lang hejin_toupiao:votename}</th>
+          <th width="30%" style="text-align:center;">{lang hejin_toupiao:guanli}</th>
+          <th width="5%">{lang hejin_toupiao:zsclick}</th>
+          <th width="5%">{lang hejin_toupiao:zstps}</th>
+          <th width="10%">{lang hejin_toupiao:hdzhuangtai}</th>
+          <th width="10%">{lang hejin_toupiao:shenhezt}</th>
+		  <th width="15%" class="align-center">{lang hejin_toupiao:caozuo}</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      <!--{loop $stlists $stinfo}-->
+                        <tr class="hover edit" style="height:80px;">
+		  <td>$stinfo['id']</td>
+		  <td><!--{eval echo stripslashes($stinfo['title']);}--></td>
+		  <td style="text-align:center; line-height:30px;"><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=zuopinsh&vid=$stinfo['id']">{lang hejin_toupiao:cszuopinsh}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=zuopindsh&vid=$stinfo['id']">{lang hejin_toupiao:cszuopinwsh} (<!--{eval $dshzps = C::t('#hejin_toupiao#hjtp_zuopins')->fetch_dsh_vid(intval($stinfo['id']));}--><!--{eval echo count($dshzps);}-->)</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=pbzp&vid=$stinfo['id']">{lang hejin_toupiao:yipbzp} (<!--{eval $pbzps = C::t('#hejin_toupiao#hjtp_zuopins')->fetch_over_all_vid(intval($stinfo['id']));}--><!--{eval echo count($pbzps);}-->)</a><br><a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=zdpbzp&vid=$stinfo['id']">{lang hejin_toupiao:zdpbzp} (<!--{eval $pbzps = C::t('#hejin_toupiao#hjtp_zuopins')->fetch_shua_all_vid(intval($stinfo['id']));}--><!--{eval echo count($pbzps);}-->)</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=pcindex&vid=$stinfo['id']"><span style="color:#FB0307; font-weight:bolder">{lang hejin_toupiao:bucpcd}</span></a></td>
+		  <td>$stinfo['clicks']</td>
+		  <td>$stinfo['toupiaos']</td>
+		  <td>{if $stinfo['start_time']<time() && $stinfo['over_time']>time()}<span style="color: #FB6600;font-weight: bold;
+}">{lang hejin_toupiao:baomingjxz}</span>{else}<span style="color: #FB6600;font-weight: bold;
+}">{lang hejin_toupiao:wufabm}</span>{/if}&nbsp;&nbsp;{if $stinfo['vote_time']<time() && $stinfo['end_time']>time()}<span style="color: #FB6600;font-weight: bold;
+}">{lang hejin_toupiao:toupiaojxz}</span>{else}<span style="color: #FB6600;font-weight: bold;
+}">{lang hejin_toupiao:feitpq}</span>{/if}</td>
+		  <td>{if $stinfo['is_sh']==1}<span style="color: #FB6600;font-weight: bold;
+}">{lang hejin_toupiao:shenhezta}</span>{else}{if $stinfo['is_sh']==0}{lang hejin_toupiao:shenheztb}{/if}{/if}</td>
+         
+		  <td class='align-center' style="line-height:30px;">
+		  	<a target='_blank' href="{HEJIN_URL}&model=index&vid=$stinfo['id']">{lang hejin_toupiao:pcindexts}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target='_blank' href="{HEJIN_URL}&model=vote&vid=$stinfo['id']">{lang hejin_toupiao:huoquurla}</a><br>
+		  	<a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=edit&vid=$stinfo['id']">{lang hejin_toupiao:xiugai}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  	{if $plugin['hjtp_kqdel']}<a href="admin.php?action=plugins&operation=config&do={$_GET['do']}&identifier=hejin_toupiao&pmod=toupiao&model=del&vid=$stinfo['id']&formhash={FORMHASH}" onclick="return confirm(&quot;{lang hejin_toupiao:shanchuts}&quot;);">{lang hejin_toupiao:shanchu}</a>{else}<span style="color: #F00;font-weight: bold;
+}">{lang hejin_toupiao:jzdel}</span>{/if}
+		  </td>
+        </tr>
+         <!--{/loop}-->                   
+                
+                      </tbody>
+            <tfoot>
+        <tr class="tfoot">
+          <td>
+          </td>
+          <td id="batchAction" colspan="15">
+            <div class="pagination"><ul>$page_string</ul></div></td>
+        </tr>
+      </tfoot>
+          </table>
+  </form>
+</div>

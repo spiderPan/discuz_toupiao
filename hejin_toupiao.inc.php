@@ -933,19 +933,21 @@ else if($model == 'ticket'){
 
     /*我要拉票*/
 }else if($model == 'woyaolapiao'){
-    $imgname = "source\\plugin\\hejin_toupiao\\public\\template.jpg";
+    $imgname = "source/plugin/hejin_toupiao/public/template.jpg";
     $im = imagecreatefromjpeg ( $imgname );
+    //var_dump($im);
+    //die();
     $num=$_GET['num'];
     $bh=$_GET['bh'];
     $pic = urldecode($_GET['pic']);
     $name=urldecode($_GET['name']);
-    $font = 'source\\plugin\\hejin_toupiao\\public\\simsun.ttc';//字体
+    $font = 'source/plugin/hejin_toupiao/public/simsun.ttc';//字体
     $black = imagecolorallocate($dst, 0x00, 0x00, 0x00);//字体颜色
     imagefttext($im, 18, 0, 60, 135, $black, $font,"我叫".$name."目前排名".floatval($num)."位");
     imagefttext($im, 14, 0, 130, 100, $black, $font,"参赛编号".$bh);
     $src = imagecreatefromstring(file_get_contents($pic));
-    $src=my_image_resize($src,160,158);
-    imagecopy($im, $src, 25, 215, 0, 0, 160, 158);
+    $src=my_image_resize($src,162,160);
+    imagecopy($im, $src, 24, 215, 0, 0, 162, 160);
 
     $vid=$_GET['vid'];
     $bcoder= imagecreatefromstring(file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/plugin.php?id=hejin_toupiao&model=getcode&vid='.$vid));

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72352af6-7476-49b5-add7-9edc5a9cb7a5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/template.jpg" afterPath="$PROJECT_DIR$/public/template.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/index/detail.htm" afterPath="$PROJECT_DIR$/template/index/detail.htm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -31,8 +32,8 @@
       <file leaf-file-name="detail.htm" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/template/index/detail.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33281735" vertical-offset="12343" max-vertical-offset="13340">
-              <caret line="546" column="51" selection-start-line="546" selection-start-column="51" selection-end-line="546" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.5108359" vertical-offset="521" max-vertical-offset="13340">
+              <caret line="37" column="70" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="70" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -321,7 +322,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1448" height="864" extended-state="6" />
+    <frame x="-4" y="-4" width="1448" height="864" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -502,8 +503,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/template/index/detail.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33281735" vertical-offset="12343" max-vertical-offset="13340">
-          <caret line="546" column="51" selection-start-line="546" selection-start-column="51" selection-end-line="546" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.5108359" vertical-offset="521" max-vertical-offset="13340">
+          <caret line="37" column="70" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="70" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />

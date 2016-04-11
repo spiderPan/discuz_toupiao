@@ -15,6 +15,8 @@
     <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/app.js"></script>
     <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/jquery.masonry.min.js"></script>
     <script type="text/javascript" src="{HEJIN_PATH}public/mobilebone.js"></script>
+    <script type="text/javascript" src="{HEJIN_PATH}public/iscroll.js"></script>
+
 
 
 
@@ -22,16 +24,48 @@
 .slider{display:none;}
 .focus span{width:5px;height:5px;margin-left:5px;border-radius:50%;background:#CDCDCD;font-size:0}
 .focus span.current{background:red;}
+
+
+
+#scroller {
+    position: absolute;
+
+    /* Prevent elements to be highlighted on tap */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    /* Put the scroller into the HW Compositing layer right from the start */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
 </style>
                 
     </head>
 <body>
 <script>
     Mobilebone.captureLink = false;
+
+    var myScroll;
+
+    function loaded () {
+        myScroll = new IScroll('#box1',{
+            preventDefault: false,
+        });
+    }
+
+    $(function(){
+        loaded();
+    })
+    setTimeout(function(){
+        loaded();
+
+    },500)
     //alert(123)
 </script>
 <div id="box1" class="page out" >
-<div style="width: 100%; height:100%; overflow: auto; ">
+<div id="scroller">
 
 
 {if $zpinfo['pica']}
@@ -125,7 +159,7 @@
     <div class="abtn_box">
         {if $zpinfo['is_show']==1}
         <a href="" class="a_btn toupiao vote" id="vote" data-itid="$zpinfo['id']">{lang hejin_toupiao:woyaotp}</a>
-        <a href="#box2" class="a_btn canjia">{lang hejin_toupiao:woyaolapiao}</a>
+        <a  href="#box2" class="a_btn canjia">{lang hejin_toupiao:woyaolapiao}</a>
         {/if}
         {if !$havezp && $vote['start_time']<time() && $vote['over_time']>time()}
         <a href="{HEJIN_URL}&model=signup&vid=$vote['id']" class="a_btn canjia">{lang hejin_toupiao:woyelcs}</a>
@@ -235,20 +269,7 @@ var duoshuoQuery = {short_name:"{$hejintoupiao['hjtp_dsid']}"};
 
 <link rel="stylesheet" type="text/css" href="{HEJIN_PATH}public/index2/daohang.css">
 
-<div class="bot_main">
-  <ul>
-    <li class="ico_1"><span class="ico"><img src="{HEJIN_PATH}public/index2/i1.png" /></span><span class="txt">{lang hejin_toupiao:shouyea}</span></li>
-    <li class="ico_2"><span class="ico"><img src="{HEJIN_PATH}public/index2/i3.png" /></span><span class="txt">{lang hejin_toupiao:paiming}</span></li>
-    {if $havezp}
-    <li class="ico_3"><span class="ico"><img src="{HEJIN_PATH}public/index2/i11.png" /></span><span class="txt">{lang hejin_toupiao:wodezpa}</span></li>
-    {else}
-    	{if $vote['start_time']<time() && $vote['over_time']>time()}
-    <li class="ico_3"><span class="ico"><img src="{HEJIN_PATH}public/index2/i11.png" /></span><span class="txt">{lang hejin_toupiao:baoming}</span></li>
-        {/if}
-    {/if}
-    <li class="ico_4"><span class="ico"><img src="{HEJIN_PATH}public/index2/i4.png" /></span><span class="txt">$hejintoupiao['hjtp_dbdhti']</span></li>
-  </ul>
-</div>
+
 
 
 
@@ -543,6 +564,20 @@ var itid;
 {/if}
 <div style="display:none">$hejintoupiao['hjtp_dsftjdm']</div>
 </div>
+</div>
+<div class="bot_main">
+    <ul>
+        <li class="ico_1"><span class="ico"><img src="{HEJIN_PATH}public/index2/i1.png" /></span><span class="txt">{lang hejin_toupiao:shouyea}</span></li>
+        <li class="ico_2"><span class="ico"><img src="{HEJIN_PATH}public/index2/i3.png" /></span><span class="txt">{lang hejin_toupiao:paiming}</span></li>
+        {if $havezp}
+        <li class="ico_3"><span class="ico"><img src="{HEJIN_PATH}public/index2/i11.png" /></span><span class="txt">{lang hejin_toupiao:wodezpa}</span></li>
+        {else}
+        {if $vote['start_time']<time() && $vote['over_time']>time()}
+        <li class="ico_3"><span class="ico"><img src="{HEJIN_PATH}public/index2/i11.png" /></span><span class="txt">{lang hejin_toupiao:baoming}</span></li>
+        {/if}
+        {/if}
+        <li class="ico_4"><span class="ico"><img src="{HEJIN_PATH}public/index2/i4.png" /></span><span class="txt">$hejintoupiao['hjtp_dbdhti']</span></li>
+    </ul>
 </div>
 <div id="box2" class="page out">
     <div style="width: 100%; height: 100%; overflow: auto; position: relative;">

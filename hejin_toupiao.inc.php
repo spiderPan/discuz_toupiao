@@ -431,6 +431,13 @@ else if($model == $topmodel){
 
 //投票作品详情页
 else if($model == $xqmodel){
+
+    if($_GET['openid']){
+        $openid = addslashes($_GET['openid']);
+        setcookie('hjbox_openid', $openid, time()+31536000);
+        //    header("Location: ".HEJIN_URL."&model=".$symodel."&vid=".$vid."");
+    }
+
 	if($_GET['zid']){
 		$zid = intval($_GET['zid']);
 		$zpinfo = C::t('#hejin_toupiao#hjtp_zuopins')->fetch_by_id($zid);
@@ -492,6 +499,14 @@ else if($model == $xqmodel){
 		}
 	}
 }
+
+//拉票
+else if($model == 'lapiao'){
+    $src=$_GET['src'];
+
+    include template('hejin_toupiao:index/lapiao');
+}
+
 //搜索悬浮
 else if($model == 'search'){
 	$vid = intval($_GET['vid']);
@@ -943,16 +958,21 @@ else if($model == 'ticket'){
     $name=urldecode($_GET['name']);
     $font = 'source/plugin/hejin_toupiao/public/simsun.ttc';//字体
     $black = imagecolorallocate($dst, 0x00, 0x00, 0x00);//字体颜色
-    imagefttext($im, 18, 0, 60, 135, $black, $font,"我叫".$name."目前排名".floatval($num)."位");
-    imagefttext($im, 14, 0, 130, 100, $black, $font,"参赛编号".$bh);
+    $hongse = imagecolorallocate($dst, 0xff, 0x00, 0x75);//字体颜色
+   // imagefttext($im, 18, 0, 60, 135, $black, $font,"我叫".$name."目前排名".floatval($num)."位");
+    imagefttext($im, 18, 0, 70, 405, $black, $font,$name);
+    imagefttext($im, 18, 0, 280, 405, $black, $font,$bh);
+    imagefttext($im, 18, 0, 60, 575, $hongse, $font,$bh);
+   // imagefttext($im, 14, 0, 130, 100, $black, $font,"参赛编号".$bh);
     $src = imagecreatefromstring(file_get_contents($pic));
     $src=my_image_resize($src,162,160);
     imagecopy($im, $src, 24, 215, 0, 0, 162, 160);
 
-    $vid=$_GET['vid'];
-    $bcoder= imagecreatefromstring(file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/plugin.php?id=hejin_toupiao&model=getcode&vid='.$vid));
-    $bcoder=my_image_resize($bcoder,160,160);
-    imagecopy($im, $bcoder, 190, 215, 0, 0, 160, 160);
+   // $vid=$_GET['vid'];
+   // $bcoder= imagecreatefromstring(file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/plugin.php?id=hejin_toupiao&model=getcode&vid='.$vid));
+    //$bcoder=my_image_resize($bcoder,160,160);
+    //imagecopy($im, $bcoder, 190, 215, 0, 0, 160, 160);
+
     //var_dump($src);
     //var_dump($im);
     //echo ($_SERVER['HTTP_HOST'].'/plugin.php?id=hejin_toupiao&model=getcode');

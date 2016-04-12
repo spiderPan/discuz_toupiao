@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=$charset">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta charset="$charset">
+    <script type="text/javascript" src="{HEJIN_PATH}public/index1/jquery-2.1.3.min.js"></script>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="close" onclick="$('#close').hide();$('#tos').hide()" style="width: 100%; height: 100%; position: fixed; left: 0;top: 0;    background-color: #000;
+    opacity: 0.5;z-index: 999;"></div>
+    <div id="tos" style="width: 80%; z-index: 1000;height: 100px; position: fixed; left: 10%; top:50%; margin-top: -50PX;    padding: 0px 0px;
+    background-color: #ff756b;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;">
+        <H2 style="margin: 10px;">{lang hejin_toupiao:woyaolapiao1}</H2>
+        <p>{lang hejin_toupiao:woyaolapiao2}</p>
+    </div>
+
+<img id="img"  style="width: 100%; height: auto">
+<script>
+    $("#img").attr('src',localStorage.getItem('img-path'))
+</script>
+</body>
+</html>

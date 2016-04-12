@@ -10,13 +10,9 @@
     <title>{lang hejin_toupiao:woshi}<!--{eval echo strip_tags(stripslashes($zpinfo['zpname']));}-->{lang hejin_toupiao:zzcanjia}<!--{eval echo stripslashes($vote['title']);}--></title>
     <meta name="description" content="<!--{eval echo stripslashes($vote['title']);}-->">
     <link rel="stylesheet" href="{HEJIN_PATH}public/index{$vote['yuliua']}/touch.css">
-    <link rel="stylesheet" href="{HEJIN_PATH}public/mobilebone.css">
     <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/app.js"></script>
     <script type="text/javascript" src="{HEJIN_PATH}public/index{$vote['yuliua']}/jquery.masonry.min.js"></script>
-    <script type="text/javascript" src="{HEJIN_PATH}public/mobilebone.js"></script>
-    <script type="text/javascript" src="{HEJIN_PATH}public/iscroll.js"></script>
-
 
 
 
@@ -24,49 +20,10 @@
 .slider{display:none;}
 .focus span{width:5px;height:5px;margin-left:5px;border-radius:50%;background:#CDCDCD;font-size:0}
 .focus span.current{background:red;}
-
-
-
-#scroller {
-    position: absolute;
-
-    /* Prevent elements to be highlighted on tap */
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-
-    /* Put the scroller into the HW Compositing layer right from the start */
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-}
 </style>
                 
     </head>
 <body>
-<script>
-    Mobilebone.captureLink = false;
-
-    var myScroll;
-
-    function loaded () {
-        myScroll = new IScroll('#box1',{
-            preventDefault: false,
-        });
-    }
-
-    $(function(){
-        loaded();
-    })
-    setTimeout(function(){
-        loaded();
-
-    },500)
-    //alert(123)
-</script>
-<div id="box1" class="page out" >
-<div id="scroller">
-
 
 {if $zpinfo['pica']}
                         	{if strpos($zpinfo['pica'], '://')==false}
@@ -159,7 +116,45 @@
     <div class="abtn_box">
         {if $zpinfo['is_show']==1}
         <a href="" class="a_btn toupiao vote" id="vote" data-itid="$zpinfo['id']">{lang hejin_toupiao:woyaotp}</a>
-        <a  href="#box2" class="a_btn canjia">{lang hejin_toupiao:woyaolapiao}</a>
+        <a id="woyaolapiao" href="javascript:;" onclick="//$('#woyaolapiao').show();" class="a_btn canjia">{lang hejin_toupiao:woyaolapiao}</a>
+
+        <div  style="width: 100%; display: none;">
+            <div id="close" onclick="$('#close').hide();$('#tos').hide()" style="width: 100%; height: 100%; position: fixed; left: 0;top: 0;    background-color: #000;
+    opacity: 0.5;z-index: 999;"></div>
+            <div id="tos" style="width: 80%; z-index: 1000;height: 100px; position: fixed; left: 10%; top:50%; margin-top: -50PX;    padding: 0px 0px;
+    background-color: #ff756b;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;">
+                <H2 style="margin: 10px;">{lang hejin_toupiao:woyaolapiao1}</H2>
+                <p>{lang hejin_toupiao:woyaolapiao2}</p>
+            </div>
+            <img id="img" src="" style="width: 100%; height: auto">
+            <script>
+                var a="{$zpnumber}";
+                var url="{HEJIN_URL}&model=woyaolapiao&vid={$vote['id']}"
+                var name="{$zpinfo['zpname']}"
+                var bh="<!--{eval echo $vote['id']*10000+$zpinfo['id'];}-->"
+                var pic= $(".picss").attr('src')
+                /*alert(bh)*/
+                url+="&num="+a;
+                url+="&name="+encodeURI(name);
+                url+="&bh="+encodeURI(bh);
+                url+="&pic="+encodeURI(pic);
+                url+="&random="+Math.random();
+                //   url+="&code="+encodeURI(window.location.href);
+                //$("#img").attr('src',url);
+                /* alert(a);
+                 alert(url);*/
+                $("#woyaolapiao").click(function(){
+                    var go='{HEJIN_URL}&model=lapiao&src=no';//+encodeURI(url) ;
+                    localStorage.setItem('img-path',url);
+                    window.location.href=go
+                })
+            </script>
+        </div>
+
         {/if}
         {if !$havezp && $vote['start_time']<time() && $vote['over_time']>time()}
         <a href="{HEJIN_URL}&model=signup&vid=$vote['id']" class="a_btn canjia">{lang hejin_toupiao:woyelcs}</a>
@@ -563,8 +558,12 @@ var itid;
 {/if}  
 {/if}
 <div style="display:none">$hejintoupiao['hjtp_dsftjdm']</div>
-</div>
-</div>
+
+
+
+
+
+
 <div class="bot_main">
     <ul>
         <li class="ico_1"><span class="ico"><img src="{HEJIN_PATH}public/index2/i1.png" /></span><span class="txt">{lang hejin_toupiao:shouyea}</span></li>
@@ -578,39 +577,6 @@ var itid;
         {/if}
         <li class="ico_4"><span class="ico"><img src="{HEJIN_PATH}public/index2/i4.png" /></span><span class="txt">$hejintoupiao['hjtp_dbdhti']</span></li>
     </ul>
-</div>
-<div id="box2" class="page out">
-    <div style="width: 100%; height: 100%; overflow: auto; position: relative;">
-        <div id="close" onclick="$('#close').hide();$('#tos').hide()" style="width: 100%; height: 100%; position: absolute; left: 0;top: 0;    background-color: #000;
-    opacity: 0.5;z-index: 999;"></div>
-        <div id="tos" style="width: 80%; z-index: 1000;height: 100px; position: absolute; left: 10%; top:50%; margin-top: -50PX;    padding: 0px 10px;
-    background-color: #ff756b;
-    border-radius: 5px;
-    text-align: center;
-    color: #fff;
-    font-size: 16px;">
-            <H2 style="margin: 10px;">{lang hejin_toupiao:woyaolapiao1}</H2>
-            <p>{lang hejin_toupiao:woyaolapiao2}</p>
-        </div>
-        <img id="img" src="" style="width: 100%; height: auto">
-        <script>
-            var a="{$zpnumber}";
-            var url="{HEJIN_URL}&model=woyaolapiao&vid={$vote['id']}"
-            var name="{$zpinfo['zpname']}"
-            var bh="<!--{eval echo $vote['id']*10000+$zpinfo['id'];}-->"
-            var pic= $(".picss").attr('src')
-            /*alert(bh)*/
-            url+="&num="+a;
-            url+="&name="+encodeURI(name);
-            url+="&bh="+encodeURI(bh);
-            url+="&pic="+encodeURI(pic);
-            url+="&random="+Math.random();
-         //   url+="&code="+encodeURI(window.location.href);
-            $("#img").attr('src',url);
-           /* alert(a);
-            alert(url);*/
-        </script>
-    </div>
 </div>
 </body>
 </html>
